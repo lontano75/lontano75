@@ -10,32 +10,32 @@ from datetime import datetime
 
 INOREADER_APP_ID = os.environ["INOREADER_APP_ID"]
 INOREADER_APP_KEY = os.environ["INOREADER_APP_KEY"]
-INOREADER_EMAIL = os.environ["INOREADER_EMAIL"]
-INOREADER_PASSWORD = os.environ["INOREADER_PASSWORD"]
+INOREADER_REFRESH_TOKEN = os.environ["INOREADER_REFRESH_TOKEN"]
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 
 def get_inoreader_token():
-    """Authenticate with InoReader and return the auth token."""
+    """Get a fresh access token using the stored refresh token."""
     response = requests.post(
-        "https://www.inoreader.com/accounts/ClientLogin",
-        data={"Email": INOREADER_EMAIL, "Passwd": INOREADER_PASSWORD},
-        headers={"AppId": INOREADER_APP_ID, "AppKey": INOREADER_APP_KEY},
+        "https://www.inoreader.com/oauth2/token",
+        data={
+            "grant_type": "refresh_token",
+            "refresh_token": INOREADER_REFRESH_TOKEN,
+            "client_id": INOREADER_APP_ID,
+            "client_secret": INOREADER_APP_KEY,
+        },
         timeout=30,
     )
     response.raise_for_status()
-    for line in response.text.splitlines():
-        if line.startswith("Auth="):
-            return line[5:]
-    raise ValueError("Auth token not found in InoReader response")
+    return response.json()["access_token"]
 
 
-def fetch_articles(auth_token, count=80):
+def fetch_articles(access_token, count=80):
     """Fetch recent unread articles from InoReader."""
     headers = {
-        "Authorization": f"GoogleLogin auth={auth_token}",
+        "Authorization": f"Bearer {access_token}",
         "AppId": INOREADER_APP_ID,
         "AppKey": INOREADER_APP_KEY,
     }
@@ -136,10 +136,10 @@ def send_telegram(text):
 
 def main():
     print("Autenticazione InoReader...")
-    auth_token = get_inoreader_token()
+    access_token = get_inoreader_token()
 
     print("Recupero articoli...")
-    articles = fetch_articles(auth_token)
+    articles = fetch_articles(access_token)
     print(f"Trovati {len(articles)} articoli non letti")
 
     if not articles:
