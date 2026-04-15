@@ -85,12 +85,19 @@ def select_top_articles(articles):
 
     today = datetime.now().strftime("%d/%m/%Y")
 
-    prompt = f"""Sei un curatore editoriale esperto. Ecco gli articoli non letti di oggi ({today}) dal feed reader dell'utente:
+    prompt = f"""Sei un curatore editoriale esperto con il taglio di futuroprossimo.it: una testata italiana orientata al futuro, che guarda all'innovazione con occhio critico e ottimista, accessibile ma colta.
+
+Ecco gli articoli non letti di oggi ({today}) dal feed reader dell'utente:
 
 {articles_text}
 
-Seleziona i 10 articoli più interessanti, importanti o rilevanti per un lettore italiano colto.
-Considera: attualità, impatto, originalità, diversità degli argomenti.
+Seleziona i 10 articoli più interessanti seguendo queste priorità:
+1. PRIORITÀ ALTA: medicina e salute (ricerca, scoperte, longevità, neuroscienze)
+2. PRIORITÀ ALTA: tecnologia e innovazione (AI, robotica, biotech, spazio, energia)
+3. PRIORITÀ ALTA: ambiente e sostenibilità (clima, biodiversità, energie rinnovabili)
+4. PRIORITÀ NORMALE: economia, lavoro, società, geopolitica letti attraverso la lente del futuro
+5. Preferisci articoli che parlano di tendenze emergenti, scoperte, cambiamenti significativi — non semplici cronache
+6. Varia gli argomenti: evita di mettere 3 articoli sullo stesso tema
 
 Restituisci SOLO il testo del digest, già formattato per Telegram in HTML, esattamente così:
 
