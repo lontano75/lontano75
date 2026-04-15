@@ -3,8 +3,8 @@ name: Setup InoReader Auth (one-time)
 on:
   workflow_dispatch:
     inputs:
-      auth_code:
-        description: 'Codice autorizzazione InoReader (parametro code= dal redirect)'
+      redirect_url:
+        description: 'URL completo del redirect (es: http://localhost/?code=abc123&state=digest123)'
         required: true
 
 jobs:
@@ -13,10 +13,24 @@ jobs:
     steps:
       - name: Scambia il codice per i token
         run: |
+          # Estrae il codice dall'URL completo
+          INPUT="${{ github.event.inputs.redirect_url }}"
+          CODE=$(python3 -c "
+          from urllib.parse import urlparse, parse_qs
+          url = '''$INPUT'''
+          # prova prima come URL, poi come stringa grezza
+          try:
+              params = parse_qs(urlparse(url).query)
+              code = params.get('code', [url.strip()])[0]
+          except:
+              code = url.strip()
+          print(code)
+          ")
+          echo "Codice estratto: $CODE"
           echo "Scambio codice per token..."
           RESPONSE=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
             -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "grant_type=authorization_code&code=${{ github.event.inputs.auth_code }}&redirect_uri=http%3A%2F%2Flocalhost&client_id=${{ secrets.INOREADER_APP_ID }}&client_secret=${{ secrets.INOREADER_APP_KEY }}")
+            -d "grant_type=authorization_code&code=${CODE}&redirect_uri=http%3A%2F%2Flocalhost&client_id=${{ secrets.INOREADER_APP_ID }}&client_secret=${{ secrets.INOREADER_APP_KEY }}")
           echo "Risposta: $RESPONSE"
           echo ""
           echo "=== COPIA IL REFRESH TOKEN QUI SOTTO ==="
