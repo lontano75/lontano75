@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""Daily news digest: InoReader → Claude → Telegram"""
+
+import os
+import re
+import requests
+import anthropic
+from datetime import datetime
+
+
+INOREADER_APP_ID = os.environ["INOREADER_APP_ID"]
+INOREADER_APP_KEY = os.environ["INOREADER_APP_KEY"]
+INOREADER_EMAIL = os.environ["INOREADER_EMAIL"]
+INOREADER_PASSWORD = os.environ["INOREADER_PASSWORD"]
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+
+
+def get_inoreader_token():
+    """Authenticate with InoReader and return the auth token."""
+    response = requests.post(
+        "https://www.inoreader.com/accounts/ClientLogin",
+        data={"Email": INOREADER_EMAIL, "Passwd": INOREADER_PASSWORD},
+        headers={"AppId": INOREADER_APP_ID, "AppKey": INOREADER_APP_KEY},
+        timeout=30,
+    )
+    response.raise_for_status()
+    for line in response.text.splitlines():
+        if line.startswith("Auth="):
+            return line[5:]
+    raise ValueError("Auth token not found in InoReader response")
+
+
+def fetch_articles(auth_token, count=80):
+    """Fetch recent unread articles from InoReader."""
+    headers = {
+        "Authorization": f"GoogleLogin auth={auth_token}",
+        "AppId": INOREADER_APP_ID,
+        "AppKey": INOREADER_APP_KEY,
+    }
+    params = {
+        "n": count,
+        "output": "json",
+        "xt": "user/-/state/com.google/read",
+    }
+    response = requests.get(
+        "https://www.inoreader.com/reader/api/0/stream/contents/user/-/state/com.google/reading-list",
+        headers=headers,
+        params=params,
+        timeout=30,
+    )
+    response.raise_for_status()
+    data = response.json()
+
+    articles = []
+    for item in data.get("items", []):
+        title = item.get("title", "").strip()
+        url = ""
+        if item.get("alternate"):
+            url = item["alternate"][0].get("href", "")
+        summary = ""
+        if item.get("summary"):
+            raw = item["summary"].get("content", "")
+            summary = re.sub(r"<[^>]+>", " ", raw).strip()
+            summary = re.sub(r"\s+", " ", summary)[:300]
+        source = item.get("origin", {}).get("title", "")
+        if title:
+            articles.append({"title": title, "url": url, "summary": summary, "source": source})
+
+    return articles
+
+
+def select_top_articles(articles):
+    """Use Claude to pick the 10 most interesting articles and write the digest."""
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+
+    articles_text = ""
+    for i, a in enumerate(articles, 1):
+        articles_text += f"{i}. [{a['source']}] {a['title']}\n"
+        articles_text += f"   URL: {a['url']}\n"
+        if a["summary"]:
+            articles_text += f"   {a['summary']}\n"
+        articles_text += "\n"
+
+    today = datetime.now().strftime("%d/%m/%Y")
+
+    prompt = f"""Sei un curatore editoriale esperto. Ecco gli articoli non letti di oggi ({today}) dal feed reader dell'utente:
+
+{articles_text}
+
+Seleziona i 10 articoli più interessanti, importanti o rilevanti per un lettore italiano colto.
+Considera: attualità, impatto, originalità, diversità degli argomenti.
+
+Restituisci SOLO il testo del digest, già formattato per Telegram in HTML, esattamente così:
+
+<b>🗞 Morning Digest – {today}</b>
+
+<b>1. Titolo articolo</b>
+<a href="URL">Leggi →</a>
+Breve descrizione in italiano (2-3 righe) di cosa tratta e perché è interessante.
+
+<b>2. Titolo articolo</b>
+<a href="URL">Leggi →</a>
+Breve descrizione in italiano.
+
+[...fino a 10...]
+
+<i>Buona lettura! 📖</i>"""
+
+    message = client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=2500,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return message.content[0].text
+
+
+def send_telegram(text):
+    """Send a message via Telegram, splitting if over 4096 chars."""
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    chunks = [text[i : i + 4000] for i in range(0, len(text), 4000)]
+    for chunk in chunks:
+        response = requests.post(
+            url,
+            json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "text": chunk,
+                "parse_mode": "HTML",
+                "disable_web_page_preview": True,
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+
+
+def main():
+    print("Autenticazione InoReader...")
+    auth_token = get_inoreader_token()
+
+    print("Recupero articoli...")
+    articles = fetch_articles(auth_token)
+    print(f"Trovati {len(articles)} articoli non letti")
+
+    if not articles:
+        send_telegram("🗞 <b>Morning Digest</b>\n\nNessun articolo non letto trovato oggi.")
+        return
+
+    print("Selezione top 10 con Claude...")
+    digest = select_top_articles(articles)
+
+    print("Invio su Telegram...")
+    send_telegram(digest)
+    print("Fatto!")
+
+
+if __name__ == "__main__":
+    main()
