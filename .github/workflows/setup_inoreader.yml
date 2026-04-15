@@ -1,0 +1,23 @@
+name: Setup InoReader Auth (one-time)
+
+on:
+  workflow_dispatch:
+    inputs:
+      auth_code:
+        description: 'Codice autorizzazione InoReader (parametro code= dal redirect)'
+        required: true
+
+jobs:
+  get-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scambia il codice per i token
+        run: |
+          echo "Scambio codice per token..."
+          RESPONSE=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=authorization_code&code=${{ github.event.inputs.auth_code }}&redirect_uri=http%3A%2F%2Flocalhost&client_id=${{ secrets.INOREADER_APP_ID }}&client_secret=${{ secrets.INOREADER_APP_KEY }}")
+          echo "Risposta: $RESPONSE"
+          echo ""
+          echo "=== COPIA IL REFRESH TOKEN QUI SOTTO ==="
+          echo $RESPONSE | python3 -c "import sys,json; d=json.load(sys.stdin); print('REFRESH TOKEN:', d.get('refresh_token','ERRORE: '+str(d)))"
