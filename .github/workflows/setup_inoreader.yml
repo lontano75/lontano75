@@ -17,7 +17,7 @@ jobs:
           APP_ID: ${{ secrets.INOREADER_APP_ID }}
           APP_KEY: ${{ secrets.INOREADER_APP_KEY }}
         run: |
-          # Estrae il codice dall'URL completo (gestisce & correttamente via env var)
+          # Estrae il codice dall'URL completo
           CODE=$(python3 -c "
           import os
           from urllib.parse import urlparse, parse_qs
@@ -29,15 +29,32 @@ jobs:
               code = url.strip()
           print(code)
           ")
-          echo "Codice estratto: $CODE"
-          echo "Scambio codice per token..."
-          RESPONSE=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
+          echo "Codice estratto (primi 10 char): ${CODE:0:10}..."
+          echo "Lunghezza codice: ${#CODE}"
+          echo ""
+          echo "--- Tentativo 1: client credentials nel body ---"
+          RESPONSE1=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
             --data-urlencode "grant_type=authorization_code" \
             --data-urlencode "code=${CODE}" \
             --data-urlencode "redirect_uri=http://localhost" \
             --data-urlencode "client_id=${APP_ID}" \
             --data-urlencode "client_secret=${APP_KEY}")
-          echo "Risposta: $RESPONSE"
+          echo "Risposta 1: $RESPONSE1"
+          echo ""
+          echo "--- Tentativo 2: client credentials via Basic Auth ---"
+          RESPONSE2=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
+            -u "${APP_ID}:${APP_KEY}" \
+            --data-urlencode "grant_type=authorization_code" \
+            --data-urlencode "code=${CODE}" \
+            --data-urlencode "redirect_uri=http://localhost")
+          echo "Risposta 2: $RESPONSE2"
           echo ""
           echo "=== COPIA IL REFRESH TOKEN QUI SOTTO ==="
-          echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print('REFRESH TOKEN:', d.get('refresh_token','ERRORE: '+str(d)))"
+          for R in "$RESPONSE1" "$RESPONSE2"; do
+            python3 -c "
+          import sys,json
+          d=json.loads('''$R'''.replace(\"'\",\"'\"))
+          if 'refresh_token' in d:
+              print('REFRESH TOKEN:', d['refresh_token'])
+          " 2>/dev/null && break || true
+          done
