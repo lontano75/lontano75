@@ -12,13 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Scambia il codice per i token
+        env:
+          REDIRECT_URL: ${{ github.event.inputs.redirect_url }}
+          APP_ID: ${{ secrets.INOREADER_APP_ID }}
+          APP_KEY: ${{ secrets.INOREADER_APP_KEY }}
         run: |
-          # Estrae il codice dall'URL completo
-          INPUT="${{ github.event.inputs.redirect_url }}"
+          # Estrae il codice dall'URL completo (gestisce & correttamente via env var)
           CODE=$(python3 -c "
+          import os
           from urllib.parse import urlparse, parse_qs
-          url = '''$INPUT'''
-          # prova prima come URL, poi come stringa grezza
+          url = os.environ['REDIRECT_URL']
           try:
               params = parse_qs(urlparse(url).query)
               code = params.get('code', [url.strip()])[0]
@@ -29,9 +32,12 @@ jobs:
           echo "Codice estratto: $CODE"
           echo "Scambio codice per token..."
           RESPONSE=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
-            -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "grant_type=authorization_code&code=${CODE}&redirect_uri=http%3A%2F%2Flocalhost&client_id=${{ secrets.INOREADER_APP_ID }}&client_secret=${{ secrets.INOREADER_APP_KEY }}")
+            --data-urlencode "grant_type=authorization_code" \
+            --data-urlencode "code=${CODE}" \
+            --data-urlencode "redirect_uri=http://localhost" \
+            --data-urlencode "client_id=${APP_ID}" \
+            --data-urlencode "client_secret=${APP_KEY}")
           echo "Risposta: $RESPONSE"
           echo ""
           echo "=== COPIA IL REFRESH TOKEN QUI SOTTO ==="
-          echo $RESPONSE | python3 -c "import sys,json; d=json.load(sys.stdin); print('REFRESH TOKEN:', d.get('refresh_token','ERRORE: '+str(d)))"
+          echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print('REFRESH TOKEN:', d.get('refresh_token','ERRORE: '+str(d)))"
