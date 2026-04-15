@@ -3,8 +3,8 @@ name: Setup InoReader Auth (one-time)
 on:
   workflow_dispatch:
     inputs:
-      auth_code:
-        description: 'Codice autorizzazione InoReader (parametro code= dal redirect)'
+      redirect_url:
+        description: 'URL completo del redirect (es: http://localhost/?code=abc123&state=digest123)'
         required: true
 
 jobs:
@@ -12,12 +12,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Scambia il codice per i token
+        env:
+          REDIRECT_URL: ${{ github.event.inputs.redirect_url }}
+          APP_ID: ${{ secrets.INOREADER_APP_ID }}
+          APP_KEY: ${{ secrets.INOREADER_APP_KEY }}
         run: |
-          echo "Scambio codice per token..."
-          RESPONSE=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
-            -H "Content-Type: application/x-www-form-urlencoded" \
-            -d "grant_type=authorization_code&code=${{ github.event.inputs.auth_code }}&redirect_uri=http%3A%2F%2Flocalhost&client_id=${{ secrets.INOREADER_APP_ID }}&client_secret=${{ secrets.INOREADER_APP_KEY }}")
-          echo "Risposta: $RESPONSE"
+          # Estrae il codice dall'URL completo
+          CODE=$(python3 -c "
+          import os
+          from urllib.parse import urlparse, parse_qs
+          url = os.environ['REDIRECT_URL']
+          try:
+              params = parse_qs(urlparse(url).query)
+              code = params.get('code', [url.strip()])[0]
+          except:
+              code = url.strip()
+          print(code)
+          ")
+          echo "Codice estratto (primi 10 char): ${CODE:0:10}..."
+          echo "Lunghezza codice: ${#CODE}"
+          echo ""
+          echo "--- Tentativo 1: client credentials nel body ---"
+          RESPONSE1=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
+            --data-urlencode "grant_type=authorization_code" \
+            --data-urlencode "code=${CODE}" \
+            --data-urlencode "redirect_uri=http://localhost" \
+            --data-urlencode "client_id=${APP_ID}" \
+            --data-urlencode "client_secret=${APP_KEY}")
+          echo "Risposta 1: $RESPONSE1"
+          echo ""
+          echo "--- Tentativo 2: client credentials via Basic Auth ---"
+          RESPONSE2=$(curl -s -X POST "https://www.inoreader.com/oauth2/token" \
+            -u "${APP_ID}:${APP_KEY}" \
+            --data-urlencode "grant_type=authorization_code" \
+            --data-urlencode "code=${CODE}" \
+            --data-urlencode "redirect_uri=http://localhost")
+          echo "Risposta 2: $RESPONSE2"
           echo ""
           echo "=== COPIA IL REFRESH TOKEN QUI SOTTO ==="
-          echo $RESPONSE | python3 -c "import sys,json; d=json.load(sys.stdin); print('REFRESH TOKEN:', d.get('refresh_token','ERRORE: '+str(d)))"
+          for R in "$RESPONSE1" "$RESPONSE2"; do
+            python3 -c "
+          import sys,json
+          d=json.loads('''$R'''.replace(\"'\",\"'\"))
+          if 'refresh_token' in d:
+              print('REFRESH TOKEN:', d['refresh_token'])
+          " 2>/dev/null && break || true
+          done
