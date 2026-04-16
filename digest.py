@@ -143,21 +143,38 @@ Breve descrizione in italiano.
 
 
 def send_telegram(text):
-    """Send a message via Telegram, splitting if over 4096 chars."""
+    """Send a message via Telegram. Falls back to plain text if HTML is rejected."""
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     chunks = [text[i : i + 4000] for i in range(0, len(text), 4000)]
     for chunk in chunks:
-        response = requests.post(
-            url,
-            json={
-                "chat_id": TELEGRAM_CHAT_ID,
-                "text": chunk,
-                "parse_mode": "HTML",
-                "disable_web_page_preview": True,
-            },
-            timeout=30,
-        )
-        response.raise_for_status()
+        try:
+            response = requests.post(
+                url,
+                json={
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "text": chunk,
+                    "parse_mode": "HTML",
+                    "disable_web_page_preview": True,
+                },
+                timeout=30,
+            )
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as e:
+            if response.status_code == 400:
+                # HTML invalid for Telegram — retry as plain text
+                plain = re.sub(r"<[^>]+>", "", chunk)
+                response2 = requests.post(
+                    url,
+                    json={
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "text": plain,
+                        "disable_web_page_preview": True,
+                    },
+                    timeout=30,
+                )
+                response2.raise_for_status()
+            else:
+                raise
 
 
 def main():
