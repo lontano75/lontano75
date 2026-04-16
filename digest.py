@@ -3,9 +3,10 @@
 
 import os
 import re
+import time
 import requests
 import anthropic
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 INOREADER_APP_ID = os.environ["INOREADER_APP_ID"]
@@ -32,8 +33,10 @@ def get_inoreader_token():
     return response.json()["access_token"]
 
 
-def fetch_articles(access_token, count=80):
-    """Fetch recent unread articles from InoReader."""
+def fetch_articles(access_token, count=150, hours_back=24):
+    """Fetch unread articles published in the last N hours from InoReader."""
+    oldest_ts = int((datetime.now() - timedelta(hours=hours_back)).timestamp())
+
     headers = {
         "Authorization": f"Bearer {access_token}",
         "AppId": INOREADER_APP_ID,
@@ -43,6 +46,7 @@ def fetch_articles(access_token, count=80):
         "n": count,
         "output": "json",
         "xt": "user/-/state/com.google/read",
+        "ot": oldest_ts,  # only items published after this Unix timestamp
     }
     response = requests.get(
         "https://www.inoreader.com/reader/api/0/stream/contents/user/-/state/com.google/reading-list",
@@ -55,6 +59,11 @@ def fetch_articles(access_token, count=80):
 
     articles = []
     for item in data.get("items", []):
+        # belt-and-suspenders: also filter client-side on the publication timestamp
+        published = item.get("published", 0)
+        if published and published < oldest_ts:
+            continue
+
         title = item.get("title", "").strip()
         url = ""
         if item.get("alternate"):
@@ -87,17 +96,27 @@ def select_top_articles(articles):
 
     prompt = f"""Sei un curatore editoriale esperto con il taglio di futuroprossimo.it: una testata italiana orientata al futuro, che guarda all'innovazione con occhio critico e ottimista, accessibile ma colta.
 
-Ecco gli articoli non letti di oggi ({today}) dal feed reader dell'utente:
+Ecco gli articoli delle ultime 24 ore ({today}) dal feed reader dell'utente:
 
 {articles_text}
 
-Seleziona i 10 articoli più interessanti seguendo queste priorità:
-1. PRIORITÀ ALTA: medicina e salute (ricerca, scoperte, longevità, neuroscienze)
-2. PRIORITÀ ALTA: tecnologia e innovazione (AI, robotica, biotech, spazio, energia)
-3. PRIORITÀ ALTA: ambiente e sostenibilità (clima, biodiversità, energie rinnovabili)
-4. PRIORITÀ NORMALE: economia, lavoro, società, geopolitica letti attraverso la lente del futuro
-5. Preferisci articoli che parlano di tendenze emergenti, scoperte, cambiamenti significativi — non semplici cronache
-6. Varia gli argomenti: evita di mettere 3 articoli sullo stesso tema
+Seleziona i 10 articoli più interessanti seguendo queste REGOLE:
+
+MACRO-AREE DA COPRIRE (in ordine di priorità):
+A. Medicina e salute (ricerca, scoperte, longevità, neuroscienze, psicologia, farmaci)
+B. Tecnologia e innovazione (biotech, robotica, quantistica, chip, spazio, energia, materiali)
+C. Ambiente e sostenibilità (clima, biodiversità, rinnovabili, agricoltura, oceani)
+D. Intelligenza artificiale (ma MAX 2 articoli su questo tema!)
+E. Società e futuro (economia, lavoro, demografia, città, mobilità, educazione)
+F. Scienza di base (fisica, astronomia, archeologia, matematica, paleontologia)
+G. Geopolitica e cultura (letti in chiave prospettica)
+
+VINCOLI OBBLIGATORI:
+- Massimo 2 articoli su Intelligenza Artificiale / LLM / chatbot
+- Massimo 2 articoli sulla stessa macro-area tematica
+- Almeno 6 macro-aree diverse rappresentate nei 10 pezzi
+- Preferisci scoperte, tendenze, analisi — NON annunci commerciali o cronaca politica
+- Se un articolo sembra vecchio o poco rilevante, scartalo e sostituiscilo
 
 Restituisci SOLO il testo del digest, già formattato per Telegram in HTML, esattamente così:
 
@@ -145,12 +164,12 @@ def main():
     print("Autenticazione InoReader...")
     access_token = get_inoreader_token()
 
-    print("Recupero articoli...")
-    articles = fetch_articles(access_token)
-    print(f"Trovati {len(articles)} articoli non letti")
+    print("Recupero articoli (ultime 24h)...")
+    articles = fetch_articles(access_token, hours_back=24)
+    print(f"Trovati {len(articles)} articoli non letti nelle ultime 24h")
 
     if not articles:
-        send_telegram("🗞 <b>Morning Digest</b>\n\nNessun articolo non letto trovato oggi.")
+        send_telegram("🗞 <b>Morning Digest</b>\n\nNessun articolo non letto nelle ultime 24 ore.")
         return
 
     print("Selezione top 10 con Claude...")
