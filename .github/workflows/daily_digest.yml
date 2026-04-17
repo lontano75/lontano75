@@ -2,8 +2,9 @@ name: Daily News Digest
 
 on:
   schedule:
-    # 05:00 UTC = 07:00 CEST (estate) / 06:00 CET (inverno)
-    - cron: '0 5 * * *'
+    # 05:10 UTC = 07:10 CEST (estate) / 06:10 CET (inverno)
+    # Evita il minuto :00 - GitHub Actions è sovraccarico all'inizio di ogni ora
+    - cron: '10 5 * * *'
   workflow_dispatch: # permette di avviare manualmente dal sito GitHub
 
 jobs:
