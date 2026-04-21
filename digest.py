@@ -158,42 +158,40 @@ VINCOLI OBBLIGATORI:
 - Preferisci scoperte, tendenze, analisi — NON annunci commerciali o cronaca politica
 - Se un articolo sembra vecchio o poco rilevante, scartalo e sostituiscilo
 
-Restituisci SOLO il testo del digest, già formattato per Telegram in HTML, esattamente così:
+Restituisci SOLO testo semplice (niente HTML), esattamente in questo formato:
 
-<b>🗞 Morning Digest – {today}</b>
+🗞 Morning Digest – {today}
 
-<b>1. Titolo articolo</b>
-<a href="URL">Leggi →</a>
-Breve descrizione in italiano (2-3 righe) di cosa tratta e perché è interessante.
+1. TITOLO ARTICOLO
+Una sola frase in italiano che spiega perché è interessante.
+URL_PER_ESTESO
 
-<b>2. Titolo articolo</b>
-<a href="URL">Leggi →</a>
-Breve descrizione in italiano.
+2. TITOLO ARTICOLO
+Una sola frase in italiano.
+URL_PER_ESTESO
 
 [...fino a 10...]
 
-<i>Buona lettura! 📖</i>"""
+Buona lettura! 📖"""
 
     message = client.messages.create(
         model="claude-opus-4-6",
-        max_tokens=2500,
+        max_tokens=2000,
         messages=[{"role": "user", "content": prompt}],
     )
     return message.content[0].text
 
 
 def send_telegram(text):
-    """Send a message via Telegram with sanitized HTML."""
+    """Send a plain-text message via Telegram."""
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    clean = sanitize_telegram_html(text)
-    chunks = [clean[i : i + 4000] for i in range(0, len(clean), 4000)]
+    chunks = [text[i : i + 4000] for i in range(0, len(text), 4000)]
     for chunk in chunks:
         response = requests.post(
             url,
             json={
                 "chat_id": TELEGRAM_CHAT_ID,
                 "text": chunk,
-                "parse_mode": "HTML",
                 "disable_web_page_preview": True,
             },
             timeout=30,
