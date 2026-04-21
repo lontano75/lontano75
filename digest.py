@@ -3,10 +3,50 @@
 
 import os
 import re
-import time
+import html as html_module
 import requests
 import anthropic
 from datetime import datetime, timedelta
+from html.parser import HTMLParser
+
+
+class _TelegramSanitizer(HTMLParser):
+    """Strips unsupported HTML tags while keeping <b>, <i>, <a>, <code>."""
+    ALLOWED = {"b", "strong", "i", "em", "u", "s", "a", "code", "pre"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.out = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.ALLOWED:
+            if tag == "a":
+                href = dict(attrs).get("href", "")
+                # escape & inside href
+                href = href.replace("&amp;", "&").replace("&", "&amp;")
+                self.out.append(f'<a href="{href}">')
+            else:
+                self.out.append(f"<{tag}>")
+
+    def handle_endtag(self, tag):
+        if tag in self.ALLOWED:
+            self.out.append(f"</{tag}>")
+
+    def handle_data(self, data):
+        self.out.append(html_module.escape(data, quote=False))
+
+    def handle_entityref(self, name):
+        self.out.append(f"&{name};")
+
+    def handle_charref(self, name):
+        self.out.append(f"&#{name};")
+
+
+def sanitize_telegram_html(text):
+    """Return text with only Telegram-supported HTML tags."""
+    parser = _TelegramSanitizer()
+    parser.feed(text)
+    return "".join(parser.out)
 
 
 INOREADER_APP_ID = os.environ["INOREADER_APP_ID"]
@@ -143,38 +183,22 @@ Breve descrizione in italiano.
 
 
 def send_telegram(text):
-    """Send a message via Telegram. Falls back to plain text if HTML is rejected."""
+    """Send a message via Telegram with sanitized HTML."""
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    chunks = [text[i : i + 4000] for i in range(0, len(text), 4000)]
+    clean = sanitize_telegram_html(text)
+    chunks = [clean[i : i + 4000] for i in range(0, len(clean), 4000)]
     for chunk in chunks:
-        try:
-            response = requests.post(
-                url,
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "text": chunk,
-                    "parse_mode": "HTML",
-                    "disable_web_page_preview": True,
-                },
-                timeout=30,
-            )
-            response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            if response.status_code == 400:
-                # HTML invalid for Telegram — retry as plain text
-                plain = re.sub(r"<[^>]+>", "", chunk)
-                response2 = requests.post(
-                    url,
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "text": plain,
-                        "disable_web_page_preview": True,
-                    },
-                    timeout=30,
-                )
-                response2.raise_for_status()
-            else:
-                raise
+        response = requests.post(
+            url,
+            json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "text": chunk,
+                "parse_mode": "HTML",
+                "disable_web_page_preview": True,
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
 
 
 def main():
