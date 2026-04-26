@@ -140,7 +140,7 @@ Ecco gli articoli delle ultime 24 ore ({today}) dal feed reader dell'utente:
 
 {articles_text}
 
-Seleziona i 10 articoli più interessanti seguendo queste REGOLE:
+Seleziona gli 8 articoli più interessanti seguendo queste REGOLE:
 
 MACRO-AREE DA COPRIRE (in ordine di priorità):
 A. Medicina e salute (ricerca, scoperte, longevità, neuroscienze, psicologia, farmaci)
@@ -154,13 +154,13 @@ G. Geopolitica e cultura (letti in chiave prospettica)
 VINCOLI OBBLIGATORI:
 - Massimo 2 articoli su Intelligenza Artificiale / LLM / chatbot
 - Massimo 2 articoli sulla stessa macro-area tematica
-- Almeno 6 macro-aree diverse rappresentate nei 10 pezzi
+- Almeno 5 macro-aree diverse rappresentate negli 8 pezzi
 - Preferisci scoperte, tendenze, analisi — NON annunci commerciali o cronaca politica
 - Se un articolo sembra vecchio o poco rilevante, scartalo e sostituiscilo
 
 Restituisci SOLO testo semplice (niente HTML), esattamente in questo formato:
 
-🗞 Morning Digest – {today}
+🗞 Digest – {today}
 
 1. TITOLO ARTICOLO
 Una sola frase in italiano che spiega perché è interessante.
@@ -170,7 +170,7 @@ URL_PER_ESTESO
 Una sola frase in italiano.
 URL_PER_ESTESO
 
-[...fino a 10...]
+[...fino a 8...]
 
 Buona lettura! 📖"""
 
@@ -203,12 +203,12 @@ def main():
     print("Autenticazione InoReader...")
     access_token = get_inoreader_token()
 
-    print("Recupero articoli (ultime 24h)...")
-    articles = fetch_articles(access_token, hours_back=24)
-    print(f"Trovati {len(articles)} articoli non letti nelle ultime 24h")
+    print("Recupero articoli (ultime 5h)...")
+    articles = fetch_articles(access_token, hours_back=5)
+    print(f"Trovati {len(articles)} articoli non letti nelle ultime 5h")
 
     if not articles:
-        send_telegram("🗞 <b>Morning Digest</b>\n\nNessun articolo non letto nelle ultime 24 ore.")
+        send_telegram("🗞 Digest\n\nNessun articolo non letto nelle ultime 5 ore.")
         return
 
     print("Selezione top 10 con Claude...")
