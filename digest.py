@@ -1,127 +1,95 @@
 #!/usr/bin/env python3
-"""Daily news digest: InoReader → Claude → Telegram"""
+"""Daily news digest: RSS feeds (OPML) → Claude → Telegram"""
 
 import os
 import re
-import html as html_module
+import xml.etree.ElementTree as ET
+import feedparser
 import requests
 import anthropic
-from datetime import datetime, timedelta
-from html.parser import HTMLParser
+from datetime import datetime, timezone, timedelta
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-class _TelegramSanitizer(HTMLParser):
-    """Strips unsupported HTML tags while keeping <b>, <i>, <a>, <code>."""
-    ALLOWED = {"b", "strong", "i", "em", "u", "s", "a", "code", "pre"}
-
-    def __init__(self):
-        super().__init__(convert_charrefs=False)
-        self.out = []
-
-    def handle_starttag(self, tag, attrs):
-        if tag in self.ALLOWED:
-            if tag == "a":
-                href = dict(attrs).get("href", "")
-                # escape & inside href
-                href = href.replace("&amp;", "&").replace("&", "&amp;")
-                self.out.append(f'<a href="{href}">')
-            else:
-                self.out.append(f"<{tag}>")
-
-    def handle_endtag(self, tag):
-        if tag in self.ALLOWED:
-            self.out.append(f"</{tag}>")
-
-    def handle_data(self, data):
-        self.out.append(html_module.escape(data, quote=False))
-
-    def handle_entityref(self, name):
-        self.out.append(f"&{name};")
-
-    def handle_charref(self, name):
-        self.out.append(f"&#{name};")
-
-
-def sanitize_telegram_html(text):
-    """Return text with only Telegram-supported HTML tags."""
-    parser = _TelegramSanitizer()
-    parser.feed(text)
-    return "".join(parser.out)
-
-
-INOREADER_APP_ID = os.environ["INOREADER_APP_ID"]
-INOREADER_APP_KEY = os.environ["INOREADER_APP_KEY"]
-INOREADER_REFRESH_TOKEN = os.environ["INOREADER_REFRESH_TOKEN"]
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
-
-def get_inoreader_token():
-    """Get a fresh access token using the stored refresh token."""
-    response = requests.post(
-        "https://www.inoreader.com/oauth2/token",
-        data={
-            "grant_type": "refresh_token",
-            "refresh_token": INOREADER_REFRESH_TOKEN,
-            "client_id": INOREADER_APP_ID,
-            "client_secret": INOREADER_APP_KEY,
-        },
-        timeout=30,
-    )
-    response.raise_for_status()
-    return response.json()["access_token"]
+OPML_PATH = os.path.join(os.path.dirname(__file__), "feeds.opml")
+HOURS_BACK = 5
+MAX_FEEDS_WORKERS = 20
+FEED_TIMEOUT = 15
 
 
-def fetch_articles(access_token, count=150, hours_back=24):
-    """Fetch unread articles published in the last N hours from InoReader."""
-    oldest_ts = int((datetime.now() - timedelta(hours=hours_back)).timestamp())
+def parse_opml(path):
+    tree = ET.parse(path)
+    root = tree.getroot()
+    urls = []
+    for outline in root.iter("outline"):
+        url = outline.get("xmlUrl")
+        if url:
+            urls.append(url)
+    return urls
 
-    headers = {
-        "Authorization": f"Bearer {access_token}",
-        "AppId": INOREADER_APP_ID,
-        "AppKey": INOREADER_APP_KEY,
-    }
-    params = {
-        "n": count,
-        "output": "json",
-        "xt": "user/-/state/com.google/read",
-        "ot": oldest_ts,  # only items published after this Unix timestamp
-    }
-    response = requests.get(
-        "https://www.inoreader.com/reader/api/0/stream/contents/user/-/state/com.google/reading-list",
-        headers=headers,
-        params=params,
-        timeout=30,
-    )
-    response.raise_for_status()
-    data = response.json()
 
+def fetch_feed(url, cutoff_dt):
     articles = []
-    for item in data.get("items", []):
-        # belt-and-suspenders: also filter client-side on the publication timestamp
-        published = item.get("published", 0)
-        if published and published < oldest_ts:
-            continue
+    try:
+        feed = feedparser.parse(url, request_headers={"User-Agent": "Mozilla/5.0"})
+        source = feed.feed.get("title", url)
+        for entry in feed.entries:
+            # Try to get publication time
+            pub = None
+            for attr in ("published_parsed", "updated_parsed"):
+                val = getattr(entry, attr, None)
+                if val:
+                    try:
+                        pub = datetime(*val[:6], tzinfo=timezone.utc)
+                    except Exception:
+                        pass
+                    break
 
-        title = item.get("title", "").strip()
-        url = ""
-        if item.get("alternate"):
-            url = item["alternate"][0].get("href", "")
-        summary = ""
-        if item.get("summary"):
-            raw = item["summary"].get("content", "")
-            summary = re.sub(r"<[^>]+>", " ", raw).strip()
-            summary = re.sub(r"\s+", " ", summary)[:300]
-        source = item.get("origin", {}).get("title", "")
-        if title:
-            articles.append({"title": title, "url": url, "summary": summary, "source": source})
+            if pub is not None and pub < cutoff_dt:
+                continue
 
+            title = entry.get("title", "").strip()
+            link = entry.get("link", "").strip()
+            if not title or not link:
+                continue
+
+            summary = ""
+            for attr in ("summary", "description", "content"):
+                raw = entry.get(attr, "")
+                if isinstance(raw, list) and raw:
+                    raw = raw[0].get("value", "")
+                if raw:
+                    clean = re.sub(r"<[^>]+>", " ", raw)
+                    clean = re.sub(r"\s+", " ", clean).strip()
+                    summary = clean[:300]
+                    break
+
+            articles.append({
+                "title": title,
+                "url": link,
+                "summary": summary,
+                "source": source,
+            })
+    except Exception:
+        pass
     return articles
 
 
+def fetch_all_articles(feed_urls, hours_back=HOURS_BACK):
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_back)
+    all_articles = []
+    with ThreadPoolExecutor(max_workers=MAX_FEEDS_WORKERS) as executor:
+        futures = {executor.submit(fetch_feed, url, cutoff): url for url in feed_urls}
+        for future in as_completed(futures):
+            all_articles.extend(future.result())
+    return all_articles
+
+
 def select_top_articles(articles):
-    """Use Claude to pick the 10 most interesting articles and write the digest."""
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
     articles_text = ""
@@ -136,7 +104,7 @@ def select_top_articles(articles):
 
     prompt = f"""Sei un curatore editoriale esperto con il taglio di futuroprossimo.it: una testata italiana orientata al futuro, che guarda all'innovazione con occhio critico e ottimista, accessibile ma colta.
 
-Ecco gli articoli delle ultime 24 ore ({today}) dal feed reader dell'utente:
+Ecco gli articoli delle ultime {HOURS_BACK} ore ({today}) dai feed RSS dell'utente:
 
 {articles_text}
 
@@ -183,9 +151,8 @@ Buona lettura! 📖"""
 
 
 def send_telegram(text):
-    """Send a plain-text message via Telegram."""
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    chunks = [text[i : i + 4000] for i in range(0, len(text), 4000)]
+    chunks = [text[i: i + 4000] for i in range(0, len(text), 4000)]
     for chunk in chunks:
         response = requests.post(
             url,
@@ -200,18 +167,19 @@ def send_telegram(text):
 
 
 def main():
-    print("Autenticazione InoReader...")
-    access_token = get_inoreader_token()
+    print("Caricamento feed da OPML...")
+    feed_urls = parse_opml(OPML_PATH)
+    print(f"Feed trovati: {len(feed_urls)}")
 
-    print("Recupero articoli (ultime 5h)...")
-    articles = fetch_articles(access_token, hours_back=5)
-    print(f"Trovati {len(articles)} articoli non letti nelle ultime 5h")
+    print(f"Recupero articoli delle ultime {HOURS_BACK} ore...")
+    articles = fetch_all_articles(feed_urls)
+    print(f"Articoli trovati: {len(articles)}")
 
     if not articles:
-        send_telegram("🗞 Digest\n\nNessun articolo non letto nelle ultime 5 ore.")
+        send_telegram(f"🗞 Digest\n\nNessun articolo trovato nelle ultime {HOURS_BACK} ore.")
         return
 
-    print("Selezione top 10 con Claude...")
+    print("Selezione top 8 con Claude...")
     digest = select_top_articles(articles)
 
     print("Invio su Telegram...")
