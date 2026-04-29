@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Feeds of Gianluca Riccio from Inoreader</title>
+  </head>
+  <body>
+    <outline text="Futuroprossimo" title="Futuroprossimo">
+      <outline text="Medscape Medical News Headlines" title="Medscape Medical News Headlines" type="rss" xmlUrl="https://www.medscape.com/cx/rssfeeds/2700.xml"/>
+      <outline text="AlphaGalileo" title="AlphaGalileo" type="rss" xmlUrl="https://www.alphagalileo.org/DesktopModules/RSS/PureRss.aspx?id=135&amp;culture=en-GB"/>
+      <outline text="Universe Today" title="Universe Today" type="rss" xmlUrl="https://www.universetoday.com/universetoday.xml"/>
+      <outline text="Axios" title="Axios" type="rss" xmlUrl="https://www.axios.com/feeds/feed.rss"/>
+      <outline text="404 Media" title="404 Media" type="rss" xmlUrl="https://www.404media.co/rss/"/>
+      <outline text="YoungbyChoice" title="YoungbyChoice" type="rss" xmlUrl="https://youngbychoice.com/feed/"/>
+      <outline text="RealClearScience" title="RealClearScience" type="rss" xmlUrl="http://www.realclearscience.com/articles/index.xml"/>
+      <outline text="Study Finds" title="Study Finds" type="rss" xmlUrl="https://www.studyfinds.org/feed/"/>
+      <outline text="Humanity Redefined" title="Humanity Redefined" type="rss" xmlUrl="https://www.humanityredefined.com/feed"/>
+      <outline text="Sifted" title="Sifted" type="rss" xmlUrl="https://sifted.eu/feed/"/>
+      <outline text="Hacker News: Newest" title="Hacker News: Newest" type="rss" xmlUrl="https://hnrss.org/newest?points=100"/>
+      <outline text="Science Focus BBC" title="Science Focus BBC" type="rss" xmlUrl="https://www.sciencefocus.com/feed/atom/"/>
+      <outline text="Science News" title="Science News" type="rss" xmlUrl="https://www.sciencenews.org/feed"/>
+      <outline text="Popular Science" title="Popular Science" type="rss" xmlUrl="https://www.popsci.com/feed/"/>
+      <outline text="IFLS" title="IFLS" type="rss" xmlUrl="https://www.iflscience.com/rss/ifls-latest-rss.xml"/>
+      <outline text="Atlas of the Future" title="Atlas of the Future" type="rss" xmlUrl="https://atlasofthefuture.org/feed/"/>
+      <outline text="Nautilus" title="Nautilus" type="rss" xmlUrl="https://nautil.us/feed/"/>
+      <outline text="ZME Science" title="ZME Science" type="rss" xmlUrl="https://feeds.feedburner.com/zmescience"/>
+      <outline text="Cosmos Magazine" title="Cosmos Magazine" type="rss" xmlUrl="http://www.cosmosmagazine.com/feed/"/>
+      <outline text="Hackaday" title="Hackaday" type="rss" xmlUrl="http://hackaday.com/feed/"/>
+      <outline text="Futurity" title="Futurity" type="rss" xmlUrl="http://www.futurity.org/feed/"/>
+      <outline text="Freethink" title="Freethink" type="rss" xmlUrl="https://www.freethink.com/feed/all"/>
+      <outline text="Fight Aging!" title="Fight Aging!" type="rss" xmlUrl="http://www.fightaging.org/index.rdf"/>
+      <outline text="Sci-News" title="Sci-News" type="rss" xmlUrl="http://www.sci-news.com/feed"/>
+      <outline text="Scientific American" title="Scientific American" type="rss" xmlUrl="http://rss.sciam.com/sciam/biology"/>
+      <outline text="The Medical Futurist" title="The Medical Futurist" type="rss" xmlUrl="https://api.medicalfuturist.com/feed/"/>
+      <outline text="New Scientist Online" title="New Scientist Online" type="rss" xmlUrl="https://www.newscientist.com/feed.ns?index=online-news"/>
+      <outline text="Tech Xplore" title="Tech Xplore" type="rss" xmlUrl="https://techxplore.com/rss-feed/"/>
+      <outline text="The Conversation Science" title="The Conversation Science" type="rss" xmlUrl="https://theconversation.com/uk/technology/articles.atom"/>
+      <outline text="Interesting Engineering" title="Interesting Engineering" type="rss" xmlUrl="https://interestingengineering.com/feed/"/>
+      <outline text="Nature Current Issue" title="Nature Current Issue" type="rss" xmlUrl="https://www.nature.com/nature/current_issue/rss"/>
+      <outline text="EurekAlert" title="EurekAlert" type="rss" xmlUrl="http://www.eurekalert.org/rss.xml"/>
+      <outline text="LiveScience" title="LiveScience" type="rss" xmlUrl="https://feeds.feedburner.com/Livesciencecom"/>
+      <outline text="ScienceDaily" title="ScienceDaily" type="rss" xmlUrl="http://www.sciencedaily.com/newsfeed.xml"/>
+      <outline text="Ars Technica" title="Ars Technica" type="rss" xmlUrl="http://feeds.arstechnica.com/arstechnica/index/"/>
+      <outline text="MIT News" title="MIT News" type="rss" xmlUrl="http://web.mit.edu/newsoffice/mitnews-rss.xml"/>
+      <outline text="Singularity Hub" title="Singularity Hub" type="rss" xmlUrl="http://singularityhub.com/feed/"/>
+      <outline text="Quanta Magazine" title="Quanta Magazine" type="rss" xmlUrl="https://www.quantamagazine.org/feed/"/>
+      <outline text="Neuroscience News" title="Neuroscience News" type="rss" xmlUrl="https://neurosciencenews.com/feed/"/>
+      <outline text="Phys.org" title="Phys.org" type="rss" xmlUrl="http://www.physorg.com/rss-feed/"/>
+      <outline text="BBC Future" title="BBC Future" type="rss" xmlUrl="https://www.bbc.com/future/feed.rss"/>
+      <outline text="The Debrief" title="The Debrief" type="rss" xmlUrl="https://www.thedebrief.org/feed/"/>
+      <outline text="Rest of World" title="Rest of World" type="rss" xmlUrl="https://restofworld.org/feed/"/>
+      <outline text="VentureBeat" title="VentureBeat" type="rss" xmlUrl="http://venturebeat.com/feed/"/>
+      <outline text="Big Think" title="Big Think" type="rss" xmlUrl="https://feeds.feedburner.com/bigthink/main"/>
+      <outline text="Discover Magazine" title="Discover Magazine" type="rss" xmlUrl="https://feeds.feedburner.com/DiscoverMag"/>
+      <outline text="ScienceAlert" title="ScienceAlert" type="rss" xmlUrl="https://feeds.feedburner.com/sciencealert-latestnews"/>
+      <outline text="Next Big Future" title="Next Big Future" type="rss" xmlUrl="https://feeds.feedburner.com/blogspot/advancednano"/>
+      <outline text="Vox Technology" title="Vox Technology" type="rss" xmlUrl="http://www.vox.com/rss/technology/index.xml"/>
+      <outline text="New Scientist Tech" title="New Scientist Tech" type="rss" xmlUrl="https://feeds.newscientist.com/tech"/>
+      <outline text="Futurism" title="Futurism" type="rss" xmlUrl="http://www.fromquarkstoquasars.com/feed/"/>
+      <outline text="IEEE Spectrum" title="IEEE Spectrum" type="rss" xmlUrl="https://feeds2.feedburner.com/IeeeSpectrum"/>
+      <outline text="Medgadget" title="Medgadget" type="rss" xmlUrl="https://feeds.feedburner.com/Medgadget"/>
+      <outline text="Futuro Prossimo" title="Futuro Prossimo" type="rss" xmlUrl="http://www.futuroprossimo.it/feed/"/>
+      <outline text="Electrek" title="Electrek" type="rss" xmlUrl="http://electrek.co/feed/"/>
+      <outline text="KurzweilAI" title="KurzweilAI" type="rss" xmlUrl="http://www.kurzweilai.net/news/rss/"/>
+      <outline text="Springwise" title="Springwise" type="rss" xmlUrl="http://www.springwise.com/feed/"/>
+      <outline text="Digital Trends" title="Digital Trends" type="rss" xmlUrl="https://www.digitaltrends.com/feed/"/>
+    </outline>
+    <outline text="AI" title="AI">
+      <outline text="thereach.ai" title="thereach.ai" type="rss" xmlUrl="https://thereach.ai/feed/"/>
+      <outline text="THE DECODER" title="THE DECODER" type="rss" xmlUrl="https://the-decoder.com/feed/"/>
+      <outline text="The Algorithmic Bridge" title="The Algorithmic Bridge" type="rss" xmlUrl="https://thealgorithmicbridge.substack.com/feed"/>
+      <outline text="AI Google News" title="AI Google News" type="rss" xmlUrl="https://news.google.com/news/rss/search/section/q/AI/AI?ned=us"/>
+    </outline>
+    <outline text="GREEN" title="GREEN">
+      <outline text="Hydrogen Central" title="Hydrogen Central" type="rss" xmlUrl="https://hydrogen-central.com/feed/"/>
+      <outline text="Grist" title="Grist" type="rss" xmlUrl="http://feeds.grist.org/rss/gristfeed"/>
+      <outline text="EcoWatch" title="EcoWatch" type="rss" xmlUrl="https://www.ecowatch.com/feed"/>
+      <outline text="Recharge News" title="Recharge News" type="rss" xmlUrl="https://services.rechargenews.com/api/feed/rss"/>
+      <outline text="Plant Based News" title="Plant Based News" type="rss" xmlUrl="https://plantbasednews.org/feed/"/>
+      <outline text="InsideEVs Italia" title="InsideEVs Italia" type="rss" xmlUrl="https://insideevs.it/rss/news/all/"/>
+      <outline text="Vaielettrico" title="Vaielettrico" type="rss" xmlUrl="https://www.vaielettrico.it/feed/"/>
+    </outline>
+    <outline text="MENTECHIARA" title="MENTECHIARA">
+      <outline text="Medical Xpress Psychology" title="Medical Xpress Psychology" type="rss" xmlUrl="https://medicalxpress.com/rss-feed/psychology-news/"/>
+      <outline text="Neuroscience News" title="Neuroscience News" type="rss" xmlUrl="http://neurosciencenews.com/feed/"/>
+      <outline text="PsyPost" title="PsyPost" type="rss" xmlUrl="http://www.psypost.org/feed"/>
+      <outline text="Psychology Today Blogs" title="Psychology Today Blogs" type="rss" xmlUrl="https://www.psychologytoday.com/front/feed"/>
+    </outline>
+    <outline text="Tech Italia" title="Tech Italia">
+      <outline text="Repubblica Tecnologia" title="Repubblica Tecnologia" type="rss" xmlUrl="https://www.repubblica.it/rss/scienza_e_tecnologia/rss2.0.xml"/>
+      <outline text="Il Sole 24 ORE Tecnologie" title="Il Sole 24 ORE Tecnologie" type="rss" xmlUrl="http://www.ilsole24ore.com/rss/tecnologie.xml"/>
+      <outline text="ANSA Tecnologia" title="ANSA Tecnologia" type="rss" xmlUrl="http://www.ansa.it/web/notizie/rubriche/scienza/scienza_rss.xml"/>
+      <outline text="Gravità Zero" title="Gravità Zero" type="rss" xmlUrl="http://www.gravita-zero.org/feeds/posts/default"/>
+      <outline text="Business Insider Italia Tech" title="Business Insider Italia Tech" type="rss" xmlUrl="https://it.businessinsider.com/category/tecnologia/feed/"/>
+    </outline>
+    <outline text="Startups" title="Startups">
+      <outline text="Tech.eu" title="Tech.eu" type="rss" xmlUrl="https://tech.eu/feed/"/>
+      <outline text="Sifted" title="Sifted" type="rss" xmlUrl="https://sifted.eu/feed/"/>
+    </outline>
+  </body>
+</opml>
