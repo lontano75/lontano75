@@ -130,17 +130,23 @@ Restituisci SOLO testo semplice (niente HTML), esattamente in questo formato:
 
 🗞 Digest – {today}
 
-1. TITOLO ARTICOLO
+1. TITOLO IN ITALIANO
+
 Una sola frase in italiano che spiega perché è interessante.
+
 URL_PER_ESTESO
 
-2. TITOLO ARTICOLO
+2. TITOLO IN ITALIANO
+
 Una sola frase in italiano.
+
 URL_PER_ESTESO
 
 [...fino a 8...]
 
-Buona lettura! 📖"""
+Buona lettura! 📖
+
+IMPORTANTE: traduci sempre il titolo in italiano, anche se l'articolo è in inglese."""
 
     message = client.messages.create(
         model="claude-opus-4-6",
