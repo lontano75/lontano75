@@ -153,7 +153,20 @@ IMPORTANTE: traduci sempre il titolo in italiano, anche se l'articolo è in ingl
         max_tokens=2000,
         messages=[{"role": "user", "content": prompt}],
     )
-    return message.content[0].text
+    digest_text = message.content[0].text
+
+    # Match URLs in the digest back to original articles (preserving order)
+    url_map = {a["url"]: a for a in articles if a.get("url")}
+    seen: set = set()
+    selected = []
+    for url, article in sorted(
+        url_map.items(), key=lambda kv: digest_text.find(kv[0]) if kv[0] in digest_text else 10**9
+    ):
+        if url in digest_text and url not in seen:
+            seen.add(url)
+            selected.append(article)
+
+    return digest_text, selected[:8]
 
 
 def send_telegram(text):
@@ -186,7 +199,7 @@ def main():
         return
 
     print("Selezione top 8 con Claude...")
-    digest = select_top_articles(articles)
+    digest, _ = select_top_articles(articles)
 
     print("Invio su Telegram...")
     send_telegram(digest)
