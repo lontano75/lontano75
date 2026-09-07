@@ -149,7 +149,7 @@ Buona lettura! 📖
 IMPORTANTE: traduci sempre il titolo in italiano, anche se l'articolo è in inglese."""
 
     message = client.messages.create(
-        model="claude-opus-4-6",
+        model="claude-sonnet-5",
         max_tokens=2000,
         messages=[{"role": "user", "content": prompt}],
     )
