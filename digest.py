@@ -151,9 +151,29 @@ IMPORTANTE: traduci sempre il titolo in italiano, anche se l'articolo è in ingl
     message = client.messages.create(
         model="claude-sonnet-5",
         max_tokens=2000,
+        thinking={"type": "disabled"},
         messages=[{"role": "user", "content": prompt}],
     )
-    digest_text = message.content[0].text
+
+    # FIX: su Sonnet 5 il thinking adattivo e ATTIVO DI DEFAULT (a
+    # differenza delle versioni precedenti). Va disattivato esplicitamente
+    # con thinking={"type": "disabled"} qui sopra, altrimenti puo consumare
+    # parte del budget max_tokens per il ragionamento prima di scrivere il
+    # testo, e message.content[0] potrebbe non essere un blocco di testo.
+    # Come rete di sicurezza, cerchiamo comunque il primo blocco "text"
+    # invece di assumere che sia sempre content[0].
+    digest_text = None
+    for block in message.content:
+        if getattr(block, "type", None) == "text":
+            digest_text = block.text
+            break
+
+    if digest_text is None:
+        block_types = [getattr(b, "type", type(b).__name__) for b in message.content]
+        raise ValueError(
+            f"Nessun blocco di testo trovato nella risposta "
+            f"(stop_reason={message.stop_reason!r}, tipi blocchi={block_types})."
+        )
 
     # Match URLs in the digest back to original articles (preserving order)
     url_map = {a["url"]: a for a in articles if a.get("url")}
