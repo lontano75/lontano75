@@ -37,18 +37,39 @@ window.setup = (svgText) => {
   // Raccoglie le forme visibili e ricava il colore effettivo di ognuna
   const els = [...svg.querySelectorAll('path,polygon,rect,circle,ellipse,polyline,line,text')]
     .filter(el => !el.closest('defs,clipPath,mask'));
-  shapes = els.map(el => {
+  // Ogni forma diventa due: un contorno che si traccia e una copia piena
+  // scoperta dal basso con un ritaglio. Niente semitrasparenze, così il
+  // chroma key sul fondo verde resta pulito.
+  shapes = els.map((el, i) => {
     const cs = getComputedStyle(el);
     const fill = cs.fill && cs.fill !== 'none' ? cs.fill : null;
     const color = fill || cs.stroke || '#000';
     const bb = el.getBBox();
     let len = 1000; try { len = el.getTotalLength(); } catch (e) {}
-    el.style.fill = fill || 'none';
+    const sw = Math.max(0.6, Math.min(bb.width, bb.height) * 0.025 + 0.6);
+    let fillEl = null, clipRect = null;
+    if (fill) {
+      fillEl = el.cloneNode(true);
+      fillEl.style.stroke = 'none';
+      fillEl.style.fill = fill;
+      const cp = document.createElementNS(NS, 'clipPath');
+      cp.setAttribute('id', 'fpFill' + i);
+      cp.setAttribute('clipPathUnits', 'userSpaceOnUse');
+      clipRect = document.createElementNS(NS, 'rect');
+      const pad = sw * 2;
+      clipRect.setAttribute('x', bb.x - pad);
+      clipRect.setAttribute('width', bb.width + pad * 2);
+      cp.appendChild(clipRect);
+      el.parentNode.insertBefore(cp, el);
+      fillEl.setAttribute('clip-path', `url(#fpFill${i})`);
+      el.parentNode.insertBefore(fillEl, el);
+    }
+    el.style.fill = 'none';
     el.style.stroke = color;
-    el.style.strokeWidth = Math.max(0.6, Math.min(bb.width, bb.height) * 0.025 + 0.6);
+    el.style.strokeWidth = sw;
     el.style.strokeDasharray = len;
     el.style.strokeLinejoin = 'round';
-    return { el, bb, len, origStrokeW: cs.strokeWidth, hasFill: !!fill, hasStroke: cs.stroke && cs.stroke !== 'none' };
+    return { el, fillEl, clipRect, bb, len, sw, pad: sw * 2 };
   });
   // Ordina da sinistra a destra: il disegno "scrive" il logo
   const xs = shapes.map(s => s.bb.x);
@@ -72,7 +93,8 @@ window.setup = (svgText) => {
     <mask id="fpShineMask" maskUnits="userSpaceOnUse" x="${vb.x - vb.width}" y="${vb.y - vb.height}" width="${vb.width * 3}" height="${vb.height * 3}"></mask>`);
   const mask = defs.querySelector('#fpShineMask');
   const silhouette = group.cloneNode(true);
-  silhouette.querySelectorAll('*').forEach(n => { if (n.style) { n.style.fill = '#fff'; n.style.stroke = '#fff'; n.style.strokeDasharray = 'none'; n.style.strokeDashoffset = 0; n.style.opacity = 1; } });
+  silhouette.querySelectorAll('clipPath').forEach(n => n.remove());
+  silhouette.querySelectorAll('*').forEach(n => { n.removeAttribute('clip-path'); if (n.style) { n.style.fill = '#fff'; n.style.stroke = 'none'; n.style.opacity = 1; } });
   mask.appendChild(silhouette);
   const shineG = document.createElementNS(NS, 'g');
   shineG.setAttribute('mask', 'url(#fpShineMask)');
@@ -93,13 +115,15 @@ window.render = (t) => {
     const start = DRAW_START + s.order * STAGGER;
     const d = ease((t - start) / DRAW_LEN);
     s.el.style.strokeDashoffset = s.len * (1 - d);
-    s.el.style.strokeOpacity = d > 0 ? 1 : 0;
+    s.el.style.visibility = d > 0 ? 'visible' : 'hidden';
+    if (!s.fillEl) return;
+    // il colore sale dal basso; il contorno d'appoggio si assottiglia fino a sparire
     const f = ease((t - start - FILL_DELAY) / FILL_LEN);
-    s.el.style.fillOpacity = f;
-    // il contorno d'appoggio sparisce quando il riempimento è completo
-    if (s.hasFill && !s.hasStroke) s.el.style.strokeOpacity = d > 0 ? (1 - f) : 0;
-    if (f >= 1) s.el.style.strokeDasharray = 'none';
-    else s.el.style.strokeDasharray = s.len;
+    const h = (s.bb.height + s.pad * 2) * f;
+    s.clipRect.setAttribute('y', s.bb.y + s.bb.height + s.pad - h);
+    s.clipRect.setAttribute('height', h);
+    s.el.style.strokeWidth = s.sw * (1 - f);
+    if (f >= 1) s.el.style.visibility = 'hidden';
   });
   // leggera spinta in avanti con assestamento
   const lastFill = DRAW_START + STAGGER + FILL_DELAY + FILL_LEN;

@@ -5,12 +5,12 @@ Animazione di 4 secondi, 1920×1080, 30 fps. Il contorno di ogni forma si tracci
 ## Come generarla
 
 ```bash
-# metti il logo in motion-logo/logo.svg, poi:
+# il logo è già in motion-logo/logo.svg
 cd motion-logo
 NODE_PATH=$(npm root -g) node render.js logo.svg output
 ```
 
-## Cosa esce in `output/`
+## Cosa esce in `output/` (i file già pronti sono in `video/`)
 
 | File | A cosa serve |
 |---|---|
