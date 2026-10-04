@@ -18,6 +18,8 @@ const frames = path.join(out, 'frames');
   await page.goto('file://' + path.join(__dirname, 'anim.html'));
   const n = await page.evaluate(s => window.setup(s), fs.readFileSync(svgPath, 'utf8'));
   console.log(`forme animate: ${n}`);
+  // LOGO_W: larghezza del logo in pixel (predefinita 1500)
+  if (process.env.LOGO_W) await page.evaluate(w => { document.querySelector('#stage svg').style.width = w + 'px'; }, process.env.LOGO_W);
   const dur = await page.evaluate(() => window.DUR);
   const total = Math.round(dur * FPS);
   for (let i = 0; i < total; i++) {
@@ -36,6 +38,13 @@ const frames = path.join(out, 'frames');
      '-filter_complex', '[0][1]overlay=shortest=1,format=yuv420p',
      '-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-movflags', '+faststart',
      path.join(out, 'futuroprossimo-logo-greenscreen.mp4'));
+  // BG_COLOR: versione su fondo pieno, pronta da montare senza scontornare
+  if (process.env.BG_COLOR) {
+    ff('-f', 'lavfi', '-i', `color=c=${process.env.BG_COLOR}:s=1920x1080:r=${FPS}`, ...input,
+       '-filter_complex', '[0][1]overlay=shortest=1,format=yuv420p',
+       '-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-movflags', '+faststart',
+       path.join(out, 'futuroprossimo-logo-fondo.mp4'));
+  }
   // 2) WebM VP9 con canale alfa (CapCut desktop, DaVinci, web)
   ff(...input, '-c:v', 'libvpx-vp9', '-pix_fmt', 'yuva420p', '-b:v', '0', '-crf', '20', '-auto-alt-ref', '0',
      path.join(out, 'futuroprossimo-logo-alpha.webm'));

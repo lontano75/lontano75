@@ -15,8 +15,11 @@ NODE_PATH=$(npm root -g) node render.js logo.svg output
 | File | A cosa serve |
 |---|---|
 | `futuroprossimo-logo-greenscreen.mp4` | **YouCut**: aggiungilo come PIP sopra la clip e usa *Chroma key* sul verde |
+| `futuroprossimo-logo-fondo.mp4` | logo più piccolo (1100 px) su fondo crema #F3F8E4, da montare così com'è |
 | `logo-finale.png` | sticker fisso trasparente |
 | `futuroprossimo-logo-alpha.webm` | trasparenza vera (VP9 alfa) per CapCut desktop, DaVinci, web |
 | `futuroprossimo-logo-alpha.mov` | ProRes 4444 con alfa per Premiere e Final Cut |
 
 Se il logo contiene del verde, cambia colore di fondo: `KEY_COLOR=0xFF00FF node render.js logo.svg output`.
+
+Opzioni: `LOGO_W=1100` cambia la larghezza del logo, `BG_COLOR=0xF3F8E4` aggiunge la versione su fondo pieno.
