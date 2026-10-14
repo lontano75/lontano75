@@ -118,58 +118,105 @@ Non definire “libera” un’immagine senza aver verificato la licenza sulla p
 
 ## 5. API e integrazioni
 
-Inserire qui le chiavi API e le istruzioni di connessione.
+Le chiavi non vanno scritte in questo file, che sta in un repository pubblico. Si leggono dalle variabili d'ambiente: in locale da un file `.env` (escluso da git tramite `.gitignore`, modello in `.env.example`), in produzione dalle variabili d'ambiente di Render.
 
-> **Nota di sicurezza:** non condividere le chiavi API in chat, repository pubblici o file inviati a terzi. In un ambiente di produzione, usare variabili d’ambiente o un gestore di segreti.
+> **Nota di sicurezza:** non incollare le chiavi in repository pubblici o in file inviati a terzi. Se una chiave finisce per errore in un commit, va rigenerata dal pannello del servizio.
 
 ### Unsplash
 
 ```text
-UNSPLASH_ACCESS_KEY =
-UNSPLASH_SECRET_KEY =
+Variabile:        UNSPLASH_ACCESS_KEY
 Endpoint ricerca: https://api.unsplash.com/search/photos
-Documentazione:   https://unsplash.com/developers
+Autenticazione:   header  Authorization: Client-ID <UNSPLASH_ACCESS_KEY>
+Documentazione:   https://unsplash.com/documentation
+Limite (demo):    circa 50 richieste l'ora
 ```
+
+Regole d'uso: citare sempre fotografo e Unsplash, usare gli URL delle immagini restituiti dall'API e, quando un'immagine viene scelta, chiamare il suo `links.download_location` per registrare il download.
 
 ### Pexels
 
 ```text
-PEXELS_API_KEY =
+Variabile:        PEXELS_API_KEY
 Endpoint ricerca: https://api.pexels.com/v1/search
-Documentazione:   https://www.pexels.com/api/
+Autenticazione:   header  Authorization: <PEXELS_API_KEY>
+Documentazione:   https://www.pexels.com/api/documentation/
+Limite:           200 richieste l'ora, 20.000 al mese
 ```
+
+Regole d'uso: indicare Pexels come fonte e, quando possibile, il fotografo con link alla sua pagina.
 
 ### Pixabay
 
 ```text
-PIXABAY_API_KEY =
-Endpoint ricerca: https://pixabay.com/api/
+Variabile:        PIXABAY_API_KEY
+Endpoint ricerca: https://pixabay.com/api/?key=<PIXABAY_API_KEY>&q=<query>&image_type=photo
 Documentazione:   https://pixabay.com/api/docs/
+Limite:           100 richieste ogni 60 secondi
 ```
+
+Regole d'uso: le immagini scelte vanno scaricate e caricate sul sito, senza linkarle in modo permanente dai server di Pixabay. Mostrare Pixabay come fonte quando si presentano i risultati.
 
 ### Openverse
 
 ```text
-OPENVERSE_API_TOKEN =
-Endpoint ricerca: https://api.openverse.org/v1/images/
-Documentazione:   https://api.openverse.org/
+Variabili:        OPENVERSE_CLIENT_ID, OPENVERSE_CLIENT_SECRET, OPENVERSE_API_TOKEN
+Endpoint ricerca: https://api.openverse.org/v1/images/?q=<query>
+Autenticazione:   header  Authorization: Bearer <OPENVERSE_API_TOKEN>  (facoltativo)
+Documentazione:   https://api.openverse.org/v1/
 ```
+
+La ricerca funziona anche senza token, con limiti più bassi. Per ottenere le credenziali:
+
+1. Registrare l'applicazione (una sola volta):
+
+   ```bash
+   curl -X POST https://api.openverse.org/v1/auth_tokens/register/ \
+     -H "Content-Type: application/json" \
+     -d '{"name":"CercaImmagini","description":"Ricerca di immagini con licenza aperta per gli articoli del blog lontano75","email":"gianniluca@gmail.com"}'
+   ```
+
+   La risposta contiene `client_id` e `client_secret`: salvarli in `.env`.
+2. Confermare l'indirizzo email dal link che Openverse invia a gianniluca@gmail.com.
+3. Chiedere il token (scade dopo alcune ore, si rigenera con la stessa chiamata):
+
+   ```bash
+   curl -X POST https://api.openverse.org/v1/auth_tokens/token/ \
+     -d "grant_type=client_credentials&client_id=$OPENVERSE_CLIENT_ID&client_secret=$OPENVERSE_CLIENT_SECRET"
+   ```
+
+   Il valore `access_token` della risposta va in `OPENVERSE_API_TOKEN`.
+
+Ogni risultato di Openverse riporta licenza e fonte originale: controllarle comunque sulla pagina dell'immagine prima di proporla.
 
 ### Wikimedia Commons
 
 ```text
-WIKIMEDIA_API_ENDPOINT = https://commons.wikimedia.org/w/api.php
-Autenticazione: generalmente non richiesta per ricerche pubbliche
+Endpoint ricerca: https://commons.wikimedia.org/w/api.php
+Chiave API:       non richiesta
+User-Agent:       CercaImmagini/1.0 (gianniluca@gmail.com)
 ```
 
-### Google Programmable Search / Immagini
+Ogni richiesta a Wikimedia Commons deve includere l'header `User-Agent` con il nome dello strumento e un contatto. Senza questo header Wikimedia può rifiutare o bloccare le richieste. Esempio di ricerca:
 
-```text
-GOOGLE_API_KEY =
-GOOGLE_SEARCH_ENGINE_ID =
-Endpoint ricerca: https://www.googleapis.com/customsearch/v1
-Nota: verificare che il motore personalizzato sia configurato per la ricerca di immagini.
+```bash
+curl -G "https://commons.wikimedia.org/w/api.php" \
+  -H "User-Agent: CercaImmagini/1.0 (gianniluca@gmail.com)" \
+  --data-urlencode "action=query" \
+  --data-urlencode "format=json" \
+  --data-urlencode "generator=search" \
+  --data-urlencode "gsrnamespace=6" \
+  --data-urlencode "gsrsearch=supermarket refrigerated display" \
+  --data-urlencode "gsrlimit=20" \
+  --data-urlencode "prop=imageinfo" \
+  --data-urlencode "iiprop=url|size|extmetadata"
 ```
+
+Il campo `extmetadata` riporta autore (`Artist`), licenza (`LicenseShortName`) e obbligo di attribuzione (`AttributionRequired`): sono i dati da riportare nella tabella di output.
+
+### Google Programmable Search (dismessa)
+
+La Custom Search JSON API di Google non accetta nuovi clienti e verrà spenta il 1° gennaio 2027. Non va configurata. La ricerca su Google Immagini (sezione 3) si fa a mano nel browser, aprendo sempre la pagina originale di ogni risultato.
 
 ---
 
