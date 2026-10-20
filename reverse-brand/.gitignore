@@ -1,0 +1,7 @@
+node_modules/
+.env
+out/*/video/*.mp4
+out/*/video/presentation.html
+out/*/screenshots/
+out/*/images/*.png
+out/*/images/jobs.json

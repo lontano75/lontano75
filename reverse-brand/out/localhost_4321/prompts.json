@@ -1,0 +1,62 @@
+{
+  "note": "Unofficial analysis. New subjects in the measured photographic style; never derived from the brand's images.",
+  "style": "contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop",
+  "themes": "pannelli, solari, tetto, tramonto, città, notte",
+  "suffix": "photorealistic, no text, letters, logos, brand marks, cards or app screens",
+  "slots": [
+    {
+      "slot": "hero",
+      "aspectRatio": "16:9",
+      "width": 2000,
+      "prompt": "Cover. A wide calm landscape at first light seen from a high vantage point, a thin line of a modern city on the horizon. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "horizon",
+      "aspectRatio": "16:9",
+      "width": 2000,
+      "prompt": "Typography chapter. A long flat horizon over still water at dusk, large empty sky for a text card. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "object",
+      "aspectRatio": "4:5",
+      "width": 1400,
+      "prompt": "Colour chapter. A studio render of a single smooth sculptural object made of matte ceramic and brushed metal on a seamless backdrop. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "street",
+      "aspectRatio": "4:5",
+      "width": 1400,
+      "prompt": "Voice chapter. A person walking through a sunlit pedestrian street, shot from behind at a distance, natural candid moment. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "sky",
+      "aspectRatio": "16:9",
+      "width": 2000,
+      "prompt": "Clean background. Soft gradient sky with a few thin high clouds, nothing else in frame. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "glass",
+      "aspectRatio": "4:5",
+      "width": 1400,
+      "prompt": "Components chapter. Ordered rows of translucent glass blocks of equal size on a table, soft daylight, precise spacing. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "grid",
+      "aspectRatio": "16:9",
+      "width": 2000,
+      "prompt": "Layout chapter. Top-down view of a tiled courtyard with a regular grid of stone slabs and one tree. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "tokens",
+      "aspectRatio": "16:9",
+      "width": 2000,
+      "prompt": "Design tokens chapter. Macro photograph of neatly arranged small coloured glass samples in a wooden tray. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    },
+    {
+      "slot": "detail",
+      "aspectRatio": "1:1",
+      "width": 1400,
+      "prompt": "Imagery chapter. A close detail that fits the site's recurring subjects (pannelli, solari, tetto, tramonto, città, notte), shallow depth of field. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens"
+    }
+  ]
+}

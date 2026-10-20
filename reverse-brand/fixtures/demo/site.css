@@ -1,0 +1,32 @@
+/* Fixture brand "Lumen Fixture" — fictional, used only to test reverse-brand. */
+:root{--lf-ink:#14161c;--lf-paper:#f6f4ef;--lf-night:#101826;--lf-blue:oklch(0.55 0.17 255);--lf-sun:#f2b33d;--lf-radius:20px;--lf-ease:cubic-bezier(.2,.7,.1,1);--lf-font:"Inter",system-ui,sans-serif;--lf-display:"Inter Display","Inter",sans-serif}
+*{box-sizing:border-box}body{margin:0;font:400 17px/1.55 var(--lf-font);color:var(--lf-ink);background:var(--lf-paper)}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(246,244,239,.85);backdrop-filter:blur(12px);border-bottom:1px solid #e2ded5}
+header nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}header nav a{text-decoration:none;font-size:15px;font-weight:500}
+.logo svg{display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.hero{min-height:640px;color:#fff;background:linear-gradient(135deg,#101826 0%,#1f4fa3 60%,#f2b33d 130%);display:flex;align-items:center}
+.hero h1{font:600 76px/1.04 var(--lf-display);letter-spacing:-0.02em;margin:0 0 24px;max-width:900px}
+.lead{font-size:21px;line-height:1.5;max-width:620px;margin:0 0 32px;color:#dfe6f3}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;background:var(--lf-blue);color:#fff;text-decoration:none;font-weight:600;font-size:16px;transition:transform .4s var(--lf-ease),background .4s var(--lf-ease)}
+.btn.ghost{background:transparent;border:1.5px solid currentColor;padding:12.5px 26.5px}
+.btn.glass{background:rgba(255,255,255,.16);backdrop-filter:blur(16px)}
+section{padding:96px 0}
+h2{font:600 48px/1.1 var(--lf-display);letter-spacing:-0.015em;margin:0 0 24px}
+h3{font:600 24px/1.25 var(--lf-font);margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border-radius:var(--lf-radius);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06);transition:transform .6s var(--lf-ease)}
+.card img{width:100%;height:220px;object-fit:cover;display:block}.card .in{padding:24px}
+.card p{margin:0;color:#5b6070;font-size:15px}
+.dark{background:var(--lf-night);color:#eef1f6}.dark .card{background:#1a2436}.dark .card p{color:#a9b3c4}
+.small{font-size:13px;color:#6b7080;letter-spacing:.01em}
+.band-img{height:520px;background:url(media/photo2.jpg) center/cover}
+.full{width:100%;height:480px;object-fit:cover;display:block}
+form{display:flex;gap:12px;max-width:520px}input{flex:1;height:52px;padding:0 20px;border-radius:999px;border:1px solid #cfcabe;background:#fff;font:inherit}
+footer{background:#0b0f17;color:#9aa3b2;padding:48px 0;font-size:14px}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:600;color:var(--lf-blue)}
+#cookie-banner{position:fixed;bottom:16px;left:16px;right:16px;background:#ff00aa;color:#000;padding:20px;font-size:30px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.hero h1{font-size:44px}h2{font-size:32px}header nav{display:none}.lead{font-size:18px}}
+@media (min-width:1280px){.wrap{padding:0 32px}}
+@media (max-width:600px){section{padding:64px 0}}

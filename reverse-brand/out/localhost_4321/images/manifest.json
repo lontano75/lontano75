@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-10-20T22:50:09.639Z",
+  "images": [
+    {
+      "slot": "hero",
+      "file": "hero.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Cover. A wide calm landscape at first light seen from a high vantage point, a thin line of a modern city on the horizon. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 14294,
+      "webp": "hero.webp",
+      "width": 2000
+    },
+    {
+      "slot": "horizon",
+      "file": "horizon.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Typography chapter. A long flat horizon over still water at dusk, large empty sky for a text card. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 5576,
+      "webp": "horizon.webp",
+      "width": 2000
+    },
+    {
+      "slot": "object",
+      "file": "object.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Colour chapter. A studio render of a single smooth sculptural object made of matte ceramic and brushed metal on a seamless backdrop. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 12428,
+      "webp": "object.webp",
+      "width": 1400
+    },
+    {
+      "slot": "street",
+      "file": "street.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Voice chapter. A person walking through a sunlit pedestrian street, shot from behind at a distance, natural candid moment. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 11498,
+      "webp": "street.webp",
+      "width": 1400
+    },
+    {
+      "slot": "sky",
+      "file": "sky.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Clean background. Soft gradient sky with a few thin high clouds, nothing else in frame. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 14682,
+      "webp": "sky.webp",
+      "width": 2000
+    },
+    {
+      "slot": "glass",
+      "file": "glass.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Components chapter. Ordered rows of translucent glass blocks of equal size on a table, soft daylight, precise spacing. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 9752,
+      "webp": "glass.webp",
+      "width": 1400
+    },
+    {
+      "slot": "grid",
+      "file": "grid.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Layout chapter. Top-down view of a tiled courtyard with a regular grid of stone slabs and one tree. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 12944,
+      "webp": "grid.webp",
+      "width": 2000
+    },
+    {
+      "slot": "tokens",
+      "file": "tokens.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Design tokens chapter. Macro photograph of neatly arranged small coloured glass samples in a wooden tray. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 10950,
+      "webp": "tokens.webp",
+      "width": 2000
+    },
+    {
+      "slot": "detail",
+      "file": "detail.png",
+      "source": "procedural",
+      "tool": "manual",
+      "prompt": "Imagery chapter. A close detail that fits the site's recurring subjects (pannelli, solari, tetto, tramonto, città, notte), shallow depth of field. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens",
+      "bytes": 13170,
+      "webp": "detail.webp",
+      "width": 1400
+    }
+  ]
+}

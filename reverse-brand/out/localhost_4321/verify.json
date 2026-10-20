@@ -1,0 +1,137 @@
+[
+  {
+    "name": "tokens.json parses",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide.html size ≤ 150 KB",
+    "ok": true,
+    "detail": "93.9 KB"
+  },
+  {
+    "name": "brand-guide.html: zero network requests offline",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide.html: no script errors",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide.html: required sections",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide.html: standard section titles",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide.html: Unofficial label on cover, top bar and footer + disclaimer",
+    "ok": true,
+    "detail": "{\"cover\":true,\"top\":true,\"footer\":true,\"disclaimer\":true}"
+  },
+  {
+    "name": "brand-guide.html: embedded token JSON parses",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide.html: five quotes and three rules",
+    "ok": true,
+    "detail": "5 quotes, 3 rules"
+  },
+  {
+    "name": "brand-guide.html: rebuild button computed style = tokens",
+    "ok": true,
+    "detail": "height 53px, padding-left 28px, border-radius 999px, background rgb(21, 112, 209), color rgb(255, 255, 255), font-size 16px, font-weight 600"
+  },
+  {
+    "name": "brand-guide.html: rebuild card computed style = tokens",
+    "ok": true,
+    "detail": "background rgb(255, 255, 255), border-radius 20px, box-shadow rgba(0, 0, 0, 0.06) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 8px 24px 0px, padding 24px"
+  },
+  {
+    "name": "brand-guide.html: every image carries its label",
+    "ok": true,
+    "detail": "0 of 26 slots have images; 0 unlabeled, 0 labels without image"
+  },
+  {
+    "name": "brand-guide.html: no horizontal scroll at 390px",
+    "ok": true,
+    "detail": "scrollWidth 390 / 390"
+  },
+  {
+    "name": "brand-guide-hero.html size ≤ 4 MB",
+    "ok": true,
+    "detail": "235.2 KB"
+  },
+  {
+    "name": "brand-guide-hero.html: zero network requests offline",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide-hero.html: no script errors",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide-hero.html: required sections",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide-hero.html: standard section titles",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide-hero.html: Unofficial label on cover, top bar and footer + disclaimer",
+    "ok": true,
+    "detail": "{\"cover\":true,\"top\":true,\"footer\":true,\"disclaimer\":true}"
+  },
+  {
+    "name": "brand-guide-hero.html: embedded token JSON parses",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "brand-guide-hero.html: five quotes and three rules",
+    "ok": true,
+    "detail": "5 quotes, 3 rules"
+  },
+  {
+    "name": "brand-guide-hero.html: rebuild button computed style = tokens",
+    "ok": true,
+    "detail": "height 53px, padding-left 28px, border-radius 999px, background rgb(21, 112, 209), color rgb(255, 255, 255), font-size 16px, font-weight 600"
+  },
+  {
+    "name": "brand-guide-hero.html: rebuild card computed style = tokens",
+    "ok": true,
+    "detail": "background rgb(255, 255, 255), border-radius 20px, box-shadow rgba(0, 0, 0, 0.06) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 8px 24px 0px, padding 24px"
+  },
+  {
+    "name": "brand-guide-hero.html: every image carries its label",
+    "ok": true,
+    "detail": "26 of 26 slots have images; 0 unlabeled, 0 labels without image"
+  },
+  {
+    "name": "brand-guide-hero.html: no horizontal scroll at 390px",
+    "ok": true,
+    "detail": "scrollWidth 390 / 390"
+  },
+  {
+    "name": "8 Instagram slides and 4 X images",
+    "ok": true,
+    "detail": "12 files"
+  },
+  {
+    "name": "video file exists",
+    "ok": true,
+    "detail": "localhost_4321-presentation-1920x1080-60fps.mp4"
+  }
+]

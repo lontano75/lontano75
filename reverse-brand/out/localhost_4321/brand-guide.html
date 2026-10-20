@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen Fixture brand guidelines (unofficial)</title>
+<meta name="description" content="Unofficial analysis of localhost:4321. Not affiliated with or endorsed by Lumen Fixture. Trademarks belong to their owners.">
+<style id="tokens-css">/* Lumen Fixture — unofficial design tokens measured from http://localhost:4321/ by reverse-brand.
+   Unofficial analysis. Not affiliated with or endorsed by Lumen Fixture. Trademarks belong to their owners. */
+:root {
+  --brand-font-heading: "Inter Display", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --brand-font-body: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --brand-type-display-size: clamp(2.75rem, 2.007rem + 3.048vw, 4.75rem);
+  --brand-type-display-line-height: 1.039;
+  --brand-type-display-weight: 600;
+  --brand-type-display-tracking: -0.02em;
+  --brand-type-display-family: var(--brand-font-heading);
+  --brand-type-h1-size: clamp(2rem, 1.257rem + 3.048vw, 4rem);
+  --brand-type-h1-line-height: 1.059;
+  --brand-type-h1-weight: 600;
+  --brand-type-h1-tracking: 0em;
+  --brand-type-h1-family: var(--brand-font-heading);
+  --brand-type-h2-size: clamp(1.5rem, 0.943rem + 2.286vw, 3rem);
+  --brand-type-h2-line-height: 1.1;
+  --brand-type-h2-weight: 600;
+  --brand-type-h2-tracking: -0.015em;
+  --brand-type-h2-family: var(--brand-font-heading);
+  --brand-type-h3-size: 1.5rem;
+  --brand-type-h3-line-height: 1.25;
+  --brand-type-h3-weight: 600;
+  --brand-type-h3-tracking: 0em;
+  --brand-type-h3-family: var(--brand-font-body);
+  --brand-type-lead-size: clamp(1.125rem, 1.055rem + 0.286vw, 1.313rem);
+  --brand-type-lead-line-height: 1.5;
+  --brand-type-lead-weight: 400;
+  --brand-type-lead-tracking: 0em;
+  --brand-type-lead-family: var(--brand-font-body);
+  --brand-type-body-size: 0.938rem;
+  --brand-type-body-line-height: 1.553;
+  --brand-type-body-weight: 400;
+  --brand-type-body-tracking: 0em;
+  --brand-type-body-family: var(--brand-font-body);
+  --brand-type-small-size: 0.813rem;
+  --brand-type-small-line-height: 1.554;
+  --brand-type-small-weight: 400;
+  --brand-type-small-tracking: 0.008em;
+  --brand-type-small-family: var(--brand-font-body);
+  --brand-color-background: #f6f4ef;
+  --brand-color-surface: #ffffff;
+  --brand-color-surface-inverse: #101826;
+  --brand-color-text: #14161c;
+  --brand-color-text-muted: #5b6070;
+  --brand-color-text-inverse: #ffffff;
+  --brand-color-action: #1570d1;
+  --brand-color-on-action: #ffffff;
+  --brand-color-action-alt: #101826;
+  --brand-color-accent: #f2b33d;
+  --brand-color-border: #cfcabe;
+  --brand-palette-1: #f6f4ef;
+  --brand-palette-2: #14161c;
+  --brand-palette-3: #ffffff;
+  --brand-palette-4: #5b6070;
+  --brand-palette-5: #dfe6f3;
+  --brand-palette-6: #1f4fa3;
+  --brand-palette-7: #101826;
+  --brand-palette-8: #cfcabe;
+  --brand-palette-9: #a9b3c4;
+  --brand-palette-10: #e2ded5;
+  --brand-palette-11: #eef1f6;
+  --brand-palette-12: #9aa3b2;
+  --brand-palette-13: #6b7080;
+  --brand-palette-14: #1a2436;
+  --brand-palette-15: #0b0f17;
+  --brand-palette-16: #1570d1;
+  --brand-palette-17: #f2b33d;
+  --brand-gradient-brand: linear-gradient(135deg, rgb(16, 24, 38) 0%, rgb(31, 79, 163) 60%, rgb(242, 179, 61) 130%);
+  --brand-space-base: 4px;
+  --brand-space-1: 8px;
+  --brand-space-2: 12px;
+  --brand-space-3: 20px;
+  --brand-space-4: 24px;
+  --brand-space-5: 28px;
+  --brand-space-6: 32px;
+  --brand-space-7: 48px;
+  --brand-space-8: 96px;
+  --brand-space-9: 120px;
+  --brand-layout-container: 1200px;
+  --brand-layout-columns: 3;
+  --brand-layout-gutter: 24px;
+  --brand-layout-bp-600: 600px;
+  --brand-layout-bp-900: 900px;
+  --brand-layout-bp-1280: 1280px;
+  --brand-radius-sm: 20px;
+  --brand-radius-pill: 999px;
+  --brand-radius-card: 20px;
+  --brand-radius-button: 999px;
+  --brand-radius-input: 999px;
+  --brand-button-height: 53px;
+  --brand-button-pad-x: 28px;
+  --brand-button-radius: var(--brand-radius-button);
+  --brand-button-bg: #1570d1;
+  --brand-button-fg: #ffffff;
+  --brand-button-font-size: 16px;
+  --brand-button-font-weight: 600;
+  --brand-button-tracking: 0em;
+  --brand-button-outline-border-width: 1px;
+  --brand-button-outline-color: #ffffff;
+  --brand-button-glass-bg: rgba(255, 255, 255, 0.16);
+  --brand-button-glass-backdrop: blur(16px);
+  --brand-card-bg: #ffffff;
+  --brand-card-radius: 20px;
+  --brand-card-pad: 24px;
+  --brand-card-shadow: rgba(0, 0, 0, 0.06) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 8px 24px 0px;
+  --brand-card-backdrop: none;
+  --brand-card-media: top;
+  --brand-card-media-ratio: 16 / 9;
+  --brand-input-height: 52px;
+  --brand-input-pad-x: 20px;
+  --brand-input-bg: #ffffff;
+  --brand-input-border: #cfcabe;
+  --brand-input-border-width: 1px;
+  --brand-input-font-size: 17px;
+  --brand-nav-height: 72px;
+  --brand-nav-bg: rgba(246, 244, 239, 0.85);
+  --brand-nav-backdrop: blur(12px);
+  --brand-nav-sticky: sticky;
+  --brand-nav-link-size: 15px;
+  --brand-nav-link-weight: 500;
+  --brand-nav-link-color: #14161c;
+  --brand-nav-logo-w: 132px;
+  --brand-nav-logo-h: 28px;
+  --brand-nav-logo-color: #1f4fa3;
+  --brand-motion-ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --brand-motion-duration: 400ms;
+}
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+.ground{background:var(--brand-color-background);color:var(--brand-color-text)}
+.ground-alt{background:var(--brand-color-surface);color:var(--brand-color-text)}
+.ground-inv{background:var(--brand-color-surface-inverse);color:var(--brand-color-text-inverse)}
+.muted{color:var(--brand-color-text-muted)}
+.ground-inv .muted,.on-photo .muted{color:color-mix(in oklab,var(--brand-color-text-inverse) 72%,transparent)}
+.t-display{font-family:var(--brand-type-display-family,var(--brand-font-heading));font-size:var(--brand-type-display-size,var(--brand-type-h1-size));font-weight:var(--brand-type-display-weight,var(--brand-type-h1-weight));line-height:var(--brand-type-display-line-height,var(--brand-type-h1-line-height));letter-spacing:var(--brand-type-display-tracking,var(--brand-type-h1-tracking));text-wrap:balance}
+.t-h1{font-family:var(--brand-type-h1-family);font-size:var(--brand-type-h1-size);font-weight:var(--brand-type-h1-weight);line-height:var(--brand-type-h1-line-height);letter-spacing:var(--brand-type-h1-tracking);text-wrap:balance}
+.t-h2{font-family:var(--brand-type-h2-family,var(--brand-font-heading));font-size:var(--brand-type-h2-size,var(--brand-type-h1-size));font-weight:var(--brand-type-h2-weight,var(--brand-type-h1-weight));line-height:var(--brand-type-h2-line-height,1.1);letter-spacing:var(--brand-type-h2-tracking,0);text-wrap:balance}
+.t-h3{font-family:var(--brand-type-h3-family,var(--brand-font-heading));font-size:var(--brand-type-h3-size,1.5rem);font-weight:var(--brand-type-h3-weight,600);line-height:var(--brand-type-h3-line-height,1.25);letter-spacing:var(--brand-type-h3-tracking,0)}
+.t-lead{font-family:var(--brand-type-lead-family,var(--brand-font-body));font-size:var(--brand-type-lead-size);font-weight:var(--brand-type-lead-weight);line-height:var(--brand-type-lead-line-height);letter-spacing:var(--brand-type-lead-tracking)}
+.t-body{font-family:var(--brand-type-body-family);font-size:var(--brand-type-body-size);font-weight:var(--brand-type-body-weight);line-height:var(--brand-type-body-line-height);letter-spacing:var(--brand-type-body-tracking)}
+.t-small{font-family:var(--brand-type-small-family,var(--brand-font-body));font-size:var(--brand-type-small-size,0.8125rem);font-weight:var(--brand-type-small-weight,400);line-height:var(--brand-type-small-line-height,1.5);letter-spacing:var(--brand-type-small-tracking,0)}
+.rb-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;height:var(--brand-button-height);padding:0 var(--brand-button-pad-x);border-radius:var(--brand-button-radius);background:var(--brand-button-bg);color:var(--brand-button-fg);font-family:var(--brand-font-body);font-size:var(--brand-button-font-size);font-weight:var(--brand-button-font-weight);letter-spacing:var(--brand-button-tracking);line-height:1;border:0;text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform var(--brand-motion-duration) var(--brand-motion-ease),filter var(--brand-motion-duration) var(--brand-motion-ease)}
+.rb-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.rb-btn:focus-visible{outline:2px solid var(--brand-color-accent);outline-offset:3px}
+.rb-btn.outline{background:transparent;color:inherit;box-shadow:inset 0 0 0 var(--brand-button-outline-border-width,1.5px) currentColor}
+.rb-btn.glass{background:var(--brand-button-glass-bg,rgba(255,255,255,.16));-webkit-backdrop-filter:var(--brand-button-glass-backdrop,blur(16px));backdrop-filter:var(--brand-button-glass-backdrop,blur(16px));color:var(--brand-color-text-inverse)}
+.rb-btn.alt{background:var(--brand-color-action-alt);color:var(--brand-color-background)}
+.rb-btn.small{height:calc(var(--brand-button-height) * .75);padding:0 calc(var(--brand-button-pad-x) * .7);font-size:calc(var(--brand-button-font-size) * .9)}
+.rb-card{background:var(--brand-card-bg,var(--brand-color-surface));border-radius:var(--brand-card-radius,var(--brand-radius-card));box-shadow:var(--brand-card-shadow,none);-webkit-backdrop-filter:var(--brand-card-backdrop,none);backdrop-filter:var(--brand-card-backdrop,none);overflow:hidden;color:var(--brand-color-text)}
+.rb-card .rb-media{aspect-ratio:var(--brand-card-media-ratio,16 / 9);position:relative;overflow:hidden}
+.rb-card .rb-body{padding:var(--brand-card-pad,24px)}
+.rb-card .muted{color:var(--brand-color-text-muted)}
+.rb-input{height:var(--brand-input-height);padding:0 var(--brand-input-pad-x);border-radius:var(--brand-radius-input);border:var(--brand-input-border-width) solid var(--brand-input-border);background:var(--brand-input-bg);color:var(--brand-color-text);font-family:var(--brand-font-body);font-size:var(--brand-input-font-size);min-width:0}
+.glass-card{background:color-mix(in oklab,var(--brand-color-surface-inverse) 28%,transparent);-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);border:1px solid color-mix(in oklab,var(--brand-color-text-inverse) 22%,transparent);border-radius:var(--brand-radius-card);color:var(--brand-color-text-inverse)}
+.pill-unofficial{display:inline-flex;align-items:center;gap:.4em;padding:.35em .8em;border-radius:999px;font:600 12px/1 var(--brand-font-body);letter-spacing:.06em;text-transform:uppercase;background:color-mix(in oklab,var(--brand-color-accent) 22%,transparent);color:inherit;border:1px solid color-mix(in oklab,currentColor 30%,transparent);white-space:nowrap}
+.ai-label{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);z-index:2;padding:4px 8px;border-radius:6px;background:rgba(0,0,0,.62);color:#fff;font:600 11px/1.2 var(--brand-font-body);letter-spacing:.02em;pointer-events:none}
+
+.slot{position:relative;overflow:hidden;background-color:var(--brand-color-surface-inverse)}
+.slot-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.6s var(--brand-motion-ease)}
+.img-hero{background-image:radial-gradient(120% 80% at 80% 10%,color-mix(in oklab,var(--brand-color-accent) 55%,transparent),transparent 60%),var(--brand-gradient-brand)}
+.img-horizon{background-image:linear-gradient(180deg,color-mix(in oklab,var(--brand-color-action) 50%,var(--brand-color-surface-inverse)) 0%,var(--brand-color-surface-inverse) 58%,color-mix(in oklab,var(--brand-color-accent) 35%,var(--brand-color-surface-inverse)) 60%,var(--brand-color-surface-inverse) 100%)}
+.img-object{background-image:radial-gradient(circle at 38% 36%,color-mix(in oklab,var(--brand-color-accent) 90%,white) 0,var(--brand-color-accent) 14%,transparent 34%),radial-gradient(circle at 64% 70%,var(--brand-color-action),transparent 48%),linear-gradient(160deg,var(--brand-color-surface-inverse),color-mix(in oklab,var(--brand-color-surface-inverse) 70%,black))}
+.img-street{background-image:linear-gradient(100deg,transparent 0 30%,color-mix(in oklab,var(--brand-color-accent) 40%,transparent) 30% 31%,transparent 31%),linear-gradient(200deg,color-mix(in oklab,var(--brand-color-action) 70%,var(--brand-color-surface-inverse)),var(--brand-color-surface-inverse))}
+.img-sky{background-image:linear-gradient(180deg,color-mix(in oklab,var(--brand-color-action) 45%,var(--brand-color-background)),var(--brand-color-background))}
+.img-glass{background-image:repeating-linear-gradient(90deg,color-mix(in oklab,var(--brand-color-text-inverse) 14%,transparent) 0 18%,transparent 18% 20%),repeating-linear-gradient(0deg,color-mix(in oklab,var(--brand-color-text-inverse) 10%,transparent) 0 30%,transparent 30% 33%),linear-gradient(135deg,var(--brand-color-surface-inverse),color-mix(in oklab,var(--brand-color-action) 60%,var(--brand-color-surface-inverse)))}
+.img-grid{background-image:linear-gradient(color-mix(in oklab,var(--brand-color-text) 12%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in oklab,var(--brand-color-text) 12%,transparent) 1px,transparent 1px),linear-gradient(180deg,var(--brand-color-surface),var(--brand-color-background));background-size:48px 48px,48px 48px,cover}
+.img-tokens{background-image:radial-gradient(circle at 20% 30%,var(--brand-color-action) 0 8%,transparent 8.5%),radial-gradient(circle at 45% 60%,var(--brand-color-accent) 0 8%,transparent 8.5%),radial-gradient(circle at 70% 35%,var(--brand-color-action-alt) 0 8%,transparent 8.5%),radial-gradient(circle at 85% 70%,var(--brand-color-surface) 0 6%,transparent 6.5%),linear-gradient(135deg,var(--brand-color-surface-inverse),color-mix(in oklab,var(--brand-color-surface-inverse) 80%,var(--brand-color-action)))}
+.img-detail{background-image:radial-gradient(60% 60% at 50% 45%,color-mix(in oklab,var(--brand-color-accent) 70%,transparent),transparent 70%),linear-gradient(180deg,var(--brand-color-action),var(--brand-color-surface-inverse))}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--brand-color-background);color:var(--brand-color-text);font-family:var(--brand-font-body);font-size:var(--brand-type-body-size);line-height:var(--brand-type-body-line-height);overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,h4,p,figure,blockquote{margin:0}
+.wrap{width:100%;max-width:var(--brand-layout-container);margin:0 auto;padding:0 20px}
+.page{position:relative;padding:calc(var(--brand-space-base) * 16) 0;scroll-margin-top:56px}
+.page>.wrap>*+*{margin-top:calc(var(--brand-space-base) * 6)}
+.eyebrow{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--brand-font-body);letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.eyebrow b{font-variant-numeric:tabular-nums}
+.chapter-head{display:grid;gap:calc(var(--brand-space-base) * 3)}
+.chapter-head p{max-width:62ch}
+/* top bar: transparent over the cover, frosted after */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;height:56px;display:flex;align-items:center;gap:16px;padding:0 20px;color:var(--brand-color-text-inverse);transition:background var(--brand-motion-duration) var(--brand-motion-ease),color var(--brand-motion-duration) var(--brand-motion-ease)}
+.topbar.scrolled{background:var(--brand-nav-bg,color-mix(in oklab,var(--brand-color-background) 85%,transparent));-webkit-backdrop-filter:var(--brand-nav-backdrop,blur(12px));backdrop-filter:blur(14px) saturate(1.2);color:var(--brand-color-text);box-shadow:0 1px 0 color-mix(in oklab,var(--brand-color-text) 12%,transparent)}
+.topbar .name{font:var(--brand-type-h3-weight,600) 15px/1 var(--brand-font-heading);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;text-decoration:none}
+.topbar nav{display:flex;gap:18px;margin-left:auto;font-size:13px;white-space:nowrap}
+.topbar nav a{text-decoration:none;opacity:.85}.topbar nav a:hover{opacity:1}
+@media (max-width:1100px){.topbar nav{display:none}.topbar .pill-unofficial{margin-left:auto}}
+/* cover */
+.cover{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--brand-color-text-inverse);overflow:hidden;padding:0}
+.cover>.slot{position:absolute;inset:0}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in oklab,var(--brand-color-surface-inverse) 55%,transparent) 0,transparent 30%,transparent 45%,color-mix(in oklab,var(--brand-color-surface-inverse) 80%,transparent) 100%);pointer-events:none}
+.cover .wrap{position:relative;z-index:2;padding-top:120px;padding-bottom:28px;display:grid;gap:28px}
+.cover-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:end}
+.cover h1{max-width:14ch}
+.cover .lede{max-width:46ch;margin-top:20px}
+.cover .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.token-card{padding:24px;display:grid;gap:14px;max-width:360px;justify-self:end;width:100%}
+.token-card .sw{height:84px;border-radius:calc(var(--brand-radius-card) * .6);background:var(--brand-color-action)}
+.token-card code{font:500 13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}
+.cover-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:20px;border-top:1px solid color-mix(in oklab,var(--brand-color-text-inverse) 25%,transparent);font-size:13px}
+@media (max-width:860px){.cover-grid{grid-template-columns:1fr}.token-card{justify-self:start}}
+/* overview */
+.overview{text-align:center}
+.overview h2{margin:0 auto;max-width:18ch}
+.overview p.t-lead{margin-left:auto;margin-right:auto;max-width:56ch}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.stat{padding:28px 16px;border-radius:var(--brand-radius-card);background:var(--brand-color-surface)}
+.stat b{display:block;font-family:var(--brand-font-heading);font-size:var(--brand-type-h1-size);font-weight:var(--brand-type-h1-weight);line-height:1;letter-spacing:var(--brand-type-h1-tracking)}
+.stat span{display:block;margin-top:10px;font-size:14px}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* contents: image cards */
+.toc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--brand-layout-gutter)}
+.toc a{position:relative;display:block;aspect-ratio:4/5;border-radius:var(--brand-radius-card);overflow:hidden;color:var(--brand-color-text-inverse);text-decoration:none;isolation:isolate}
+.toc a .slot{position:absolute;inset:0}
+.toc a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),transparent 35%,transparent 55%,rgba(0,0,0,.55));z-index:1}
+.toc a:hover .slot-img,.toc a:focus-visible .slot-img{transform:scale(1.07)}
+.toc .num,.toc .arr,.toc .ttl{position:absolute;z-index:2}
+.toc .num{top:16px;left:18px;font:600 13px/1 var(--brand-font-body);letter-spacing:.06em}
+.toc .arr{top:14px;right:14px;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;background:color-mix(in oklab,var(--brand-color-text-inverse) 18%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.toc .ttl{left:18px;right:18px;bottom:18px;font-family:var(--brand-font-heading);font-size:var(--brand-type-h3-size,1.5rem);font-weight:var(--brand-type-h3-weight,600);line-height:1.15}
+.toc .ai-label{bottom:auto;top:58px;left:18px}
+@media (max-width:1000px){.toc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.toc .ttl{font-size:1.1rem}}
+/* rebuild test */
+.rebuild{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:var(--brand-radius-card);overflow:hidden;box-shadow:inset 0 0 0 1px var(--brand-color-border)}
+.rb-media>.slot{position:absolute;inset:0}
+.rebuild>div{padding:32px;display:grid;gap:20px;align-content:start}
+.rebuild .cards{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.rebuild .rb-card h3{font-size:18px;line-height:1.25;font-family:var(--brand-font-heading);font-weight:var(--brand-type-h3-weight,600)}
+.rebuild .rb-card p{font-size:14px;margin-top:6px}
+.spec{font:500 12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;opacity:.8;overflow-wrap:anywhere}
+@media (max-width:860px){.rebuild,.rebuild .cards{grid-template-columns:minmax(0,1fr)}}
+/* chapter with full-bleed photo */
+.chapter{position:relative;min-height:92svh;display:flex;align-items:center;overflow:hidden;padding:120px 0 80px;color:var(--brand-color-text-inverse)}
+.chapter>.slot{position:absolute;inset:0}
+.kb .slot-img{animation:kb 28s var(--brand-motion-ease) infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09) translate(-1%,-1%)}}
+.chapter .wrap{position:relative;z-index:2}
+.specimen{padding:clamp(20px,3vw,40px);max-width:980px;display:grid;gap:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips .rb-btn[aria-selected=true]{background:var(--brand-color-text-inverse);color:var(--brand-color-surface-inverse)}
+.panel{min-height:200px;display:grid;gap:14px;align-content:start}
+.panel .sample{overflow-wrap:anywhere}
+html.js .panel:not(.active){display:none}
+/* fonts */
+.families{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:var(--brand-layout-gutter)}
+.family{padding:32px;border-radius:var(--brand-radius-card);background:var(--brand-color-surface);display:grid;gap:18px}
+.family .aa{font-size:clamp(96px,14vw,180px);line-height:.9;letter-spacing:-.02em}
+.weights{display:grid;gap:6px}
+.weights div{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--brand-color-border);padding-top:6px}
+.check{display:inline-flex;gap:8px;align-items:center;font-size:13px}
+.check i{width:8px;height:8px;border-radius:50%;background:var(--brand-color-text-muted)}
+.check.yes i{background:#1a9e55}.check.no i{background:#d24b3a}
+.charset{font-size:clamp(22px,3vw,40px);line-height:1.35;overflow-wrap:anywhere;letter-spacing:.02em}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid color-mix(in oklab,currentColor 14%,transparent);vertical-align:top}
+th{font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.table-scroll{overflow-x:auto;max-width:100%}
+.table-scroll table{min-width:640px}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:64px 1fr 56px;gap:12px;align-items:center;font-size:13px}
+.bar i{display:block;height:10px;border-radius:999px;background:var(--brand-color-action)}
+.vars{columns:2 320px;font:500 12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
+/* colour */
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:calc(var(--brand-space-base) * 6);align-items:stretch}
+.split>.slot{border-radius:var(--brand-radius-card);min-height:420px}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split>.slot{min-height:300px}}
+.palette-bar{display:flex;height:120px;border-radius:var(--brand-radius-card);overflow:hidden;box-shadow:0 0 0 1px color-mix(in oklab,currentColor 25%,transparent)}
+.palette-bar i{display:block;min-width:4px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font:500 12px/1.4 ui-monospace,monospace}
+.legend span{display:inline-flex;gap:6px;align-items:center}.legend b{width:12px;height:12px;border-radius:3px;display:inline-block;box-shadow:inset 0 0 0 1px color-mix(in oklab,currentColor 25%,transparent)}
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:16px}
+.role{border-radius:calc(var(--brand-radius-card) * .7);overflow:hidden;background:color-mix(in oklab,var(--brand-color-text-inverse) 7%,transparent)}
+.role .sw{height:96px;box-shadow:inset 0 0 0 1px color-mix(in oklab,currentColor 22%,transparent)}
+.role div.meta{padding:14px;display:grid;gap:4px;font-size:13px}
+.role code{font:500 12px/1.3 ui-monospace,monospace;overflow-wrap:anywhere}
+.badge{display:inline-block;padding:2px 7px;border-radius:999px;font:600 11px/1.4 var(--brand-font-body);background:color-mix(in oklab,currentColor 14%,transparent)}
+.badge.pass{background:#1a9e55;color:#fff}.badge.fail{background:#d24b3a;color:#fff}
+.gradient{height:120px;border-radius:var(--brand-radius-card);background:var(--brand-gradient-brand)}
+.pairs{display:grid;gap:10px}
+.pair{display:grid;grid-template-columns:72px 1fr auto;gap:16px;align-items:center;font-size:13px}
+.pair .aa{height:56px;border-radius:12px;box-shadow:inset 0 0 0 1px color-mix(in oklab,currentColor 18%,transparent);display:grid;place-items:center;font:700 22px/1 var(--brand-font-heading)}
+details{border-top:1px solid color-mix(in oklab,currentColor 20%,transparent);padding-top:16px}
+summary{cursor:pointer;font-weight:600}
+/* layout */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.fact b{display:block;font-family:var(--brand-font-heading);font-size:var(--brand-type-h2-size,3rem);font-weight:var(--brand-type-h2-weight,600);line-height:1;letter-spacing:var(--brand-type-h2-tracking,0)}
+.fact span{display:block;margin-top:8px;font-size:14px}
+@media (max-width:860px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cols{display:grid;grid-template-columns:repeat(var(--brand-layout-columns),minmax(0,1fr));gap:var(--brand-layout-gutter);height:180px;padding:0;border:1px dashed color-mix(in oklab,currentColor 30%,transparent);border-radius:8px}
+.cols i{background:color-mix(in oklab,var(--brand-color-action) 18%,transparent);border-left:1px solid color-mix(in oklab,var(--brand-color-action) 50%,transparent);border-right:1px solid color-mix(in oklab,var(--brand-color-action) 50%,transparent)}
+.stairs{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.stairs div{display:grid;gap:6px;justify-items:start;font:500 11px/1 ui-monospace,monospace}
+.stairs i{display:block;background:var(--brand-color-action);border-radius:2px}
+.radii{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px}
+.radii div{display:grid;gap:8px;font-size:13px}
+.radii i{display:block;height:96px;background:var(--brand-color-surface);border:1.5px solid var(--brand-color-action);border-radius:inherit}
+.radii div>span{border-radius:0}
+.ruler{position:relative;height:64px;border-bottom:2px solid currentColor;margin:0 8px}
+.ruler span{position:absolute;bottom:-2px;transform:translateX(-50%);display:grid;justify-items:center;gap:6px;font:500 11px/1 ui-monospace,monospace}
+.ruler span::after{content:"";width:2px;height:22px;background:var(--brand-color-action);order:2}
+.rhythm{display:grid;gap:3px;border-radius:12px;overflow:hidden;max-width:520px}
+.rhythm div{display:flex;align-items:center;justify-content:space-between;padding:0 14px;font:500 12px/1 ui-monospace,monospace;min-height:22px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:calc(var(--brand-space-base) * 6)}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+/* components */
+.head-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.head-split .slot{aspect-ratio:4/3;border-radius:var(--brand-radius-card)}
+@media (max-width:860px){.head-split{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.tile{border-radius:var(--brand-radius-card);padding:28px 24px;display:grid;gap:18px;justify-items:start;box-shadow:inset 0 0 0 1px color-mix(in oklab,currentColor 12%,transparent)}
+.navmock{display:flex;align-items:center;gap:24px;height:var(--brand-nav-height,64px);padding:0 24px;background:var(--brand-nav-bg);-webkit-backdrop-filter:var(--brand-nav-backdrop);backdrop-filter:var(--brand-nav-backdrop);border-radius:12px;color:var(--brand-color-text);overflow:hidden}
+.navmock .logo{flex:none;width:var(--brand-nav-logo-w,120px);height:var(--brand-nav-logo-h,28px);border:1.5px dashed var(--brand-nav-logo-color,currentColor);border-radius:4px;display:grid;place-items:center;font:600 10px/1 ui-monospace,monospace;color:var(--brand-nav-logo-color,currentColor);white-space:nowrap;overflow:hidden}
+.navmock nav{display:flex;gap:var(--brand-nav-gap,24px);font-size:var(--brand-nav-link-size);font-weight:var(--brand-nav-link-weight);color:var(--brand-nav-link-color);white-space:nowrap;overflow:hidden;min-width:0}
+.navmock .rb-btn{margin-left:auto;flex:none}
+@media (max-width:700px){.navmock nav{display:none}}
+.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--brand-layout-gutter)}
+@media (max-width:860px){.cards3{grid-template-columns:1fr}}
+.cards3 .rb-card h3{font-family:var(--brand-font-heading);font-size:var(--brand-type-h3-size,1.5rem);font-weight:var(--brand-type-h3-weight,600);line-height:1.2}
+.form{display:flex;gap:12px;flex-wrap:wrap;max-width:560px}.form .rb-input{flex:1 1 220px}
+/* imagery */
+.mosaic{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:120px;gap:12px}
+.mosaic .slot{border-radius:calc(var(--brand-radius-card) * .7)}
+.mosaic .m1{grid-column:span 4;grid-row:span 3}.mosaic .m2{grid-column:span 2;grid-row:span 2}.mosaic .m3{grid-column:span 2;grid-row:span 1}
+.mosaic .m4{grid-column:span 2;grid-row:span 2}.mosaic .m5{grid-column:span 2;grid-row:span 2}.mosaic .m6{grid-column:span 2;grid-row:span 2}
+@media (max-width:700px){.mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:110px}.mosaic .slot{grid-column:span 1!important;grid-row:span 2!important}.mosaic .m1{grid-column:span 2!important}}
+.list{display:grid;gap:8px;padding:0;margin:0;list-style:none}
+.list li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid color-mix(in oklab,currentColor 14%,transparent);padding-bottom:8px;overflow-wrap:anywhere}
+/* voice */
+.quotes{display:grid;gap:36px}
+.quotes blockquote{font-family:var(--brand-font-heading);font-size:var(--brand-type-h2-size,2.5rem);font-weight:var(--brand-type-h2-weight,600);line-height:var(--brand-type-h2-line-height,1.15);letter-spacing:var(--brand-type-h2-tracking,0);text-wrap:balance;overflow-wrap:anywhere}
+.quotes blockquote::before{content:"\201C"}.quotes blockquote::after{content:"\201D"}
+.quotes cite{display:block;margin-top:10px;font:500 13px/1.4 var(--brand-font-body);font-style:normal;overflow-wrap:anywhere}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--brand-layout-gutter)}
+.rule{padding:28px;border-radius:var(--brand-radius-card);background:var(--brand-color-surface);display:grid;gap:12px;align-content:start}
+.ground-alt .rule,.ground-alt .stat{background:var(--brand-color-background);box-shadow:inset 0 0 0 1px var(--brand-color-border)}
+.rule .n{font:600 13px/1 var(--brand-font-body);color:var(--brand-color-action)}
+@media (max-width:860px){.rules{grid-template-columns:1fr}}
+/* tokens */
+.toolbar{display:flex;gap:12px;flex-wrap:wrap}
+pre{margin:0;max-height:420px;overflow:auto;padding:20px;border-radius:calc(var(--brand-radius-card) * .6);background:color-mix(in oklab,var(--brand-color-text-inverse) 8%,transparent);font:500 12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;max-width:100%}
+/* footer */
+footer.foot{padding:48px 0 64px;font-size:13px}
+footer.foot .wrap{display:grid;gap:12px}
+/* motion */
+html.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--brand-motion-ease),transform .9s var(--brand-motion-ease)}
+html.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}html.js .reveal{opacity:1;transform:none;transition:none}.kb .slot-img{animation:none}.slot-img,.rb-btn{transition:none}}
+@media (max-width:600px){.page{padding:calc(var(--brand-space-base) * 10) 0}.rebuild>div,.family,.rule{padding:20px}}
+</style>
+</head><body>
+<header class="topbar"><a class="name" href="#cover">Lumen Fixture brand guidelines</a><span class="pill-unofficial">Unofficial analysis</span><nav aria-label="Sections"><a href="#overview">Overview</a><a href="#contents">Contents</a><a href="#typography">Typography</a><a href="#fonts">Fonts</a><a href="#colour">Colour</a><a href="#layout">Layout and spacing</a><a href="#components">Components</a><a href="#imagery">Imagery</a><a href="#voice">Voice and tone</a><a href="#tokens">Design tokens</a><a href="#method">Method</a></nav></header>
+<main>
+<section id="cover" class="cover"><div class="slot kb" data-slot="hero" role="img" aria-label="Cover image"><div class="slot-img img-hero"></div></div>
+<div class="wrap"><div class="cover-grid"><div class="reveal"><div class="eyebrow"><span class="pill-unofficial">Unofficial analysis</span></div>
+<h1 class="t-display" style="margin-top:20px">Lumen Fixture brand guidelines</h1>
+<p class="t-lead lede">Measured from 5 pages of localhost:4321 on 2026-10-20: type, colour, layout, components, imagery and voice, rebuilt as tokens.</p>
+<div class="cta"><a class="rb-btn" href="#contents">Open contents</a><a class="rb-btn glass" href="#tokens">Design tokens</a></div></div>
+<aside class="glass-card token-card reveal" aria-label="Token sample"><div class="eyebrow">Token</div><div class="sw"></div><div><b>--brand-color-action</b><br><code>#1570d1 · oklch(55.0% 0.169 254.9)</code></div><div class="spec">contrast on background 4.47:1</div></aside></div>
+<div class="cover-foot"><span class="pill-unofficial">Unofficial analysis</span><span>Not affiliated with or endorsed by Lumen Fixture. Trademarks belong to their owners.</span><a href="http://localhost:4321/" rel="noopener">Source: localhost:4321</a></div></div></section>
+<section id="overview" class="page ground overview"><div class="wrap">
+<div class="reveal"><div class="eyebrow" style="justify-content:center">What the site uses, measured</div><h2 class="t-h1" style="margin-top:16px">Overview</h2></div>
+<p class="t-lead muted reveal">Computed styles of 41 text styles across 5 pages at 1440px, plus the home page at 390px. Repeated header and footer counts are counted once.</p>
+<div class="stats reveal"><div class="stat"><b>2</b><span class="muted">typefaces</span></div><div class="stat"><b>11</b><span class="muted">colour roles from 16 colours</span></div><div class="stat"><b>4px</b><span class="muted">spacing base</span></div><div class="stat"><b>3</b><span class="muted">button variants</span></div></div></div></section>
+<section id="contents" class="page ground-alt"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>—</b><span>Contents</span></div><h2 class="t-h1">Contents</h2><p class="t-lead muted">Eight chapters. Each one shows measured values first, then the same values rebuilt from tokens.</p></div>
+<div class="toc"><a href="#typography" class="reveal"><div class="slot " data-slot="horizon" role="img" aria-label="Typography"><div class="slot-img img-horizon"></div></div><span class="num">01</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Typography</span></a><a href="#fonts" class="reveal"><div class="slot " data-slot="sky" role="img" aria-label="Fonts"><div class="slot-img img-sky"></div></div><span class="num">02</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Fonts</span></a><a href="#colour" class="reveal"><div class="slot " data-slot="object" role="img" aria-label="Colour"><div class="slot-img img-object"></div></div><span class="num">03</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Colour</span></a><a href="#layout" class="reveal"><div class="slot " data-slot="grid" role="img" aria-label="Layout and spacing"><div class="slot-img img-grid"></div></div><span class="num">04</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Layout and spacing</span></a><a href="#components" class="reveal"><div class="slot " data-slot="glass" role="img" aria-label="Components"><div class="slot-img img-glass"></div></div><span class="num">05</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Components</span></a><a href="#imagery" class="reveal"><div class="slot " data-slot="detail" role="img" aria-label="Imagery"><div class="slot-img img-detail"></div></div><span class="num">06</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Imagery</span></a><a href="#voice" class="reveal"><div class="slot " data-slot="street" role="img" aria-label="Voice and tone"><div class="slot-img img-street"></div></div><span class="num">07</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Voice and tone</span></a><a href="#tokens" class="reveal"><div class="slot " data-slot="tokens" role="img" aria-label="Design tokens"><div class="slot-img img-tokens"></div></div><span class="num">08</span><span class="arr"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M7 5h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ttl">Design tokens</span></a></div></div></section>
+<section id="rebuild" class="page ground"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>Test</b><span>Token rebuild test</span></div><h2 class="t-h1">Token rebuild test</h2><p class="t-lead muted">A button and two cards built only from the exported variables, on the site's light and dark grounds. verify.js compares their computed styles with the token values.</p></div>
+<div class="rebuild reveal"><div class="ground"><div class="eyebrow">Light ground · --brand-color-background</div><div><a class="rb-btn" data-rebuild="button" href="#tokens">Inizia ora</a></div>
+<div class="cards"><article class="rb-card" data-rebuild="card"><div class="rb-media"><div class="slot " data-slot="sky" role="img" aria-label="Card media"><div class="slot-img img-sky"></div></div></div><div class="rb-body"><h3>Card from tokens</h3><p class="muted">radius 20px · padding 24px</p></div></article><article class="rb-card" data-rebuild="card"><div class="rb-media"><div class="slot " data-slot="grid" role="img" aria-label="Card media"><div class="slot-img img-grid"></div></div></div><div class="rb-body"><h3>Same tokens</h3><p class="muted">media 16 / 9</p></div></article></div>
+<div class="spec">button: height 53px · pad-x 28px · radius 999px · 16px/600</div></div>
+<div class="ground-inv"><div class="eyebrow">Dark ground · --brand-color-surface-inverse</div><div><a class="rb-btn" href="#tokens">Inizia ora</a></div>
+<div class="cards"><article class="rb-card" data-rebuild="card"><div class="rb-media"><div class="slot " data-slot="horizon" role="img" aria-label="Card media"><div class="slot-img img-horizon"></div></div></div><div class="rb-body"><h3>Card from tokens</h3><p class="muted">Same variables on the inverse ground.</p></div></article><article class="rb-card" data-rebuild="card"><div class="rb-media"><div class="slot " data-slot="object" role="img" aria-label="Card media"><div class="slot-img img-object"></div></div></div><div class="rb-body"><h3>Same tokens</h3><p class="muted">No overrides.</p></div></article></div></div></div></div></section>
+<section id="typography" class="chapter"><div class="slot kb" data-slot="horizon" role="img" aria-label="Typography chapter image"><div class="slot-img img-horizon"></div></div><div class="wrap">
+<div class="glass-card specimen reveal"><div class="eyebrow"><b>01</b><span>Type roles at real size</span><span class="pill-unofficial">Unofficial analysis</span></div><h2 class="t-h3">Typography</h2>
+<div class="chips" role="tablist" aria-label="Type roles"><button class="rb-btn glass small" role="tab" id="tab-Display" aria-controls="panel-Display" aria-selected="true">Display</button><button class="rb-btn glass small" role="tab" id="tab-Heading" aria-controls="panel-Heading" aria-selected="false">Heading</button><button class="rb-btn glass small" role="tab" id="tab-Subhead" aria-controls="panel-Subhead" aria-selected="false">Subhead</button><button class="rb-btn glass small" role="tab" id="tab-Lead" aria-controls="panel-Lead" aria-selected="false">Lead</button><button class="rb-btn glass small" role="tab" id="tab-Body" aria-controls="panel-Body" aria-selected="false">Body</button></div>
+<div class="panel active" id="panel-Display" role="tabpanel" aria-labelledby="tab-Display"><div class="sample t-display">Lumen Fixture</div><div class="spec">display · Inter Display 600 · 44→76px · line-height 1.039 · tracking -0.02em</div></div><div class="panel" id="panel-Heading" role="tabpanel" aria-labelledby="tab-Heading"><div class="sample t-h1">Layout and spacing</div><div class="spec">h1 · Inter Display 600 · 32→64px · line-height 1.059 · tracking 0em</div></div><div class="panel" id="panel-Subhead" role="tabpanel" aria-labelledby="tab-Subhead"><div class="sample t-h3">Measured at desktop width</div><div class="spec">h3 · Inter 600 · 24→24px · line-height 1.25 · tracking 0em</div></div><div class="panel" id="panel-Lead" role="tabpanel" aria-labelledby="tab-Lead"><div class="sample t-lead">The Lumen Fixture site sets body copy in Inter at 15px.</div><div class="spec">lead · Inter 400 · 18→21px · line-height 1.5 · tracking 0em</div></div><div class="panel" id="panel-Body" role="tabpanel" aria-labelledby="tab-Body"><div class="sample t-body">Body text is set at 15px with a 1.553 line-height ratio. This paragraph uses the body role exactly as measured, so its length, rhythm and colour can be judged against the site. Values come from computed styles, not from the stylesheet source.</div><div class="spec">body · Inter 400 · 15→15px · line-height 1.553 · tracking 0em</div></div>
+</div></div></section>
+<section id="fonts" class="page ground"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>02</b><span>Fonts</span></div><h2 class="t-h1">Fonts</h2><p class="t-lead muted">2 families by share of rendered characters. Font files are not copied; the guide asks your device for the family and falls back if it is missing.</p></div>
+<div class="families"><div class="family reveal"><div class="aa" style="font-family:Inter, system-ui, sans-serif">Aa</div><div><h3 class="t-h3" style="font-family:Inter, system-ui, sans-serif">Inter</h3><p class="muted">88.3% of characters · roles: h3, lead, body, small</p></div>
+<div class="weights"><div style="font-family:Inter, system-ui, sans-serif;font-weight:400"><span>400</span><span>70.8%</span></div><div style="font-family:Inter, system-ui, sans-serif;font-weight:600"><span>600</span><span>26.9%</span></div><div style="font-family:Inter, system-ui, sans-serif;font-weight:500"><span>500</span><span>2.3%</span></div></div>
+<div class="check" data-family="Inter"><i></i><span>Checking this device…</span></div></div><div class="family reveal"><div class="aa" style="font-family:&quot;Inter Display&quot;, Inter, sans-serif">Aa</div><div><h3 class="t-h3" style="font-family:&quot;Inter Display&quot;, Inter, sans-serif">Inter Display</h3><p class="muted">11.2% of characters · roles: display, h1, h2</p></div>
+<div class="weights"><div style="font-family:&quot;Inter Display&quot;, Inter, sans-serif;font-weight:600"><span>600</span><span>100%</span></div></div>
+<div class="check" data-family="Inter Display"><i></i><span>Checking this device…</span></div></div></div>
+<div class="reveal"><h3 class="t-h3">Character set</h3><p class="charset" style="font-family:var(--brand-font-heading);margin-top:12px">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 àèéìòù ÀÈÉ ç ñ ß .,:;!?¿¡ &#39;&quot;“”‘’ ()[]{} &amp;@#%*+−=/ €$£ →</p></div>
+<div class="reveal"><h3 class="t-h3">Type scale</h3><p class="muted" style="margin:8px 0 16px">Ratio 1.622 between body and h1 steps; nearest named interval: golden ratio (1.618). Mobile values come from the 390px pass.</p>
+<div class="table-scroll"><table><thead><tr><th>Role</th><th>Family</th><th>Mobile → desktop</th><th>Line-height</th><th>Weight</th><th>Tracking</th><th>Token</th></tr></thead><tbody>
+<tr><td>display</td><td>Inter Display</td><td>44px → 76px</td><td>1.039</td><td>600</td><td>-0.02em</td><td class="spec">clamp(2.75rem, 2.007rem + 3.048vw, 4.75rem)</td></tr><tr><td>h1</td><td>Inter Display</td><td>32px → 64px</td><td>1.059</td><td>600</td><td>0em</td><td class="spec">clamp(2rem, 1.257rem + 3.048vw, 4rem)</td></tr><tr><td>h2</td><td>Inter Display</td><td>24px → 48px</td><td>1.1</td><td>600</td><td>-0.015em</td><td class="spec">clamp(1.5rem, 0.943rem + 2.286vw, 3rem)</td></tr><tr><td>h3</td><td>Inter</td><td>24px → 24px</td><td>1.25</td><td>600</td><td>0em</td><td class="spec">1.5rem</td></tr><tr><td>lead</td><td>Inter</td><td>18px → 21px</td><td>1.5</td><td>400</td><td>0em</td><td class="spec">clamp(1.125rem, 1.055rem + 0.286vw, 1.313rem)</td></tr><tr><td>body</td><td>Inter</td><td>15px → 15px</td><td>1.553</td><td>400</td><td>0em</td><td class="spec">0.938rem</td></tr><tr><td>small</td><td>Inter</td><td>13px → 13px</td><td>1.554</td><td>400</td><td>0.008em</td><td class="spec">0.813rem</td></tr></tbody></table></div></div>
+<div class="two reveal"><div><h3 class="t-h3">Sizes in use</h3><div class="bars" style="margin-top:16px"><div class="bar"><span>76px</span><i style="width:5.797101449275363%"></i><span class="muted">2%</span></div><div class="bar"><span>64px</span><i style="width:13.043478260869566%"></i><span class="muted">4.5%</span></div><div class="bar"><span>48px</span><i style="width:13.913043478260871%"></i><span class="muted">4.8%</span></div><div class="bar"><span>24px</span><i style="width:40.00000000000001%"></i><span class="muted">13.8%</span></div><div class="bar"><span>21px</span><i style="width:59.42028985507247%"></i><span class="muted">20.5%</span></div><div class="bar"><span>17px</span><i style="width:8.115942028985508%"></i><span class="muted">2.8%</span></div><div class="bar"><span>16px</span><i style="width:26.956521739130437%"></i><span class="muted">9.3%</span></div><div class="bar"><span>15px</span><i style="width:100.00000000000001%"></i><span class="muted">34.5%</span></div><div class="bar"><span>14px</span><i style="width:10.434782608695652%"></i><span class="muted">3.6%</span></div><div class="bar"><span>13px</span><i style="width:8.985507246376812%"></i><span class="muted">3.1%</span></div><div class="bar"><span>12px</span><i style="width:3.4782608695652177%"></i><span class="muted">1.2%</span></div></div></div>
+<div><h3 class="t-h3">Declared type variables</h3><div class="vars" style="margin-top:16px"><div>--lf-font: &quot;Inter&quot;,system-ui,sans-serif</div><div>--lf-display: &quot;Inter Display&quot;,&quot;Inter&quot;,sans-serif</div></div></div></div>
+</div></section>
+<section id="colour" class="page ground-inv"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>03</b><span>Colour</span></div><h2 class="t-h1">Colour</h2><p class="t-lead muted">16 measured colours mapped to 11 roles. Text is weighted by characters, backgrounds by painted area.</p></div>
+<div class="split"><div class="slot reveal" data-slot="object" role="img" aria-label="Colour chapter image"><div class="slot-img img-object"></div></div><div style="display:grid;gap:24px;align-content:start" class="reveal"><h3 class="t-h3">Proportional palette</h3>
+<div class="palette-bar"><i style="flex:0.3165;background:var(--brand-palette-1)" title="#f6f4ef 30.6%"></i><i style="flex:0.1680;background:var(--brand-palette-2)" title="#14161c 16.2%"></i><i style="flex:0.1128;background:var(--brand-palette-3)" title="#ffffff 10.9%"></i><i style="flex:0.0997;background:var(--brand-palette-4)" title="#5b6070 9.6%"></i><i style="flex:0.0664;background:var(--brand-palette-5)" title="#dfe6f3 6.4%"></i><i style="flex:0.0517;background:var(--brand-palette-6)" title="#1f4fa3 5%"></i><i style="flex:0.0418;background:var(--brand-palette-7)" title="#101826 4%"></i><i style="flex:0.0374;background:var(--brand-palette-8)" title="#cfcabe 3.6%"></i><i style="flex:0.0369;background:var(--brand-palette-9)" title="#a9b3c4 3.6%"></i><i style="flex:0.0340;background:var(--brand-palette-10)" title="#e2ded5 3.3%"></i><i style="flex:0.0210;background:var(--brand-palette-11)" title="#eef1f6 2%"></i><i style="flex:0.0137;background:var(--brand-palette-12)" title="#9aa3b2 1.3%"></i></div>
+<div class="legend"><span><b style="background:var(--brand-palette-1)"></b>#f6f4ef 30.6%</span><span><b style="background:var(--brand-palette-2)"></b>#14161c 16.2%</span><span><b style="background:var(--brand-palette-3)"></b>#ffffff 10.9%</span><span><b style="background:var(--brand-palette-4)"></b>#5b6070 9.6%</span><span><b style="background:var(--brand-palette-5)"></b>#dfe6f3 6.4%</span><span><b style="background:var(--brand-palette-6)"></b>#1f4fa3 5%</span><span><b style="background:var(--brand-palette-7)"></b>#101826 4%</span><span><b style="background:var(--brand-palette-8)"></b>#cfcabe 3.6%</span><span><b style="background:var(--brand-palette-9)"></b>#a9b3c4 3.6%</span><span><b style="background:var(--brand-palette-10)"></b>#e2ded5 3.3%</span><span><b style="background:var(--brand-palette-11)"></b>#eef1f6 2%</span><span><b style="background:var(--brand-palette-12)"></b>#9aa3b2 1.3%</span></div>
+<h3 class="t-h3">Gradient</h3><div class="gradient"></div><div class="spec">linear-gradient(135deg, rgb(16, 24, 38) 0%, rgb(31, 79, 163) 60%, rgb(242, 179, 61) 130%)</div></div></div>
+<div class="roles reveal"><div class="role"><div class="sw" style="background:var(--brand-color-background)"></div><div class="meta"><b>background</b><code>#f6f4ef</code><code>oklch(96.7% 0.007 88.6)</code><span>16.45:1 vs text <span class="badge pass">AA</span></span><span class="muted">share 76.5%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-surface)"></div><div class="meta"><b>surface</b><code>#ffffff</code><code>oklch(100.0% 0.000 0.0)</code><span>18.08:1 vs text <span class="badge pass">AA</span></span><span class="muted">share 10.4%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-surface-inverse)"></div><div class="meta"><b>surface-inverse</b><code>#101826</code><code>oklch(20.9% 0.030 261.2)</code><span>17.79:1 vs text-inverse <span class="badge pass">AA</span></span><span class="muted">share 10.1%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-text)"></div><div class="meta"><b>text</b><code>#14161c</code><code>oklch(20.1% 0.012 270.7)</code><span>16.45:1 vs background <span class="badge pass">AA</span></span><span class="muted">share 28.1%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-text-muted)"></div><div class="meta"><b>text-muted</b><code>#5b6070</code><code>oklch(49.1% 0.026 271.7)</code><span>5.7:1 vs background <span class="badge pass">AA</span></span><span class="muted">share 24.1%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-text-inverse)"></div><div class="meta"><b>text-inverse</b><code>#ffffff</code><code>oklch(100.0% 0.000 0.0)</code><span>17.79:1 vs surface-inverse <span class="badge pass">AA</span></span><span class="muted">share 10.4%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-action)"></div><div class="meta"><b>action</b><code>#1570d1</code><code>oklch(55.0% 0.169 254.9)</code><span>4.47:1 vs background <span class="badge">AA large</span></span><span class="muted">share 1.1%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-on-action)"></div><div class="meta"><b>on-action</b><code>#ffffff</code><code>oklch(100.0% 0.000 0.0)</code><span>4.92:1 vs action <span class="badge pass">AA</span></span><span class="muted">share 10.4%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-action-alt)"></div><div class="meta"><b>action-alt</b><code>#101826</code><code>oklch(20.9% 0.030 261.2)</code><span>16.18:1 vs background <span class="badge pass">AA</span></span><span class="muted">share 10.1%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-accent)"></div><div class="meta"><b>accent</b><code>#f2b33d</code><code>oklch(80.6% 0.147 79.0)</code><span>1.69:1 vs background </span><span class="muted">share 0%</span></div></div><div class="role"><div class="sw" style="background:var(--brand-color-border)"></div><div class="meta"><b>border</b><code>#cfcabe</code><code>oklch(84.0% 0.017 88.0)</code><span>1.49:1 vs background </span><span class="muted">share 0%</span></div></div></div>
+<div class="reveal"><h3 class="t-h3">Most-read pairs (WCAG 2.x contrast)</h3><div class="pairs" style="margin-top:16px"><div class="pair"><div class="aa" style="background:var(--brand-palette-3);color:var(--brand-palette-4)">Aa</div><div><code>#5b6070 on #ffffff</code><div class="muted">24.1% of characters</div></div><div><b>6.27:1</b> <span class="badge pass">AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-1);color:var(--brand-palette-2)">Aa</div><div><code>#14161c on #f6f4ef</code><div class="muted">17.8% of characters</div></div><div><b>16.45:1</b> <span class="badge pass">AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-3);color:var(--brand-palette-2)">Aa</div><div><code>#14161c on #ffffff</code><div class="muted">10.3% of characters</div></div><div><b>18.08:1</b> <span class="badge pass">AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-1);color:var(--brand-palette-5)">Aa</div><div><code>#dfe6f3 on #f6f4ef</code><div class="muted">8.7% of characters</div></div><div><b>1.14:1</b> <span class="badge fail">Fails AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-7);color:var(--brand-palette-5)">Aa</div><div><code>#dfe6f3 on #101826</code><div class="muted">7.4% of characters</div></div><div><b>14.19:1</b> <span class="badge pass">AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-16);color:var(--brand-palette-3)">Aa</div><div><code>#ffffff on #1570d1</code><div class="muted">6.1% of characters</div></div><div><b>4.92:1</b> <span class="badge pass">AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-14);color:var(--brand-palette-9)">Aa</div><div><code>#a9b3c4 on #1a2436</code><div class="muted">6% of characters</div></div><div><b>7.36:1</b> <span class="badge pass">AA</span></div></div><div class="pair"><div class="aa" style="background:var(--brand-palette-7);color:var(--brand-palette-3)">Aa</div><div><code>#ffffff on #101826</code><div class="muted">3.6% of characters</div></div><div><b>17.79:1</b> <span class="badge pass">AA</span></div></div></div></div>
+<details class="reveal"><summary>Full palette (16)</summary><div class="table-scroll" style="margin-top:12px"><table><thead><tr><th></th><th>Hex</th><th>OKLCH</th><th>Share</th><th>Text</th><th>Background</th></tr></thead><tbody><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-1)"></span></td><td>#f6f4ef</td><td>oklch(96.7% 0.007 88.6)</td><td>30.6%</td><td>—</td><td>12259k px²</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-2)"></span></td><td>#14161c</td><td>oklch(20.1% 0.012 270.7)</td><td>16.2%</td><td>504 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-3)"></span></td><td>#ffffff</td><td>oklch(100.0% 0.000 0.0)</td><td>10.9%</td><td>187 ch</td><td>1453k px²</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-4)"></span></td><td>#5b6070</td><td>oklch(49.1% 0.026 271.7)</td><td>9.6%</td><td>432 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-5)"></span></td><td>#dfe6f3</td><td>oklch(92.3% 0.019 263.0)</td><td>6.4%</td><td>288 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-6)"></span></td><td>#1f4fa3</td><td>oklch(44.5% 0.146 260.7)</td><td>5%</td><td>—</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-7)"></span></td><td>#101826</td><td>oklch(20.9% 0.030 261.2)</td><td>4%</td><td>—</td><td>1618k px²</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-8)"></span></td><td>#cfcabe</td><td>oklch(84.0% 0.017 88.0)</td><td>3.6%</td><td>—</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-9)"></span></td><td>#a9b3c4</td><td>oklch(76.4% 0.027 261.1)</td><td>3.6%</td><td>160 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-10)"></span></td><td>#e2ded5</td><td>oklch(90.1% 0.013 86.8)</td><td>3.3%</td><td>—</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-11)"></span></td><td>#eef1f6</td><td>oklch(95.7% 0.007 260.7)</td><td>2%</td><td>91 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-12)"></span></td><td>#9aa3b2</td><td>oklch(71.3% 0.024 260.7)</td><td>1.3%</td><td>59 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-13)"></span></td><td>#6b7080</td><td>oklch(54.7% 0.026 271.8)</td><td>1.2%</td><td>52 ch</td><td>—</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-14)"></span></td><td>#1a2436</td><td>oklch(26.0% 0.037 261.8)</td><td>0.9%</td><td>—</td><td>358k px²</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-15)"></span></td><td>#0b0f17</td><td>oklch(16.8% 0.018 263.9)</td><td>0.7%</td><td>—</td><td>261k px²</td></tr><tr><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:var(--brand-palette-16)"></span></td><td>#1570d1</td><td>oklch(55.0% 0.169 254.9)</td><td>0.6%</td><td>20 ch</td><td>73k px²</td></tr></tbody></table></div></details>
+</div></section>
+<section id="layout" class="page ground"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>04</b><span>Layout and spacing</span></div><h2 class="t-h1">Layout and spacing</h2><p class="t-lead muted">Spacing values are tested against 8, 4 and 2px grids; 81% of measured paddings, margins and gaps sit on the 4px grid.</p></div>
+<div class="facts reveal"><div class="fact"><b>4px</b><span class="muted">base unit</span></div><div class="fact"><b>3</b><span class="muted">columns</span></div><div class="fact"><b>24px</b><span class="muted">gutter</span></div><div class="fact"><b>1200px</b><span class="muted">container</span></div></div>
+<div class="reveal"><h3 class="t-h3">Columns</h3><p class="muted" style="margin:8px 0 16px">3 columns, 24px gutter inside a 1200px container (drawn at this page's width).</p><div class="cols"><i></i><i></i><i></i></div></div>
+<div class="reveal"><h3 class="t-h3">Spacing scale</h3><p class="muted" style="margin:8px 0 16px">Most used on-grid values. Off-grid values seen: 14px, 43px, 13px, 17px, 27px, 238px.</p>
+<div class="stairs"><div><i style="width:var(--brand-space-1);height:var(--brand-space-1)"></i>8</div><div><i style="width:var(--brand-space-2);height:var(--brand-space-2)"></i>12</div><div><i style="width:var(--brand-space-3);height:var(--brand-space-3)"></i>20</div><div><i style="width:var(--brand-space-4);height:var(--brand-space-4)"></i>24</div><div><i style="width:var(--brand-space-5);height:var(--brand-space-5)"></i>28</div><div><i style="width:var(--brand-space-6);height:var(--brand-space-6)"></i>32</div><div><i style="width:var(--brand-space-7);height:var(--brand-space-7)"></i>48</div><div><i style="width:var(--brand-space-8);height:var(--brand-space-8)"></i>96</div><div><i style="width:var(--brand-space-9);height:var(--brand-space-9)"></i>120</div></div></div>
+<div class="two reveal"><div><h3 class="t-h3">Radii</h3><p class="muted" style="margin:8px 0 16px">Pill shapes: 48.3% of rounded elements.</p><div class="radii"><div style="border-radius:var(--brand-radius-sm)"><i></i><span>sm · 20px</span></div><div style="border-radius:var(--brand-radius-card)"><i></i><span>card · 20px</span></div><div style="border-radius:var(--brand-radius-button)"><i></i><span>button · 999px</span></div><div style="border-radius:var(--brand-radius-input)"><i></i><span>input · 999px</span></div></div></div>
+<div><h3 class="t-h3">Section rhythm (home)</h3><p class="muted" style="margin:8px 0 16px">Full-width bands in page order, height to scale.</p><div class="rhythm"><div style="height:81px;background:var(--brand-color-surface-inverse);color:var(--brand-color-text-inverse)"><span>dark (gradient)</span><span>640px</span></div><div style="height:76px;background:var(--brand-color-surface);color:var(--brand-color-text)"><span>light</span><span>598px</span></div><div style="height:66px;background:var(--brand-gradient-brand);color:var(--brand-color-text-inverse)"><span>image</span><span>520px</span></div><div style="height:84px;background:var(--brand-color-surface-inverse);color:var(--brand-color-text-inverse)"><span>dark</span><span>662px</span></div><div style="height:52px;background:var(--brand-color-surface);color:var(--brand-color-text)"><span>light</span><span>410px</span></div></div></div></div>
+<div class="reveal"><h3 class="t-h3">Breakpoints</h3><p class="muted" style="margin:8px 0 16px">From @media rules in readable stylesheets.</p><div class="ruler"><span style="left:33.33333333333333%">600</span><span style="left:50%">900</span><span style="left:71.11111111111111%">1280</span></div></div>
+</div></section>
+<section id="components" class="page ground-inv"><div class="wrap">
+<div class="head-split"><div class="chapter-head reveal"><div class="eyebrow"><b>05</b><span>Components</span></div><h2 class="t-h1">Components</h2><p class="t-lead muted">Buttons, navigation, cards and the form input, measured on their own grounds and rebuilt from tokens.</p></div><div class="slot reveal" data-slot="glass" role="img" aria-label="Components chapter image"><div class="slot-img img-glass"></div></div></div>
+<div class="reveal"><h3 class="t-h3">Buttons</h3><div class="gallery" style="margin-top:16px"><div class="tile ground" ><span class="eyebrow">filled</span><a class="rb-btn " href="#components">Inizia ora</a><div class="spec">h 53px · pad 14/28 · radius pill · 16px/600 · seen 10× on 5 page(s) · ground #f6f4ef</div></div><div class="tile ground-inv" ><span class="eyebrow">outline</span><a class="rb-btn outline" href="#components">Guarda i prodotti</a><div class="spec">h 52px · pad 13/27 · radius pill · 16px/600 · border 1px · seen 2× on 2 page(s) · ground #101826</div></div><div class="tile ground-inv" style="background:var(--brand-gradient-brand);color:var(--brand-color-text-inverse)"><span class="eyebrow">translucent</span><a class="rb-btn glass" href="#components">Per le aziende</a><div class="spec">h 53px · pad 14/28 · radius pill · 16px/600 · blur(16px) · seen 1× on 1 page(s) · ground #101826</div></div></div></div>
+<div class="reveal"><h3 class="t-h3">Navigation</h3><p class="muted" style="margin:8px 0 16px">72px high, sticky, blur(12px); links 15px/500. The logo is a placeholder at its measured size (132×28px, svg, #1f4fa3).</p>
+<div class="ground" style="padding:24px;border-radius:var(--brand-radius-card)"><div class="navmock"><div class="logo">logo 132×28</div><nav><span>Prodotti</span><span>Prezzi</span><span>Business</span><span>Azienda</span><span>Blog</span></nav><a class="rb-btn small" href="#components">Inizia ora</a></div></div></div>
+<div class="reveal"><h3 class="t-h3">Cards</h3><p class="muted" style="margin:8px 0 16px">media-top: 363×329px, radius 20px, padding 24/24/24/24, fill #ffffff (seen 12×); media-top: 363×329px, radius 20px, padding 24/24/24/24, fill #1a2436 (seen 3×)</p>
+<div class="cards3"><article class="rb-card"><div class="rb-media"><div class="slot " data-slot="sky" role="img" aria-label="Card media"><div class="slot-img img-sky"></div></div></div><div class="rb-body"><h3>Card title</h3><p class="muted" style="margin-top:6px">Built from --brand-card-* tokens.</p></div></article><article class="rb-card"><div class="rb-media"><div class="slot " data-slot="detail" role="img" aria-label="Card media"><div class="slot-img img-detail"></div></div></div><div class="rb-body"><h3>Second card</h3><p class="muted" style="margin-top:6px">Built from --brand-card-* tokens.</p></div></article><article class="rb-card"><div class="rb-media"><div class="slot " data-slot="grid" role="img" aria-label="Card media"><div class="slot-img img-grid"></div></div></div><div class="rb-body"><h3>Third card</h3><p class="muted" style="margin-top:6px">Built from --brand-card-* tokens.</p></div></article></div></div>
+<div class="reveal"><h3 class="t-h3">Form input </h3><p class="muted" style="margin:8px 0 16px">Measured: 52px high, radius 999px, 1px border #cfcabe.</p>
+<div class="ground" style="padding:24px;border-radius:var(--brand-radius-card)"><form class="form" onsubmit="return false"><input class="rb-input" type="email" placeholder="La tua email" aria-label="Sample input"><button class="rb-btn" type="button">Inizia ora</button></form></div></div>
+</div></section>
+<section id="imagery" class="page ground"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>06</b><span>Imagery</span></div><h2 class="t-h1">Imagery</h2><p class="t-lead muted">The site's images are described here, not copied. 23 media elements across 5 pages cover 27.8% of page area.</p></div>
+<div class="mosaic reveal"><div class="slot m1" data-slot="hero" role="img" aria-label="Mosaic image"><div class="slot-img img-hero"></div></div><div class="slot m2" data-slot="street" role="img" aria-label="Mosaic image"><div class="slot-img img-street"></div></div><div class="slot m3" data-slot="sky" role="img" aria-label="Mosaic image"><div class="slot-img img-sky"></div></div><div class="slot m4" data-slot="detail" role="img" aria-label="Mosaic image"><div class="slot-img img-detail"></div></div><div class="slot m5" data-slot="glass" role="img" aria-label="Mosaic image"><div class="slot-img img-glass"></div></div><div class="slot m6" data-slot="tokens" role="img" aria-label="Mosaic image"><div class="slot-img img-tokens"></div></div></div>
+<p class="muted reveal">This edition has no images: every image slot uses a gradient built from the colour tokens. The hero edition embeds the generated images.</p>
+<div class="two reveal"><div><h3 class="t-h3">Measured facts</h3><ul class="list" style="margin-top:16px">
+<li><span>Media elements</span><b>23 (img 16, video 0, svg 5, background 2)</b></li>
+<li><span>Formats</span><b>jpg 78.3%, svg 21.7%</b></li><li><span>Crops</span><b>16:9 65.2%, wide-other 34.8%</b></li><li><span>object-fit</span><b>cover 88.9%, bg-cover 11.1%</b></li>
+<li><span>Full-bleed</span><b>13% of media</b></li><li><span>Media share of page area</span><b>27.8%</b></li>
+<li><span>Images with alt text</span><b>25%</b></li><li><span>Alt-text themes</span><b>pannelli, solari, tetto, tramonto, città, notte, vista, dall</b></li></ul></div>
+<div><h3 class="t-h3">In words</h3><p style="margin-top:16px">Photography reads as contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. Images mostly use 16:9 crops with object-fit cover; 13% run full-bleed.</p>
+<h3 class="t-h3" style="margin-top:28px">Source pages</h3><ul class="list" style="margin-top:12px"><li><a href="http://localhost:4321/" rel="noopener">/</a><span class="muted">8 media</span></li><li><a href="http://localhost:4321/prezzi/" rel="noopener">/prezzi/</a><span class="muted">4 media</span></li><li><a href="http://localhost:4321/prodotti/" rel="noopener">/prodotti/</a><span class="muted">5 media</span></li><li><a href="http://localhost:4321/business/" rel="noopener">/business/</a><span class="muted">4 media</span></li><li><a href="http://localhost:4321/azienda/" rel="noopener">/azienda/</a><span class="muted">2 media</span></li></ul></div></div>
+</div></section>
+<section id="voice" class="page ground-alt"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>07</b><span>Voice and tone</span></div><h2 class="t-h1">Voice and tone</h2><p class="t-lead muted">13 headlines, 12 paragraphs and 8 calls to action, language "it".</p></div>
+<div class="split"><div class="slot reveal" data-slot="street" role="img" aria-label="Voice chapter image"><div class="slot-img img-street"></div></div><div class="reveal"><h3 class="t-h3">Stats</h3><ul class="list" style="margin-top:16px">
+<li><span>Headline length</span><b>median 3 words · 80th pct 5</b></li>
+<li><span>Case</span><b>sentence 100%</b></li>
+<li><span>"You" vs "we"</span><b>3 vs 4</b></li>
+<li><span>Headlines with numbers</span><b>0%</b></li>
+<li><span>"X, Y" headlines</span><b>31%</b></li>
+<li><span>CTA verbs</span><b>inizia, scopri, iscriviti, scegli, compra, guarda</b></li>
+<li><span>Exclamation marks</span><b>0</b></li></ul></div></div>
+<div class="quotes"><figure class="reveal quote"><blockquote>Il futuro della tua energia, oggi</blockquote><cite class="muted">h1 · <a href="http://localhost:4321/" rel="noopener">http://localhost:4321/</a></cite></figure><figure class="reveal quote"><blockquote>Sensori che misurano tutto</blockquote><cite class="muted">h1 · <a href="http://localhost:4321/prodotti/" rel="noopener">http://localhost:4321/prodotti/</a></cite></figure><figure class="reveal quote"><blockquote>Per le aziende, su misura</blockquote><cite class="muted">h1 · <a href="http://localhost:4321/business/" rel="noopener">http://localhost:4321/business/</a></cite></figure><figure class="reveal quote"><blockquote>Paghi al mese, cancelli quando vuoi.</blockquote><cite class="muted">p · <a href="http://localhost:4321/prezzi/" rel="noopener">http://localhost:4321/prezzi/</a></cite></figure><figure class="reveal quote"><blockquote>Siamo un gruppo di ingegneri e designer.</blockquote><cite class="muted">p · <a href="http://localhost:4321/azienda/" rel="noopener">http://localhost:4321/azienda/</a></cite></figure></div>
+<div class="rules"><div class="rule reveal"><span class="n">01</span><h3 class="t-h3">Headline length</h3><p>Keep headlines to about 3 words; 80% of measured headlines have 5 words or fewer.</p><p class="spec">median 3 words, n=13</p></div><div class="rule reveal"><span class="n">02</span><h3 class="t-h3">Case</h3><p>Write headlines in sentence case: capitalise the first word and proper nouns only.</p><p class="spec">sentence 100%</p></div><div class="rule reveal"><span class="n">03</span><h3 class="t-h3">Punctuation</h3><p>Do not use exclamation marks; none appear in the measured copy.</p><p class="spec">0 exclamation marks</p></div></div>
+</div></section>
+<section id="tokens" class="page ground-inv"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>08</b><span>Design tokens</span></div><h2 class="t-h1">Design tokens</h2><p class="t-lead muted">124 CSS custom properties and the same set as W3C design-tokens JSON, with OKLCH next to hex.</p></div>
+<div class="toolbar reveal"><button class="rb-btn" data-copy="tokens-css">Copy CSS</button><button class="rb-btn glass" data-copy="tokens-json">Copy JSON</button><button class="rb-btn outline" data-download="tokens-css" data-name="tokens.css">Download tokens.css</button><button class="rb-btn outline" data-download="tokens-json" data-name="tokens.json">Download tokens.json</button></div>
+<div class="two reveal"><div><h3 class="t-h3">tokens.css</h3><pre data-from="tokens-css" style="margin-top:12px">See tokens.css (shown here when JavaScript runs).</pre></div><div><h3 class="t-h3">tokens.json</h3><pre data-from="tokens-json" style="margin-top:12px">See tokens.json (shown here when JavaScript runs).</pre></div></div>
+</div></section>
+<section id="method" class="page ground"><div class="wrap"><div class="chapter-head reveal"><div class="eyebrow"><b>09</b><span>Method</span></div><h2 class="t-h1">Method</h2><p class="t-lead muted">How the numbers were produced, what was assumed and what was generated.</p></div>
+<div class="two reveal"><div><h3 class="t-h3">Assumptions</h3><ul class="list" style="margin-top:16px"><li><span>Viewports: 1440×900 for all pages, 390×844 for the home page.</span></li><li><span>Pages: /, /prezzi/, /prodotti/, /business/, /azienda/ (home plus the highest-scoring same-origin links, one per top-level path).</span></li></ul></div>
+<div><h3 class="t-h3">Run log</h3><div class="table-scroll" style="margin-top:16px"><table><thead><tr><th>Phase</th><th>Time</th></tr></thead><tbody><tr><td>capture</td><td>9.1 s</td></tr><tr><td>analyse</td><td>0.0 s</td></tr><tr><td>tokens</td><td>0.0 s</td></tr><tr><td>images (manual)</td><td>2.6 s</td></tr></tbody></table></div>
+<h3 class="t-h3" style="margin-top:28px">Pages</h3><ul class="list" style="margin-top:12px"><li><a href="http://localhost:4321/" rel="noopener">/</a><span class="muted">3083px · 811 chars</span></li><li><a href="http://localhost:4321/prezzi/" rel="noopener">/prezzi/</a><span class="muted">1079px · 330 chars</span></li><li><a href="http://localhost:4321/prodotti/" rel="noopener">/prodotti/</a><span class="muted">1824px · 359 chars</span></li><li><a href="http://localhost:4321/business/" rel="noopener">/business/</a><span class="muted">1313px · 349 chars</span></li><li><a href="http://localhost:4321/azienda/" rel="noopener">/azienda/</a><span class="muted">1214px · 180 chars</span></li></ul></div></div>
+<div class="reveal"><h3 class="t-h3">Image prompts</h3><p class="muted" style="margin:8px 0 16px">Text prompts only; the brand's photos were never an input. No images are embedded in this edition.</p>
+<div class="table-scroll"><table><thead><tr><th>Slot</th><th>Ratio</th><th>Prompt</th></tr></thead><tbody><tr><td>hero</td><td>16:9</td><td>Cover. A wide calm landscape at first light seen from a high vantage point, a thin line of a modern city on the horizon. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>horizon</td><td>16:9</td><td>Typography chapter. A long flat horizon over still water at dusk, large empty sky for a text card. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>object</td><td>4:5</td><td>Colour chapter. A studio render of a single smooth sculptural object made of matte ceramic and brushed metal on a seamless backdrop. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>street</td><td>4:5</td><td>Voice chapter. A person walking through a sunlit pedestrian street, shot from behind at a distance, natural candid moment. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>sky</td><td>16:9</td><td>Clean background. Soft gradient sky with a few thin high clouds, nothing else in frame. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>glass</td><td>4:5</td><td>Components chapter. Ordered rows of translucent glass blocks of equal size on a table, soft daylight, precise spacing. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>grid</td><td>16:9</td><td>Layout chapter. Top-down view of a tiled courtyard with a regular grid of stone slabs and one tree. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>tokens</td><td>16:9</td><td>Design tokens chapter. Macro photograph of neatly arranged small coloured glass samples in a wooden tray. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr><tr><td>detail</td><td>1:1</td><td>Imagery chapter. A close detail that fits the site&#39;s recurring subjects (pannelli, solari, tetto, tramonto, città, notte), shallow depth of field. contained editorial framing, 16:9 crops, colour grade leaning to deep blue shadows with blue and pale amber highlights, subject centred with room to crop. photorealistic, no text, letters, logos, brand marks, cards or app screens</td></tr></tbody></table></div></div>
+</div></section>
+</main>
+<footer class="foot ground-inv"><div class="wrap"><span class="pill-unofficial">Unofficial analysis</span><p>Not affiliated with or endorsed by Lumen Fixture. Trademarks belong to their owners.</p><p class="muted">Measured from <a href="http://localhost:4321/" rel="noopener">http://localhost:4321/</a> on 2026-10-20 with reverse-brand. Logos, font files and the brand's images are not included.</p></div></footer>
+<script type="application/json" id="tokens-json">{
+ "$description": "Unofficial analysis of http://localhost:4321/. Not affiliated with or endorsed by Lumen Fixture. Trademarks belong to their owners.",
+ "font": {
+  "heading": {
+   "$type": "fontFamily",
+   "$value": [
+    "Inter Display",
+    "system-ui",
+    "-apple-system",
+    "Segoe UI",
+    "Roboto",
+    "sans-serif"
+   ]
+  },
+  "body": {
+   "$type": "fontFamily",
+   "$value": [
+    "Inter",
+    "system-ui",
+    "-apple-system",
+    "Segoe UI",
+    "Roboto",
+    "sans-serif"
+   ]
+  }
+ },
+ "type": {
+  "display": {
+   "size": {
+    "$type": "dimension",
+    "$value": "76px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "44px",
+      "desktop": "76px",
+      "clamp": "clamp(2.75rem, 2.007rem + 3.048vw, 4.75rem)"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.039
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 600
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "-0.02em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.heading}"
+   }
+  },
+  "h1": {
+   "size": {
+    "$type": "dimension",
+    "$value": "64px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "32px",
+      "desktop": "64px",
+      "clamp": "clamp(2rem, 1.257rem + 3.048vw, 4rem)"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.059
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 600
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "0em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.heading}"
+   }
+  },
+  "h2": {
+   "size": {
+    "$type": "dimension",
+    "$value": "48px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "24px",
+      "desktop": "48px",
+      "clamp": "clamp(1.5rem, 0.943rem + 2.286vw, 3rem)"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.1
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 600
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "-0.015em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.heading}"
+   }
+  },
+  "h3": {
+   "size": {
+    "$type": "dimension",
+    "$value": "24px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "24px",
+      "desktop": "24px",
+      "clamp": "1.5rem"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.25
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 600
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "0em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.body}"
+   }
+  },
+  "lead": {
+   "size": {
+    "$type": "dimension",
+    "$value": "21px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "18px",
+      "desktop": "21px",
+      "clamp": "clamp(1.125rem, 1.055rem + 0.286vw, 1.313rem)"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.5
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 400
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "0em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.body}"
+   }
+  },
+  "body": {
+   "size": {
+    "$type": "dimension",
+    "$value": "15px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "15px",
+      "desktop": "15px",
+      "clamp": "0.938rem"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.553
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 400
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "0em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.body}"
+   }
+  },
+  "small": {
+   "size": {
+    "$type": "dimension",
+    "$value": "13px",
+    "$extensions": {
+     "com.reverse-brand": {
+      "mobile": "13px",
+      "desktop": "13px",
+      "clamp": "0.813rem"
+     }
+    }
+   },
+   "line-height": {
+    "$type": "number",
+    "$value": 1.554
+   },
+   "weight": {
+    "$type": "fontWeight",
+    "$value": 400
+   },
+   "tracking": {
+    "$type": "dimension",
+    "$value": "0.008em"
+   },
+   "family": {
+    "$type": "fontFamily",
+    "$value": "{font.body}"
+   }
+  }
+ },
+ "color": {
+  "background": {
+   "$type": "color",
+   "$value": "#f6f4ef",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(96.7% 0.007 88.6)",
+     "share": 0.765,
+     "contrast": "16.45:1 vs text"
+    }
+   }
+  },
+  "surface": {
+   "$type": "color",
+   "$value": "#ffffff",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(100.0% 0.000 0.0)",
+     "share": 0.104,
+     "contrast": "18.08:1 vs text"
+    }
+   }
+  },
+  "surface-inverse": {
+   "$type": "color",
+   "$value": "#101826",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(20.9% 0.030 261.2)",
+     "share": 0.101,
+     "contrast": "17.79:1 vs text-inverse"
+    }
+   }
+  },
+  "text": {
+   "$type": "color",
+   "$value": "#14161c",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(20.1% 0.012 270.7)",
+     "share": 0.281,
+     "contrast": "16.45:1 vs background"
+    }
+   }
+  },
+  "text-muted": {
+   "$type": "color",
+   "$value": "#5b6070",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(49.1% 0.026 271.7)",
+     "share": 0.241,
+     "contrast": "5.7:1 vs background"
+    }
+   }
+  },
+  "text-inverse": {
+   "$type": "color",
+   "$value": "#ffffff",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(100.0% 0.000 0.0)",
+     "share": 0.104,
+     "contrast": "17.79:1 vs surface-inverse"
+    }
+   }
+  },
+  "action": {
+   "$type": "color",
+   "$value": "#1570d1",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(55.0% 0.169 254.9)",
+     "share": 0.011,
+     "contrast": "4.47:1 vs background"
+    }
+   }
+  },
+  "on-action": {
+   "$type": "color",
+   "$value": "#ffffff",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(100.0% 0.000 0.0)",
+     "share": 0.104,
+     "contrast": "4.92:1 vs action"
+    }
+   }
+  },
+  "action-alt": {
+   "$type": "color",
+   "$value": "#101826",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(20.9% 0.030 261.2)",
+     "share": 0.101,
+     "contrast": "16.18:1 vs background"
+    }
+   }
+  },
+  "accent": {
+   "$type": "color",
+   "$value": "#f2b33d",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(80.6% 0.147 79.0)",
+     "share": 0,
+     "contrast": "1.69:1 vs background"
+    }
+   }
+  },
+  "border": {
+   "$type": "color",
+   "$value": "#cfcabe",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(84.0% 0.017 88.0)",
+     "share": 0,
+     "contrast": "1.49:1 vs background"
+    }
+   }
+  }
+ },
+ "palette": {
+  "1": {
+   "$type": "color",
+   "$value": "#f6f4ef",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(96.7% 0.007 88.6)",
+     "share": 0.306
+    }
+   }
+  },
+  "2": {
+   "$type": "color",
+   "$value": "#14161c",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(20.1% 0.012 270.7)",
+     "share": 0.1624
+    }
+   }
+  },
+  "3": {
+   "$type": "color",
+   "$value": "#ffffff",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(100.0% 0.000 0.0)",
+     "share": 0.109
+    }
+   }
+  },
+  "4": {
+   "$type": "color",
+   "$value": "#5b6070",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(49.1% 0.026 271.7)",
+     "share": 0.0964
+    }
+   }
+  },
+  "5": {
+   "$type": "color",
+   "$value": "#dfe6f3",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(92.3% 0.019 263.0)",
+     "share": 0.0642
+    }
+   }
+  },
+  "6": {
+   "$type": "color",
+   "$value": "#1f4fa3",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(44.5% 0.146 260.7)",
+     "share": 0.05
+    }
+   }
+  },
+  "7": {
+   "$type": "color",
+   "$value": "#101826",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(20.9% 0.030 261.2)",
+     "share": 0.0404
+    }
+   }
+  },
+  "8": {
+   "$type": "color",
+   "$value": "#cfcabe",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(84.0% 0.017 88.0)",
+     "share": 0.0362
+    }
+   }
+  },
+  "9": {
+   "$type": "color",
+   "$value": "#a9b3c4",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(76.4% 0.027 261.1)",
+     "share": 0.0357
+    }
+   }
+  },
+  "10": {
+   "$type": "color",
+   "$value": "#e2ded5",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(90.1% 0.013 86.8)",
+     "share": 0.0329
+    }
+   }
+  },
+  "11": {
+   "$type": "color",
+   "$value": "#eef1f6",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(95.7% 0.007 260.7)",
+     "share": 0.0203
+    }
+   }
+  },
+  "12": {
+   "$type": "color",
+   "$value": "#9aa3b2",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(71.3% 0.024 260.7)",
+     "share": 0.0132
+    }
+   }
+  },
+  "13": {
+   "$type": "color",
+   "$value": "#6b7080",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(54.7% 0.026 271.8)",
+     "share": 0.0116
+    }
+   }
+  },
+  "14": {
+   "$type": "color",
+   "$value": "#1a2436",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(26.0% 0.037 261.8)",
+     "share": 0.0089
+    }
+   }
+  },
+  "15": {
+   "$type": "color",
+   "$value": "#0b0f17",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(16.8% 0.018 263.9)",
+     "share": 0.0065
+    }
+   }
+  },
+  "16": {
+   "$type": "color",
+   "$value": "#1570d1",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(55.0% 0.169 254.9)",
+     "share": 0.0063
+    }
+   }
+  },
+  "17": {
+   "$type": "color",
+   "$value": "#f2b33d",
+   "$extensions": {
+    "com.reverse-brand": {
+     "oklch": "oklch(80.6% 0.147 79.0)",
+     "share": 0
+    }
+   }
+  }
+ },
+ "gradient": {
+  "brand": {
+   "$type": "gradient",
+   "$value": "linear-gradient(135deg, rgb(16, 24, 38) 0%, rgb(31, 79, 163) 60%, rgb(242, 179, 61) 130%)",
+   "$extensions": {
+    "com.reverse-brand": {}
+   }
+  }
+ },
+ "space": {
+  "1": {
+   "$type": "dimension",
+   "$value": "8px"
+  },
+  "2": {
+   "$type": "dimension",
+   "$value": "12px"
+  },
+  "3": {
+   "$type": "dimension",
+   "$value": "20px"
+  },
+  "4": {
+   "$type": "dimension",
+   "$value": "24px"
+  },
+  "5": {
+   "$type": "dimension",
+   "$value": "28px"
+  },
+  "6": {
+   "$type": "dimension",
+   "$value": "32px"
+  },
+  "7": {
+   "$type": "dimension",
+   "$value": "48px"
+  },
+  "8": {
+   "$type": "dimension",
+   "$value": "96px"
+  },
+  "9": {
+   "$type": "dimension",
+   "$value": "120px"
+  },
+  "base": {
+   "$type": "dimension",
+   "$value": "4px"
+  }
+ },
+ "layout": {
+  "container": {
+   "$type": "dimension",
+   "$value": "1200px"
+  },
+  "columns": {
+   "$type": "number",
+   "$value": 3
+  },
+  "gutter": {
+   "$type": "dimension",
+   "$value": "24px"
+  },
+  "bp": {
+   "600": {
+    "$type": "dimension",
+    "$value": "600px"
+   },
+   "900": {
+    "$type": "dimension",
+    "$value": "900px"
+   },
+   "1280": {
+    "$type": "dimension",
+    "$value": "1280px"
+   }
+  }
+ },
+ "radius": {
+  "sm": {
+   "$type": "dimension",
+   "$value": "20px"
+  },
+  "pill": {
+   "$type": "dimension",
+   "$value": "999px"
+  },
+  "card": {
+   "$type": "dimension",
+   "$value": "20px"
+  },
+  "button": {
+   "$type": "dimension",
+   "$value": "999px"
+  },
+  "input": {
+   "$type": "dimension",
+   "$value": "999px"
+  }
+ },
+ "button": {
+  "height": {
+   "$type": "dimension",
+   "$value": "53px"
+  },
+  "pad-x": {
+   "$type": "dimension",
+   "$value": "28px"
+  },
+  "radius": {
+   "$type": "dimension",
+   "$value": "{radius.button}"
+  },
+  "bg": {
+   "$type": "color",
+   "$value": "#1570d1"
+  },
+  "fg": {
+   "$type": "color",
+   "$value": "#ffffff"
+  },
+  "font-size": {
+   "$type": "dimension",
+   "$value": "16px"
+  },
+  "font-weight": {
+   "$type": "fontWeight",
+   "$value": 600
+  },
+  "tracking": {
+   "$type": "dimension",
+   "$value": "0em"
+  },
+  "outline": {
+   "border-width": {
+    "$type": "dimension",
+    "$value": "1px"
+   },
+   "color": {
+    "$type": "color",
+    "$value": "#ffffff"
+   }
+  },
+  "glass": {
+   "bg": {
+    "$type": "color",
+    "$value": "rgba(255, 255, 255, 0.16)"
+   },
+   "backdrop": {
+    "$type": "string",
+    "$value": "blur(16px)"
+   }
+  }
+ },
+ "card": {
+  "bg": {
+   "$type": "color",
+   "$value": "#ffffff"
+  },
+  "radius": {
+   "$type": "dimension",
+   "$value": "20px"
+  },
+  "pad": {
+   "$type": "dimension",
+   "$value": "24px"
+  },
+  "shadow": {
+   "$type": "shadow",
+   "$value": "rgba(0, 0, 0, 0.06) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 8px 24px 0px"
+  },
+  "backdrop": {
+   "$type": "string",
+   "$value": "none"
+  },
+  "media": {
+   "$type": "string",
+   "$value": "top"
+  },
+  "media-ratio": {
+   "$type": "string",
+   "$value": "16 / 9"
+  }
+ },
+ "input": {
+  "height": {
+   "$type": "dimension",
+   "$value": "52px"
+  },
+  "pad-x": {
+   "$type": "dimension",
+   "$value": "20px"
+  },
+  "bg": {
+   "$type": "color",
+   "$value": "#ffffff"
+  },
+  "border": {
+   "$type": "color",
+   "$value": "#cfcabe"
+  },
+  "border-width": {
+   "$type": "dimension",
+   "$value": "1px"
+  },
+  "font-size": {
+   "$type": "dimension",
+   "$value": "17px"
+  }
+ },
+ "nav": {
+  "height": {
+   "$type": "dimension",
+   "$value": "72px"
+  },
+  "bg": {
+   "$type": "color",
+   "$value": "rgba(246, 244, 239, 0.85)"
+  },
+  "backdrop": {
+   "$type": "string",
+   "$value": "blur(12px)"
+  },
+  "sticky": {
+   "$type": "string",
+   "$value": "sticky"
+  },
+  "link-size": {
+   "$type": "dimension",
+   "$value": "15px"
+  },
+  "link-weight": {
+   "$type": "fontWeight",
+   "$value": 500
+  },
+  "link-color": {
+   "$type": "color",
+   "$value": "#14161c"
+  },
+  "logo-w": {
+   "$type": "dimension",
+   "$value": "132px"
+  },
+  "logo-h": {
+   "$type": "dimension",
+   "$value": "28px"
+  },
+  "logo-color": {
+   "$type": "color",
+   "$value": "#1f4fa3"
+  }
+ },
+ "motion": {
+  "ease": {
+   "$type": "cubicBezier",
+   "$value": [
+    0.2,
+    0.7,
+    0.1,
+    1
+   ]
+  },
+  "duration": {
+   "$type": "duration",
+   "$value": "400ms"
+  }
+ }
+}</script>
+<script>
+(function(){
+var d=document,h=d.documentElement;h.classList.add('js');
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=d.querySelectorAll('.reveal');
+if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')})}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}
+var bar=d.querySelector('.topbar'),cover=d.getElementById('cover');
+function onScroll(){bar.classList.toggle('scrolled',scrollY>cover.offsetHeight-80)}addEventListener('scroll',onScroll,{passive:true});onScroll();
+d.querySelectorAll('[role=tablist]').forEach(function(tl){var tabs=tl.querySelectorAll('[role=tab]');tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);d.getElementById(x.getAttribute('aria-controls')).classList.toggle('active',on)})})})});
+var c=d.createElement('canvas').getContext('2d');
+function w(f){c.font='72px '+f;return c.measureText('mmmmmmmmmlli WAQ@#1').width}
+d.querySelectorAll('.check').forEach(function(el){var f=el.getAttribute('data-family'),ok=false;['monospace','serif','sans-serif'].forEach(function(g){if(w('"'+f+'",'+g)!==w(g))ok=true});el.classList.add(ok?'yes':'no');el.querySelector('span').textContent=ok?'Installed on this device':'Not installed on this device (fallback shown)'});
+function txt(id){return d.getElementById(id).textContent.trim()}
+d.querySelectorAll('pre[data-from]').forEach(function(p){p.textContent=txt(p.getAttribute('data-from'))});
+function flash(b,m){var o=b.textContent;b.textContent=m;setTimeout(function(){b.textContent=o},1400)}
+d.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var t=txt(b.getAttribute('data-copy'));(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){flash(b,'Copied')},function(){flash(b,'Copy failed')})})});
+d.querySelectorAll('[data-download]').forEach(function(b){b.addEventListener('click',function(){var id=b.getAttribute('data-download'),a=d.createElement('a');a.href=URL.createObjectURL(new Blob([txt(id)],{type:id.indexOf('json')>-1?'application/json':'text/css'}));a.download=b.getAttribute('data-name');a.click()})});
+})();
+</script>
+</body></html>

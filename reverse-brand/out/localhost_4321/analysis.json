@@ -1,0 +1,1422 @@
+{
+  "name": "Lumen Fixture",
+  "host": "localhost:4321",
+  "source": "http://localhost:4321/",
+  "capturedAt": "2026-10-20T22:50:00.948Z",
+  "method": "playwright-headless",
+  "lang": "it",
+  "description": "Lumen Fixture è un sito di prova per reverse-brand.",
+  "pages": [
+    {
+      "url": "http://localhost:4321/",
+      "title": "Home — Lumen Fixture",
+      "height": 3083,
+      "elements": 12,
+      "chars": 811
+    },
+    {
+      "url": "http://localhost:4321/prezzi/",
+      "title": "Prezzi — Lumen Fixture",
+      "height": 1079,
+      "elements": 7,
+      "chars": 330
+    },
+    {
+      "url": "http://localhost:4321/prodotti/",
+      "title": "Prodotti — Lumen Fixture",
+      "height": 1824,
+      "elements": 9,
+      "chars": 359
+    },
+    {
+      "url": "http://localhost:4321/business/",
+      "title": "Business — Lumen Fixture",
+      "height": 1313,
+      "elements": 8,
+      "chars": 349
+    },
+    {
+      "url": "http://localhost:4321/azienda/",
+      "title": "Azienda — Lumen Fixture",
+      "height": 1214,
+      "elements": 5,
+      "chars": 180
+    }
+  ],
+  "vars": {
+    "--lf-ink": "#14161c",
+    "--lf-paper": "#f6f4ef",
+    "--lf-night": "#101826",
+    "--lf-blue": "oklch(0.55 0.17 255)",
+    "--lf-sun": "#f2b33d",
+    "--lf-radius": "20px",
+    "--lf-ease": "cubic-bezier(.2,.7,.1,1)",
+    "--lf-font": "\"Inter\",system-ui,sans-serif",
+    "--lf-display": "\"Inter Display\",\"Inter\",sans-serif"
+  },
+  "varsCount": 9,
+  "type": {
+    "roles": {
+      "display": {
+        "family": "Inter Display",
+        "stack": "\"Inter Display\", Inter, sans-serif",
+        "size": 76,
+        "weight": 600,
+        "lh": 1.039,
+        "lhPx": 79,
+        "tracking": -0.02,
+        "transform": "none",
+        "style": "normal",
+        "chars": 33,
+        "inferred": false,
+        "mobile": 44,
+        "clamp": "clamp(2.75rem, 2.007rem + 3.048vw, 4.75rem)"
+      },
+      "h1": {
+        "family": "Inter Display",
+        "stack": "\"Inter Display\", Inter, sans-serif",
+        "size": 64,
+        "weight": 600,
+        "lh": 1.059,
+        "lhPx": 67.8,
+        "tracking": 0,
+        "transform": "none",
+        "style": "normal",
+        "chars": 48,
+        "inferred": false,
+        "mobile": 32,
+        "clamp": "clamp(2rem, 1.257rem + 3.048vw, 4rem)"
+      },
+      "h2": {
+        "family": "Inter Display",
+        "stack": "\"Inter Display\", Inter, sans-serif",
+        "size": 48,
+        "weight": 600,
+        "lh": 1.1,
+        "lhPx": 52.8,
+        "tracking": -0.015,
+        "transform": "none",
+        "style": "normal",
+        "chars": 79,
+        "inferred": false,
+        "mobile": 24,
+        "clamp": "clamp(1.5rem, 0.943rem + 2.286vw, 3rem)"
+      },
+      "h3": {
+        "family": "Inter",
+        "stack": "Inter, system-ui, sans-serif",
+        "size": 24,
+        "weight": 600,
+        "lh": 1.25,
+        "lhPx": 30,
+        "tracking": 0,
+        "transform": "none",
+        "style": "normal",
+        "chars": 230,
+        "inferred": false,
+        "mobile": 24,
+        "mobileAssumed": true,
+        "clamp": "1.5rem"
+      },
+      "lead": {
+        "family": "Inter",
+        "stack": "Inter, system-ui, sans-serif",
+        "size": 21,
+        "weight": 400,
+        "lh": 1.5,
+        "lhPx": 31.5,
+        "tracking": 0,
+        "transform": "none",
+        "style": "normal",
+        "chars": 340,
+        "inferred": false,
+        "mobile": 18,
+        "clamp": "clamp(1.125rem, 1.055rem + 0.286vw, 1.313rem)"
+      },
+      "body": {
+        "family": "Inter",
+        "stack": "Inter, system-ui, sans-serif",
+        "size": 15,
+        "weight": 400,
+        "lh": 1.553,
+        "lhPx": 23.3,
+        "tracking": 0,
+        "transform": "none",
+        "style": "normal",
+        "chars": 540,
+        "inferred": false,
+        "mobile": 15,
+        "clamp": "0.938rem"
+      },
+      "small": {
+        "family": "Inter",
+        "stack": "Inter, system-ui, sans-serif",
+        "size": 13,
+        "weight": 400,
+        "lh": 1.554,
+        "lhPx": 20.2,
+        "tracking": 0.008,
+        "transform": "none",
+        "style": "normal",
+        "chars": 52,
+        "inferred": false,
+        "mobile": 13,
+        "clamp": "0.813rem"
+      }
+    },
+    "scale": {
+      "ratio": 1.622,
+      "name": "golden ratio",
+      "named": 1.618,
+      "ladder": [
+        15,
+        24,
+        48,
+        64
+      ]
+    },
+    "families": [
+      {
+        "family": "Inter",
+        "stack": "Inter, system-ui, sans-serif",
+        "share": 0.883,
+        "weights": [
+          {
+            "weight": 400,
+            "share": 0.708
+          },
+          {
+            "weight": 600,
+            "share": 0.269
+          },
+          {
+            "weight": 500,
+            "share": 0.023
+          }
+        ],
+        "roles": [
+          "h3",
+          "lead",
+          "body",
+          "small"
+        ],
+        "hosted": []
+      },
+      {
+        "family": "Inter Display",
+        "stack": "\"Inter Display\", Inter, sans-serif",
+        "share": 0.112,
+        "weights": [
+          {
+            "weight": 600,
+            "share": 1
+          }
+        ],
+        "roles": [
+          "display",
+          "h1",
+          "h2"
+        ],
+        "hosted": []
+      }
+    ],
+    "sizes": [
+      {
+        "size": 76,
+        "share": 0.02
+      },
+      {
+        "size": 64,
+        "share": 0.045
+      },
+      {
+        "size": 48,
+        "share": 0.048
+      },
+      {
+        "size": 24,
+        "share": 0.138
+      },
+      {
+        "size": 21,
+        "share": 0.205
+      },
+      {
+        "size": 17,
+        "share": 0.028
+      },
+      {
+        "size": 16,
+        "share": 0.093
+      },
+      {
+        "size": 15,
+        "share": 0.345
+      },
+      {
+        "size": 14,
+        "share": 0.036
+      },
+      {
+        "size": 13,
+        "share": 0.031
+      },
+      {
+        "size": 12,
+        "share": 0.012
+      }
+    ],
+    "vars": {
+      "--lf-font": "\"Inter\",system-ui,sans-serif",
+      "--lf-display": "\"Inter Display\",\"Inter\",sans-serif"
+    },
+    "clusters": [
+      {
+        "size": 76,
+        "members": [
+          76
+        ]
+      },
+      {
+        "size": 64,
+        "members": [
+          64,
+          64
+        ]
+      },
+      {
+        "size": 48,
+        "members": [
+          48
+        ]
+      },
+      {
+        "size": 24,
+        "members": [
+          24
+        ]
+      }
+    ]
+  },
+  "colour": {
+    "roles": {
+      "background": {
+        "hex": "#f6f4ef",
+        "oklch": "oklch(96.7% 0.007 88.6)",
+        "share": 0.765,
+        "inferred": false,
+        "contrastWith": "text",
+        "contrast": 16.45
+      },
+      "surface": {
+        "hex": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "share": 0.104,
+        "inferred": false,
+        "contrastWith": "text",
+        "contrast": 18.08
+      },
+      "surface-inverse": {
+        "hex": "#101826",
+        "oklch": "oklch(20.9% 0.030 261.2)",
+        "share": 0.101,
+        "inferred": false,
+        "contrastWith": "text-inverse",
+        "contrast": 17.79
+      },
+      "text": {
+        "hex": "#14161c",
+        "oklch": "oklch(20.1% 0.012 270.7)",
+        "share": 0.281,
+        "inferred": false,
+        "contrastWith": "background",
+        "contrast": 16.45
+      },
+      "text-muted": {
+        "hex": "#5b6070",
+        "oklch": "oklch(49.1% 0.026 271.7)",
+        "share": 0.241,
+        "inferred": false,
+        "contrastWith": "background",
+        "contrast": 5.7
+      },
+      "text-inverse": {
+        "hex": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "share": 0.104,
+        "inferred": false,
+        "contrastWith": "surface-inverse",
+        "contrast": 17.79
+      },
+      "action": {
+        "hex": "#1570d1",
+        "oklch": "oklch(55.0% 0.169 254.9)",
+        "share": 0.011,
+        "inferred": false,
+        "contrastWith": "background",
+        "contrast": 4.47
+      },
+      "on-action": {
+        "hex": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "share": 0.104,
+        "inferred": false,
+        "contrastWith": "action",
+        "contrast": 4.92
+      },
+      "action-alt": {
+        "hex": "#101826",
+        "oklch": "oklch(20.9% 0.030 261.2)",
+        "share": 0.101,
+        "inferred": false,
+        "contrastWith": "background",
+        "contrast": 16.18
+      },
+      "accent": {
+        "hex": "#f2b33d",
+        "oklch": "oklch(80.6% 0.147 79.0)",
+        "share": 0,
+        "inferred": false,
+        "contrastWith": "background",
+        "contrast": 1.69
+      },
+      "border": {
+        "hex": "#cfcabe",
+        "oklch": "oklch(84.0% 0.017 88.0)",
+        "share": 0,
+        "inferred": false,
+        "contrastWith": "background",
+        "contrast": 1.49
+      }
+    },
+    "stops": [
+      "#101826",
+      "#1f4fa3",
+      "#f2b33d"
+    ],
+    "varColors": {
+      "--lf-ink": "#14161c",
+      "--lf-paper": "#f6f4ef",
+      "--lf-night": "#101826",
+      "--lf-blue": "#1570d1",
+      "--lf-sun": "#f2b33d"
+    },
+    "palette": [
+      {
+        "hex": "#f6f4ef",
+        "text": 0,
+        "bg": 12258720,
+        "border": 0,
+        "fill": 0,
+        "share": 0.306,
+        "oklch": "oklch(96.7% 0.007 88.6)"
+      },
+      {
+        "hex": "#14161c",
+        "text": 504,
+        "bg": 0,
+        "border": 0,
+        "fill": 1,
+        "share": 0.1624,
+        "oklch": "oklch(20.1% 0.012 270.7)"
+      },
+      {
+        "hex": "#ffffff",
+        "text": 187,
+        "bg": 1453465.796875,
+        "border": 1355.25,
+        "fill": 0,
+        "share": 0.109,
+        "oklch": "oklch(100.0% 0.000 0.0)"
+      },
+      {
+        "hex": "#5b6070",
+        "text": 432,
+        "bg": 0,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0964,
+        "oklch": "oklch(49.1% 0.026 271.7)"
+      },
+      {
+        "hex": "#dfe6f3",
+        "text": 288,
+        "bg": 0,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0642,
+        "oklch": "oklch(92.3% 0.019 263.0)"
+      },
+      {
+        "hex": "#1f4fa3",
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "fill": 1,
+        "share": 0.05,
+        "oklch": "oklch(44.5% 0.146 260.7)"
+      },
+      {
+        "hex": "#101826",
+        "text": 0,
+        "bg": 1617727.5,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0404,
+        "oklch": "oklch(20.9% 0.030 261.2)"
+      },
+      {
+        "hex": "#cfcabe",
+        "text": 0,
+        "bg": 0,
+        "border": 1583.875,
+        "fill": 0,
+        "share": 0.0362,
+        "oklch": "oklch(84.0% 0.017 88.0)"
+      },
+      {
+        "hex": "#a9b3c4",
+        "text": 160,
+        "bg": 0,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0357,
+        "oklch": "oklch(76.4% 0.027 261.1)"
+      },
+      {
+        "hex": "#e2ded5",
+        "text": 0,
+        "bg": 0,
+        "border": 1440,
+        "fill": 0,
+        "share": 0.0329,
+        "oklch": "oklch(90.1% 0.013 86.8)"
+      },
+      {
+        "hex": "#eef1f6",
+        "text": 91,
+        "bg": 0,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0203,
+        "oklch": "oklch(95.7% 0.007 260.7)"
+      },
+      {
+        "hex": "#9aa3b2",
+        "text": 59,
+        "bg": 0,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0132,
+        "oklch": "oklch(71.3% 0.024 260.7)"
+      },
+      {
+        "hex": "#6b7080",
+        "text": 52,
+        "bg": 0,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0116,
+        "oklch": "oklch(54.7% 0.026 271.8)"
+      },
+      {
+        "hex": "#1a2436",
+        "text": 0,
+        "bg": 358218.85546875,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0089,
+        "oklch": "oklch(26.0% 0.037 261.8)"
+      },
+      {
+        "hex": "#0b0f17",
+        "text": 0,
+        "bg": 261180,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0065,
+        "oklch": "oklch(16.8% 0.018 263.9)"
+      },
+      {
+        "hex": "#1570d1",
+        "text": 20,
+        "bg": 73113.59228515625,
+        "border": 0,
+        "fill": 0,
+        "share": 0.0063,
+        "oklch": "oklch(55.0% 0.169 254.9)"
+      }
+    ],
+    "translucent": [
+      "#f6f4ef@0.85",
+      "#ffffff@0.16"
+    ],
+    "gradients": [
+      {
+        "css": "linear-gradient(135deg, rgb(16, 24, 38) 0%, rgb(31, 79, 163) 60%, rgb(242, 179, 61) 130%)",
+        "share": 0.058
+      }
+    ],
+    "brandGradient": "linear-gradient(135deg, rgb(16, 24, 38) 0%, rgb(31, 79, 163) 60%, rgb(242, 179, 61) 130%)",
+    "gradientInferred": false,
+    "pairs": [
+      {
+        "fg": "#5b6070",
+        "bg": "#ffffff",
+        "chars": 432,
+        "ratio": 6.27,
+        "share": 0.241,
+        "aa": true,
+        "aaLarge": true
+      },
+      {
+        "fg": "#14161c",
+        "bg": "#f6f4ef",
+        "chars": 320,
+        "ratio": 16.45,
+        "share": 0.178,
+        "aa": true,
+        "aaLarge": true
+      },
+      {
+        "fg": "#14161c",
+        "bg": "#ffffff",
+        "chars": 184,
+        "ratio": 18.08,
+        "share": 0.103,
+        "aa": true,
+        "aaLarge": true
+      },
+      {
+        "fg": "#dfe6f3",
+        "bg": "#f6f4ef",
+        "chars": 156,
+        "ratio": 1.14,
+        "share": 0.087,
+        "aa": false,
+        "aaLarge": false
+      },
+      {
+        "fg": "#dfe6f3",
+        "bg": "#101826",
+        "chars": 132,
+        "ratio": 14.19,
+        "share": 0.074,
+        "aa": true,
+        "aaLarge": true
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#1570d1",
+        "chars": 110,
+        "ratio": 4.92,
+        "share": 0.061,
+        "aa": true,
+        "aaLarge": true
+      },
+      {
+        "fg": "#a9b3c4",
+        "bg": "#1a2436",
+        "chars": 108,
+        "ratio": 7.36,
+        "share": 0.06,
+        "aa": true,
+        "aaLarge": true
+      },
+      {
+        "fg": "#ffffff",
+        "bg": "#101826",
+        "chars": 64,
+        "ratio": 17.79,
+        "share": 0.036,
+        "aa": true,
+        "aaLarge": true
+      }
+    ],
+    "totals": {
+      "textColours": 9,
+      "bgColours": 6
+    }
+  },
+  "layout": {
+    "base": 4,
+    "baseShares": {
+      "2": 0.92,
+      "4": 0.81,
+      "8": 0.69
+    },
+    "onGrid": [
+      {
+        "px": 8,
+        "count": 15
+      },
+      {
+        "px": 12,
+        "count": 5
+      },
+      {
+        "px": 20,
+        "count": 2
+      },
+      {
+        "px": 24,
+        "count": 71
+      },
+      {
+        "px": 28,
+        "count": 23
+      },
+      {
+        "px": 32,
+        "count": 46
+      },
+      {
+        "px": 48,
+        "count": 2
+      },
+      {
+        "px": 96,
+        "count": 20
+      },
+      {
+        "px": 120,
+        "count": 28
+      }
+    ],
+    "offGrid": [
+      {
+        "px": 14,
+        "count": 26
+      },
+      {
+        "px": 43,
+        "count": 8
+      },
+      {
+        "px": 13,
+        "count": 6
+      },
+      {
+        "px": 17,
+        "count": 4
+      },
+      {
+        "px": 27,
+        "count": 4
+      },
+      {
+        "px": 238,
+        "count": 2
+      }
+    ],
+    "scale": [
+      8,
+      12,
+      20,
+      24,
+      28,
+      32,
+      48,
+      96,
+      120
+    ],
+    "radii": {
+      "values": [
+        {
+          "px": 20,
+          "count": 15,
+          "share": 0.517
+        }
+      ],
+      "pillShare": 0.483,
+      "card": 20
+    },
+    "container": 1200,
+    "columns": 3,
+    "gutter": 24,
+    "grids": [
+      {
+        "cols": 3,
+        "gap": 24,
+        "width": 1136
+      },
+      {
+        "cols": 3,
+        "gap": 24,
+        "width": 1136
+      },
+      {
+        "cols": 3,
+        "gap": 24,
+        "width": 1136
+      },
+      {
+        "cols": 3,
+        "gap": 24,
+        "width": 1136
+      },
+      {
+        "cols": 3,
+        "gap": 24,
+        "width": 1136
+      }
+    ],
+    "breakpoints": [
+      {
+        "px": 600,
+        "count": 1
+      },
+      {
+        "px": 900,
+        "count": 1
+      },
+      {
+        "px": 1280,
+        "count": 1
+      }
+    ],
+    "rhythm": [
+      {
+        "y": 72,
+        "h": 640,
+        "bg": "#101826",
+        "image": false,
+        "gradient": true,
+        "tag": "section",
+        "tone": "dark"
+      },
+      {
+        "y": 712,
+        "h": 598,
+        "bg": "#f6f4ef",
+        "image": false,
+        "gradient": false,
+        "tag": "section",
+        "tone": "light"
+      },
+      {
+        "y": 1310,
+        "h": 520,
+        "bg": "#f6f4ef",
+        "image": true,
+        "gradient": false,
+        "tag": "div",
+        "tone": "image"
+      },
+      {
+        "y": 1830,
+        "h": 662,
+        "bg": "#101826",
+        "image": false,
+        "gradient": false,
+        "tag": "section",
+        "tone": "dark"
+      },
+      {
+        "y": 2492,
+        "h": 410,
+        "bg": "#f6f4ef",
+        "image": false,
+        "gradient": false,
+        "tag": "section",
+        "tone": "light"
+      }
+    ],
+    "docHeight": 3083
+  },
+  "components": {
+    "buttons": [
+      {
+        "variant": "filled",
+        "bg": "#1570d1",
+        "bgA": 1,
+        "color": "#ffffff",
+        "border": null,
+        "radius": 999,
+        "pill": true,
+        "h": 53,
+        "pad": [
+          14,
+          28,
+          14,
+          28
+        ],
+        "font": {
+          "family": "Inter",
+          "size": 16,
+          "weight": 600,
+          "ls": 0,
+          "transform": "none"
+        },
+        "backdrop": null,
+        "shadow": null,
+        "ground": "#f6f4ef",
+        "count": 10,
+        "pages": 5,
+        "labels": [
+          "Inizia ora",
+          "Scopri i piani",
+          "Iscriviti",
+          "Scegli Base",
+          "Compra ora"
+        ],
+        "painted": "self"
+      },
+      {
+        "variant": "outline",
+        "bg": null,
+        "bgA": 0,
+        "color": "#ffffff",
+        "border": {
+          "w": 1,
+          "c": "#ffffff"
+        },
+        "radius": 999,
+        "pill": true,
+        "h": 52,
+        "pad": [
+          13,
+          27,
+          13,
+          27
+        ],
+        "font": {
+          "family": "Inter",
+          "size": 16,
+          "weight": 600,
+          "ls": 0,
+          "transform": "none"
+        },
+        "backdrop": null,
+        "shadow": null,
+        "ground": "#101826",
+        "count": 2,
+        "pages": 2,
+        "labels": [
+          "Guarda i prodotti",
+          "Parla con noi"
+        ],
+        "painted": "self"
+      },
+      {
+        "variant": "translucent",
+        "bg": "#ffffff",
+        "bgA": 0.16,
+        "color": "#ffffff",
+        "border": null,
+        "radius": 999,
+        "pill": true,
+        "h": 53,
+        "pad": [
+          14,
+          28,
+          14,
+          28
+        ],
+        "font": {
+          "family": "Inter",
+          "size": 16,
+          "weight": 600,
+          "ls": 0,
+          "transform": "none"
+        },
+        "backdrop": "blur(16px)",
+        "shadow": null,
+        "ground": "#101826",
+        "count": 1,
+        "pages": 1,
+        "labels": [
+          "Per le aziende"
+        ],
+        "painted": "self"
+      }
+    ],
+    "buttonsAll": [
+      {
+        "variant": "filled",
+        "bg": "#1570d1",
+        "bgA": 1,
+        "color": "#ffffff",
+        "border": null,
+        "radius": 999,
+        "pill": true,
+        "h": 53,
+        "pad": [
+          14,
+          28,
+          14,
+          28
+        ],
+        "font": {
+          "family": "Inter",
+          "size": 16,
+          "weight": 600,
+          "ls": 0,
+          "transform": "none"
+        },
+        "backdrop": null,
+        "shadow": null,
+        "ground": "#f6f4ef",
+        "count": 10,
+        "pages": 5,
+        "labels": [
+          "Inizia ora",
+          "Scopri i piani",
+          "Iscriviti",
+          "Scegli Base",
+          "Compra ora"
+        ],
+        "painted": "self"
+      },
+      {
+        "variant": "outline",
+        "bg": null,
+        "bgA": 0,
+        "color": "#ffffff",
+        "border": {
+          "w": 1,
+          "c": "#ffffff"
+        },
+        "radius": 999,
+        "pill": true,
+        "h": 52,
+        "pad": [
+          13,
+          27,
+          13,
+          27
+        ],
+        "font": {
+          "family": "Inter",
+          "size": 16,
+          "weight": 600,
+          "ls": 0,
+          "transform": "none"
+        },
+        "backdrop": null,
+        "shadow": null,
+        "ground": "#101826",
+        "count": 2,
+        "pages": 2,
+        "labels": [
+          "Guarda i prodotti",
+          "Parla con noi"
+        ],
+        "painted": "self"
+      },
+      {
+        "variant": "translucent",
+        "bg": "#ffffff",
+        "bgA": 0.16,
+        "color": "#ffffff",
+        "border": null,
+        "radius": 999,
+        "pill": true,
+        "h": 53,
+        "pad": [
+          14,
+          28,
+          14,
+          28
+        ],
+        "font": {
+          "family": "Inter",
+          "size": 16,
+          "weight": 600,
+          "ls": 0,
+          "transform": "none"
+        },
+        "backdrop": "blur(16px)",
+        "shadow": null,
+        "ground": "#101826",
+        "count": 1,
+        "pages": 1,
+        "labels": [
+          "Per le aziende"
+        ],
+        "painted": "self"
+      }
+    ],
+    "cards": [
+      {
+        "innerPad": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "w": 363,
+        "h": 329,
+        "bg": "#ffffff",
+        "bgA": 1,
+        "radius": 20,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "shadow": "rgba(0, 0, 0, 0.06) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 8px 24px 0px",
+        "border": null,
+        "backdrop": null,
+        "media": "top",
+        "siblings": 3,
+        "title": "Energia, ogni giorno",
+        "ground": "#f6f4ef",
+        "count": 12,
+        "kind": "media-top",
+        "padding": [
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "innerPad": [
+          24,
+          24,
+          24,
+          24
+        ],
+        "w": 363,
+        "h": 329,
+        "bg": "#1a2436",
+        "bgA": 1,
+        "radius": 20,
+        "pad": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "shadow": "rgba(0, 0, 0, 0.06) 0px 1px 2px 0px, rgba(0, 0, 0, 0.06) 0px 8px 24px 0px",
+        "border": null,
+        "backdrop": null,
+        "media": "top",
+        "siblings": 3,
+        "title": "Energia, ogni giorno",
+        "ground": "#101826",
+        "count": 3,
+        "kind": "media-top",
+        "padding": [
+          24,
+          24,
+          24,
+          24
+        ]
+      }
+    ],
+    "nav": {
+      "h": 72,
+      "sticky": true,
+      "bg": {
+        "hex": "#f6f4ef",
+        "a": 0.85
+      },
+      "backdrop": "blur(12px)",
+      "borderBottom": "#e2ded5",
+      "shadow": null,
+      "links": [
+        "Prodotti",
+        "Prezzi",
+        "Business",
+        "Azienda",
+        "Blog",
+        "Inizia ora"
+      ],
+      "linkStyle": {
+        "family": "Inter",
+        "size": 15,
+        "weight": 500,
+        "color": "#14161c",
+        "transform": "none",
+        "decoration": "none",
+        "ls": 0
+      },
+      "gap": 0,
+      "logo": {
+        "kind": "svg",
+        "w": 132,
+        "h": 28,
+        "color": "#1f4fa3",
+        "alt": null,
+        "src": null
+      }
+    },
+    "input": {
+      "tag": "input",
+      "type": "email",
+      "h": 52,
+      "w": 396,
+      "radius": 999,
+      "pad": [
+        0,
+        20,
+        0,
+        20
+      ],
+      "bg": "#ffffff",
+      "border": {
+        "w": 1,
+        "c": "#cfcabe"
+      },
+      "font": {
+        "size": 17,
+        "family": "Inter"
+      },
+      "color": "#000000",
+      "placeholder": "La tua email",
+      "inferred": false
+    }
+  },
+  "imagery": {
+    "count": 23,
+    "kinds": {
+      "img": 16,
+      "video": 0,
+      "svg": 5,
+      "bg": 2
+    },
+    "formats": [
+      {
+        "key": "jpg",
+        "share": 0.783
+      },
+      {
+        "key": "svg",
+        "share": 0.217
+      }
+    ],
+    "fit": [
+      {
+        "key": "cover",
+        "share": 0.889
+      },
+      {
+        "key": "bg-cover",
+        "share": 0.111
+      }
+    ],
+    "ratios": [
+      {
+        "key": "16:9",
+        "share": 0.652
+      },
+      {
+        "key": "wide-other",
+        "share": 0.348
+      }
+    ],
+    "fullBleedShare": 0.13,
+    "mediaShare": 0.278,
+    "altCoverage": 0.25,
+    "altThemes": [
+      {
+        "word": "pannelli",
+        "count": 1
+      },
+      {
+        "word": "solari",
+        "count": 1
+      },
+      {
+        "word": "tetto",
+        "count": 1
+      },
+      {
+        "word": "tramonto",
+        "count": 1
+      },
+      {
+        "word": "città",
+        "count": 1
+      },
+      {
+        "word": "notte",
+        "count": 1
+      },
+      {
+        "word": "vista",
+        "count": 1
+      },
+      {
+        "word": "dall",
+        "count": 1
+      },
+      {
+        "word": "alto",
+        "count": 1
+      },
+      {
+        "word": "laboratorio",
+        "count": 1
+      }
+    ],
+    "sources": [
+      {
+        "url": "http://localhost:4321/",
+        "title": "Home — Lumen Fixture",
+        "media": 8
+      },
+      {
+        "url": "http://localhost:4321/prezzi/",
+        "title": "Prezzi — Lumen Fixture",
+        "media": 4
+      },
+      {
+        "url": "http://localhost:4321/prodotti/",
+        "title": "Prodotti — Lumen Fixture",
+        "media": 5
+      },
+      {
+        "url": "http://localhost:4321/business/",
+        "title": "Business — Lumen Fixture",
+        "media": 4
+      },
+      {
+        "url": "http://localhost:4321/azienda/",
+        "title": "Azienda — Lumen Fixture",
+        "media": 2
+      }
+    ]
+  },
+  "voice": {
+    "quotes": [
+      {
+        "text": "Il futuro della tua energia, oggi",
+        "url": "http://localhost:4321/",
+        "kind": "h1"
+      },
+      {
+        "text": "Sensori che misurano tutto",
+        "url": "http://localhost:4321/prodotti/",
+        "kind": "h1"
+      },
+      {
+        "text": "Per le aziende, su misura",
+        "url": "http://localhost:4321/business/",
+        "kind": "h1"
+      },
+      {
+        "text": "Paghi al mese, cancelli quando vuoi.",
+        "url": "http://localhost:4321/prezzi/",
+        "kind": "p"
+      },
+      {
+        "text": "Siamo un gruppo di ingegneri e designer.",
+        "url": "http://localhost:4321/azienda/",
+        "kind": "p"
+      }
+    ],
+    "stats": {
+      "lang": "it",
+      "headlines": 13,
+      "headlineWordsMedian": 3,
+      "headlineWordsP80": 5,
+      "case": {
+        "sentence": 1
+      },
+      "you": 3,
+      "we": 4,
+      "numbersInHeadlines": 0,
+      "xyPattern": 0.31,
+      "ctaCount": 8,
+      "ctaVerbs": [
+        {
+          "verb": "inizia",
+          "count": 1
+        },
+        {
+          "verb": "scopri",
+          "count": 1
+        },
+        {
+          "verb": "iscriviti",
+          "count": 1
+        },
+        {
+          "verb": "scegli",
+          "count": 1
+        },
+        {
+          "verb": "compra",
+          "count": 1
+        },
+        {
+          "verb": "guarda",
+          "count": 1
+        }
+      ],
+      "exclamations": 0,
+      "paragraphs": 12
+    },
+    "rules": [
+      {
+        "title": "Headline length",
+        "text": "Keep headlines to about 3 words; 80% of measured headlines have 5 words or fewer.",
+        "stat": "median 3 words, n=13"
+      },
+      {
+        "title": "Case",
+        "text": "Write headlines in sentence case: capitalise the first word and proper nouns only.",
+        "stat": "sentence 100%"
+      },
+      {
+        "title": "Punctuation",
+        "text": "Do not use exclamation marks; none appear in the measured copy.",
+        "stat": "0 exclamation marks"
+      }
+    ],
+    "ctas": [
+      "Inizia ora",
+      "Scopri i piani",
+      "Iscriviti",
+      "Scegli Base",
+      "Compra ora",
+      "Guarda i prodotti",
+      "Parla con noi",
+      "Per le aziende"
+    ],
+    "headlines": [
+      "Il futuro della tua energia, oggi",
+      "Tre cose che fai meglio",
+      "Energia, ogni giorno",
+      "Dati chiari",
+      "Fatto in Italia",
+      "Numeri, non promesse",
+      "Resta aggiornato",
+      "Piani semplici",
+      "Sensori che misurano tutto",
+      "La gamma",
+      "Per le aziende, su misura",
+      "Cosa ottieni",
+      "Chi siamo"
+    ]
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.2, 0.7, 0.1, 1)",
+    "easingDeclared": true,
+    "duration": "0.4s",
+    "easings": [
+      {
+        "value": "cubic-bezier(0.2, 0.7, 0.1, 1)",
+        "count": 41
+      }
+    ],
+    "durations": [
+      {
+        "value": "0.4s",
+        "count": 26
+      },
+      {
+        "value": "0.6s",
+        "count": 15
+      }
+    ]
+  },
+  "assumptions": [
+    "Viewports: 1440×900 for all pages, 390×844 for the home page.",
+    "Pages: /, /prezzi/, /prodotti/, /business/, /azienda/ (home plus the highest-scoring same-origin links, one per top-level path)."
+  ]
+}

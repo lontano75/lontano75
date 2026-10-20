@@ -1,0 +1,13 @@
+{
+  "name": "reverse-brand",
+  "version": "0.1.0",
+  "description": "Turn a public brand website into an unofficial, art-directed brand guide built from measured tokens.",
+  "type": "module",
+  "bin": { "reverse-brand": "bin/reverse-brand.js" },
+  "scripts": {
+    "fixture": "node src/serve.js fixtures/demo 4321",
+    "verify": "node src/verify.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": { "playwright": "1.56.1" }
+}
