@@ -1,6 +1,6 @@
 <?php
 /**
- * Futuro Prossimo – barra "Seguici" (Google fonte preferita, Discover, WhatsApp)
+ * Futuro Prossimo – barra "Seguici" (Google fonte preferita, Discover)
  *
  * Installazione: incolla tutto in un nuovo snippet PHP di WPCode / Code Snippets
  * (tipo "PHP snippet", esegui ovunque), oppure in fondo al functions.php del tema.
@@ -17,11 +17,10 @@ if (!defined('ABSPATH')) {
 /* ------------------------------------------------------------------ */
 
 // Link al profilo Discover (profile.google.com/cp/...). Lascialo vuoto e il
-// pulsante Discover sparisce: restano gli altri due.
+// pulsante Discover sparisce: resta solo quello delle fonti preferite.
 define('FP_SEGUICI_DISCOVER', '');
 
 define('FP_SEGUICI_PREFERITI', 'https://www.google.com/preferences/source?q=futuroprossimo.it');
-define('FP_SEGUICI_WHATSAPP', 'https://whatsapp.com/channel/0029Va7rlHHGk1FnwPSMAm2K');
 
 // 'tema'      → la barra esce solo dove nel template richiami fp_seguici()
 //               (scelta consigliata: mettila subito dopo la riga autore/data).
@@ -38,12 +37,10 @@ function fp_seguici_html() {
 
 	$icona_discover = '<svg viewBox="0 0 24 24" aria-hidden="true"><g stroke-width="3.2" stroke-linecap="round"><path stroke="#4285F4" d="M12 12h9"/><path stroke="#4285F4" d="M12 12l6.4 6.4"/><path stroke="#34A853" d="M12 12v9"/><path stroke="#34A853" d="M12 12l-6.4 6.4"/><path stroke="#FBBC05" d="M12 12H3"/><path stroke="#FBBC05" d="M12 12L5.6 5.6"/><path stroke="#EA4335" d="M12 12V3"/><path stroke="#EA4335" d="M12 12l6.4-6.4"/></g></svg>';
 
-	$icona_whatsapp = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#fff" d="M17.3 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-3-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.5l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>';
 
 	$pulsanti = array(
 		array(FP_SEGUICI_PREFERITI, $icona_google, 'Fonte preferita', 'Aggiungi Futuro Prossimo alle fonti preferite di Google'),
 		array(FP_SEGUICI_DISCOVER, $icona_discover, 'Discover', 'Segui Futuro Prossimo su Google Discover'),
-		array(FP_SEGUICI_WHATSAPP, $icona_whatsapp, 'WhatsApp', 'Segui il canale WhatsApp di Futuro Prossimo'),
 	);
 
 	$html = '';
