@@ -93,9 +93,9 @@ add_action('wp_head', function () {
 	display:flex;gap:8px;margin:14px 0 18px;padding:0;
 }
 .fp-seguici__btn{
-	flex:1 1 0;min-width:0;min-height:44px;
+	flex:1 1 0;min-width:0;min-height:40px;box-sizing:border-box;
 	display:flex;align-items:center;justify-content:center;gap:7px;
-	padding:8px 6px;border:1px solid var(--fp-seg-bordo);border-radius:12px;
+	padding:6px 6px;border:1px solid var(--fp-seg-bordo);border-radius:12px;
 	background:var(--fp-seg-fondo);color:var(--fp-seg-testo)!important;
 	font-family:inherit;font-size:12px;font-weight:600;line-height:1.15;
 	letter-spacing:.04em;text-transform:uppercase;text-decoration:none!important;
@@ -108,7 +108,7 @@ add_action('wp_head', function () {
 .fp-seguici__btn span{text-align:left;overflow-wrap:normal;hyphens:none}
 @media (max-width:380px){
 	.fp-seguici{gap:6px}
-	.fp-seguici__btn{font-size:11px;letter-spacing:.02em;gap:5px;padding:8px 4px}
+	.fp-seguici__btn{font-size:11px;letter-spacing:.02em;gap:5px;padding:6px 4px}
 	.fp-seguici__btn svg{width:16px;height:16px;flex-basis:16px}
 }
 </style>
