@@ -1,0 +1,51 @@
+EgoThumb, basta un pollice in più e fai a meno dell’altra mano
+
+Chi di voi vorrebbe un dito in più per mano senza finire trasformato in insetto come il Gregor Samsa di Kafka? Dite la verità. No, perché sembra niente, ma un dito in più (per giunta un pollice, mica cotiche) fa un comodo che non avete idea.
+
+Tipo? Beh, tipo tenere in mano una tazza, e contemporaneamente girarvi il cucchiaino dello zucchero. Eh? Vedete che piano piano l'idea inizia a piacervi? Non ho neanche menzionato applicazioni erotiche.
+
+Ma a parte tutto
+
+Si chiama EgoThumb ed è un sistema indossabile che mette insieme un pollice robotico aggiuntivo, una telecamera rivolta verso il palmo e dei piccoli motori montati sull'avambraccio.
+
+E vi ripeto che serve: per svolgere molte attività e compiti quotidiani, lo sapete, noi umani usiamo in genere entrambe le mani. Per dire: se dobbiamo aprire una bottiglia usiamo una mano per tenerla e l'altra per svitare il tappo. Giusto? Mi pare di si.
+
+Ecco, i ricercatori dell'Università della California, San Diego, hanno pensato che la loro soluzione potesse aiutare le persone a svolgere alcune attività che solitamente richiedono entrambe le mani, usandone una sola.
+
+Come funziona il pollice robotico
+
+Il sistema, descritto in un preprint pubblicato su arXiv, cattura immagini con una piccola telecamera: le immagini vengono poi analizzate da un algoritmo di intelligenza artificiale che pianifica i movimenti del “nuovo" pollice.
+
+Il pollice robotico di EgoThumb presenta tre articolazioni, ciascuna azionata da una coppia di tendini: uno per flettere e uno per estendere. I piccoli motori che gestiscono i movimenti sono posizionati sull'avambraccio di chi lo indossa, così da non gravare con il loro peso sulla mano.
+
+"L'ispirazione iniziale è nata dalla saldatura dei fili", ha dichiarato Jiawei Fu, co-primo autore dell'articolo. La saldatura dei fili?
+
+"Tra la gestione del saldatore, lo stagno e il mantenimento dei fili in posizione, spesso sentivo il bisogno di un aiuto in più. Anche con un supporto "a mani libere", coordinare il tutto poteva comunque risultare complicato. Questo mi ha fatto pensare se un dito robotico in più potesse aiutarmi a tenere fermi gli oggetti, lasciando le mie dita libere di lavorare."
+
+Da questa necessità, Fu e i suoi colleghi si sono prefissati l'obiettivo di dare un pollice supplementare per tenere fermi gli oggetti mentre le dita di chi lo indossa li manipolano. 
+
+Un dito che si muove per conto suo
+
+I ricercatori hanno progettato EgoThumb perché determini autonomamente quando afferrare e rilasciare gli oggetti, usando immagini della mano di chi lo indossa e informazioni sulla posizione delle articolazioni del pollice per "farsi un’idea” di cosa fare.
+
+«Volevamo che questo supporto intervenisse senza che l'utente dovesse impartire ordini espliciti per ogni singolo movimento», spiega Fu. E a occhio e croce potrebbero esserci pure riusciti.
+
+I prossimi passi del pollice robot
+
+Fu e il suo team hanno realizzato un primo prototipo del dispositivo. In questa sua configurazione iniziale, il modello di IA incaricato di analizzare le immagini e pianificare i movimenti viene eseguito su un computer esterno collegato al pollice robotico. Un tantino ingombrante, come dire: ti prendi il dito con tutto il braccio.
+
+Bene: i ricercatori hanno valutato EgoThumb attraverso dei test in cui tre volontari si sono cimentati in quattro compiti di manipolazione: afferrare un cubo, svitare il tappo di una bottiglia, rigirare un cucchiaino in una tazza di tè e spostare una pallina da un punto all'altro. 
+
+Il dito supplementare ha consentito ai partecipanti di portare a termine ciascuna operazione impiegando una sola mano. Dai, che vi piacerebbe.
+
+In cifre: il tasso medio di successo tra le quattro attività è stato del 90% per l'istruttore e rispettivamente del 92,5% e dell'87,5% per i due nuovi utenti.
+
+Una tecnologia promettente per potenziare le capacità umane
+
+L'hardware e il software di EgoThumb sono stati rilasciati in modalità open source e sono liberamente consultabili sul sito del progetto. L'auspicio degli scienziati è che questo studio apra la strada a nuove ricerche dedicate a sistemi robotici indossabili e intelligenti per l'aumento delle capacità umane.
+
+I risultati, ve l’ho detto, indicano che un pollice robotico supplementare può davvero aiutare a svolgere determinate attività con una sola mano. Per farci cosa? In prospettiva, EgoThumb potrà essere perfezionato e sperimentato su scenari operativi più ampi e diversificati.
+
+Perché questa roba, alla fine, è più di un semplice dito, e non lavora “all’unisono" col resto della mano, ma addirittura la assiste con una sua autonomia, interpretando il contesto dell'azione. 
+
+Penso sia un primo passo verso robot indossabili capaci di integrarsi con la destrezza umana nella vita di tutti i giorni.
